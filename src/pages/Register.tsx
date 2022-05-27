@@ -1,21 +1,14 @@
 import { Field, Formik } from "formik";
 import React from "react";
-import GS from "../../styles/styles";
-import Button from "../buttons/Button";
-import Logo from "../texts/Logo";
-import Input from "./Input";
-import loginSchema from "./loginSchema";
+import GS from "../styles/styles";
+import Button from "../components/buttons/Button";
+import Logo from "../components/texts/Logo";
+import Input from "../components/form/Input";
+import loginSchema from "../components/form/loginSchema";
+import { RegisterFormValues } from "../components/types/formTypes";
 
-type MyFormValues = {
-  name: string;
-  surname: string;
-  email: string;
-  password: string;
-  confirmPassword: string;
-};
-
-const Login = () => {
-  const initialValues: MyFormValues = {
+const Register = () => {
+  const initialValues: RegisterFormValues = {
     name: "",
     surname: "",
     email: "",
@@ -27,6 +20,7 @@ const Login = () => {
     <GS.Background>
       <GS.LoginBackground>
         <Logo />
+        <GS.SectionTitle>Register</GS.SectionTitle>
         <Formik
           initialValues={initialValues}
           validationSchema={loginSchema}
@@ -107,10 +101,18 @@ const Login = () => {
                   <GS.FalseText>{props.errors.confirmPassword}</GS.FalseText>
                 ) : null}
               </GS.FalseWrapper>
-
-              <Field as={Button} onClick={() => props.handleSubmit()}>
-                LogIn
-              </Field>
+              <GS.LogoWrapper jContent="space-around">
+                <Field as={Button} onClick={() => props.handleSubmit()}>
+                  Log In
+                </Field>
+                <Field
+                  as={Button}
+                  bgColor="#DAAAFF"
+                  // onClick={() => props.handleSubmit()}
+                >
+                  Register
+                </Field>
+              </GS.LogoWrapper>
             </>
           )}
         </Formik>
@@ -119,4 +121,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;
