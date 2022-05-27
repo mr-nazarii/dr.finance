@@ -126,6 +126,8 @@ const GS = {
     width: 70%;
 
     height: auto;
+    margin-top: 10px;
+
     margin-bottom: 20px;
 
     -webkit-user-drag: none;
@@ -136,7 +138,7 @@ const GS = {
 
   SpanLogo: styled.span`
     background-color: #ffffff;
-    padding: 1px 3px;
+    padding: 2px 4px;
     border-radius: 5px;
     color: #000000;
     font-weight: 800;

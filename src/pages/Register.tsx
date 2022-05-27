@@ -6,7 +6,7 @@ import Logo from "../components/texts/Logo";
 import Input from "../components/form/Input";
 import loginSchema from "../components/form/loginSchema";
 import { RegisterFormValues } from "../components/types/formTypes";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Register = () => {
   const initialValues: RegisterFormValues = {
@@ -17,6 +17,7 @@ const Register = () => {
     confirmPassword: "",
   };
 
+  const navigate = useNavigate();
   return (
     <GS.Background>
       <GS.LoginBackground>
@@ -29,6 +30,7 @@ const Register = () => {
             console.log({ values, actions });
             alert(JSON.stringify(values, null, 2));
             actions.resetForm();
+            navigate("/mainPage");
           }}
         >
           {(props) => (
