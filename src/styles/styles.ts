@@ -135,6 +135,7 @@ const GS = {
     border-radius: 5px;
     color: #000000;
     font-weight: 800;
+    margin-left: 5px;
   `,
 };
 

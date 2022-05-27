@@ -15,7 +15,7 @@ const PreEnterPage = () => {
         <GS.MainText>
           You are here because you finally want to get in control of your
           finances and put them to work for you.
-          <GS.SpanLogo>Dr.finance</GS.SpanLogo> provides you all the tools
+          <GS.SpanLogo>Dr.Finance</GS.SpanLogo> provides you all the tools
           necessary to manage your finances and eventually to collect enough
           money to buy that house you always wanted along the beach
         </GS.MainText>
