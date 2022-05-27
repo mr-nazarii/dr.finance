@@ -74,6 +74,7 @@ const GS = {
     box-shadow: inset 0px 6px 6px #ffffff72;
     color: #000000;
     border: 3px solid transparent;
+    font-weight: 700;
 
     &:active {
       border: solid 3px #d67eff;
