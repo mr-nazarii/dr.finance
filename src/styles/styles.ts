@@ -111,6 +111,31 @@ const GS = {
     color: #000000;
     border-radius: 12px;
   `,
+
+  MainText: styled.p`
+    color: #ffffff;
+    text-align: justify;
+    line-height: 27px;
+    font-size: 16px;
+  `,
+
+  SafeImage: styled.img`
+    width: auto;
+    height: 200px;
+    margin-bottom: 20px;
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+  `,
+
+  SpanLogo: styled.span`
+    background-color: #ffffff;
+    padding: 1px 3px;
+    border-radius: 5px;
+    color: #000000;
+    font-weight: 800;
+  `,
 };
 
 export default GS;
