@@ -109,7 +109,7 @@ const Register = () => {
                 <Field
                   as={Button}
                   bgColor="#DAAAFF"
-                  // onClick={() => props.handleSubmit()}
+                  onClick={() => props.handleSubmit()}
                 >
                   Register
                 </Field>
