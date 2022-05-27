@@ -97,6 +97,7 @@ const GS = {
   `,
 
   LogoWrapper: styled.div<Wraper>`
+    flex-wrap: wrap;
     display: flex;
     align-content: center;
     position: relative;
@@ -143,6 +144,64 @@ const GS = {
     color: #000000;
     font-weight: 800;
     margin-left: 5px;
+  `,
+
+  BlockWrapper: styled.div`
+    background-color: #ffffff;
+    display: inline-block;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    margin: 20px;
+    min-width: 100px;
+    max-width: 180px;
+
+    flex: 1;
+  `,
+
+  BlockWallet: styled.div`
+    background-color: #ffffff;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    margin: 20px;
+    min-width: 50px;
+    max-width: 302px;
+
+    font-size: 18px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-weight: 700;
+    padding: 0 10px;
+    padding-right: 40px;
+  `,
+
+  BlockWrapperSettings: styled.div`
+    background-color: #ffffff;
+    display: inline-block;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    margin: 20px;
+    min-width: 50px;
+    max-width: 70px;
+    flex: 1;
+  `,
+
+  BlockWrapperChart: styled.div`
+    background-color: #ffffff;
+    display: inline-block;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    margin: 20px;
+    min-width: 50px;
+    flex: 1;
+  `,
+  BlockImg: styled.img`
+    width: 100%;
+  `,
+
+  BlockCurrencyImg: styled.img`
+    width: 39px;
+    margin-right: 5px;
   `,
 };
 
