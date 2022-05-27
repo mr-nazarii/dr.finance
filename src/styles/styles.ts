@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { ButtonProps, Wraper } from "../components/types/styleTypes";
 
 const GS = {
   FalseText: styled.p`
@@ -21,6 +22,10 @@ const GS = {
     line-height: 36px;
     color: #ffffff;
     margin: 0 0 40px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
   `,
 
   Background: styled.div`
@@ -61,13 +66,13 @@ const GS = {
     }
   `,
 
-  ButtonStyleLogin: styled.button`
-    background: #93f084;
+  ButtonStyleLogin: styled.button<ButtonProps>`
+    background: ${(props) => props.bgColor || "#93f084"};
     border-radius: 9px;
     width: 105px;
     height: 36px;
     box-shadow: inset 0px 6px 6px rgba(0, 0, 0, 0.25);
-    color: white;
+    color: #000000;
     border: 3px solid transparent;
 
     &:active {
@@ -80,7 +85,7 @@ const GS = {
     width: 45px;
     height: 45px;
     position: absolute;
-    right: -45px;
+    right: 98px;
     top: -1px;
     -webkit-user-drag: none;
     -khtml-user-drag: none;
@@ -88,10 +93,23 @@ const GS = {
     -o-user-drag: none;
   `,
 
-  LogoWrapper: styled.div`
+  LogoWrapper: styled.div<Wraper>`
     display: flex;
     align-content: center;
     position: relative;
+    width: 100%;
+    justify-content: ${(props) => props.jContent || "space-around"};
+  `,
+
+  SectionTitle: styled.h2`
+    color: #ffffff;
+    margin: 0;
+    position: relative;
+    bottom: 16px;
+    background-color: #ffffff;
+    padding: 5px 12px;
+    color: #000000;
+    border-radius: 12px;
   `,
 };
 
