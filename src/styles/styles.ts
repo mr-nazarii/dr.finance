@@ -71,13 +71,14 @@ const GS = {
     border-radius: 9px;
     width: 105px;
     height: 36px;
-    box-shadow: inset 0px 6px 6px rgba(0, 0, 0, 0.25);
+    box-shadow: inset 0px 6px 6px #ffffff72;
     color: #000000;
     border: 3px solid transparent;
 
     &:active {
       border: solid 3px #d67eff;
       outline: none;
+      box-shadow: inset 0px 6px 6px rgba(0, 0, 0, 0.25);
     }
   `,
 
