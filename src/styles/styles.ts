@@ -16,6 +16,7 @@ const GS = {
   `,
 
   LogoMain: styled.h1`
+    position: relative;
     font-style: normal;
     font-weight: 800;
     font-size: 33px;
@@ -87,7 +88,7 @@ const GS = {
     width: 45px;
     height: 45px;
     position: absolute;
-    right: 98px;
+    right: -43px;
     top: -1px;
     -webkit-user-drag: none;
     -khtml-user-drag: none;
@@ -122,9 +123,11 @@ const GS = {
   `,
 
   SafeImage: styled.img`
-    width: auto;
-    height: 200px;
+    width: 70%;
+
+    height: auto;
     margin-bottom: 20px;
+
     -webkit-user-drag: none;
     -khtml-user-drag: none;
     -moz-user-drag: none;
