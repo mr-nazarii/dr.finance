@@ -4,9 +4,9 @@ import GS from "../styles/styles";
 import Button from "../components/buttons/Button";
 import Logo from "../components/texts/Logo";
 import Input from "../components/form/Input";
-import loginSchema from "../components/form/loginSchema";
 import { LoginFormValues } from "../components/types/formTypes";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import loginSchema from "../components/form/loginSchema";
 
 const Login = () => {
   const initialValues: LoginFormValues = {
@@ -14,6 +14,7 @@ const Login = () => {
     password: "",
   };
 
+  const navigate = useNavigate();
   return (
     <GS.Background>
       <GS.LoginBackground>
@@ -26,6 +27,7 @@ const Login = () => {
             console.log({ values, actions });
             alert(JSON.stringify(values, null, 2));
             actions.resetForm();
+            navigate("/mainPage");
           }}
         >
           {(props) => (
@@ -47,7 +49,7 @@ const Login = () => {
               <Field
                 name="password"
                 as={Input}
-                type="text"
+                type="password"
                 placeholder="Password"
                 onChangeText={props.handleChange("password")}
                 value={props.values.password}

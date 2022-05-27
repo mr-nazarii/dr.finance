@@ -4,7 +4,7 @@ import GS from "../styles/styles";
 import Button from "../components/buttons/Button";
 import Logo from "../components/texts/Logo";
 import Input from "../components/form/Input";
-import loginSchema from "../components/form/loginSchema";
+import registerSchema from "../components/form/registerSchema";
 import { RegisterFormValues } from "../components/types/formTypes";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -25,7 +25,7 @@ const Register = () => {
         <GS.SectionTitle>Register</GS.SectionTitle>
         <Formik
           initialValues={initialValues}
-          validationSchema={loginSchema}
+          validationSchema={registerSchema}
           onSubmit={(values, actions) => {
             console.log({ values, actions });
             alert(JSON.stringify(values, null, 2));
@@ -80,7 +80,7 @@ const Register = () => {
               <Field
                 name="password"
                 as={Input}
-                type="text"
+                type="password"
                 placeholder="Password"
                 onChangeText={props.handleChange("password")}
                 value={props.values.password}
@@ -93,7 +93,7 @@ const Register = () => {
               <Field
                 name="confirmPassword"
                 as={Input}
-                type="text"
+                type="password"
                 placeholder="Confirm Password"
                 onChangeText={props.handleChange("confirmPassword")}
                 value={props.values.confirmPassword}
