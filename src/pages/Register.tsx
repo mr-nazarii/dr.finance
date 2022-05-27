@@ -6,6 +6,7 @@ import Logo from "../components/texts/Logo";
 import Input from "../components/form/Input";
 import loginSchema from "../components/form/loginSchema";
 import { RegisterFormValues } from "../components/types/formTypes";
+import { Link } from "react-router-dom";
 
 const Register = () => {
   const initialValues: RegisterFormValues = {
@@ -102,9 +103,9 @@ const Register = () => {
                 ) : null}
               </GS.FalseWrapper>
               <GS.LogoWrapper jContent="space-around">
-                <Field as={Button} onClick={() => props.handleSubmit()}>
-                  Log In
-                </Field>
+                <Link to="/login">
+                  <Button>Log In</Button>
+                </Link>
                 <Field
                   as={Button}
                   bgColor="#DAAAFF"

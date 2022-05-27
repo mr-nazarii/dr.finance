@@ -6,6 +6,7 @@ import Logo from "../components/texts/Logo";
 import Input from "../components/form/Input";
 import loginSchema from "../components/form/loginSchema";
 import { LoginFormValues } from "../components/types/formTypes";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const initialValues: LoginFormValues = {
@@ -61,13 +62,9 @@ const Login = () => {
                 <Field as={Button} onClick={() => props.handleSubmit()}>
                   Log In
                 </Field>
-                <Field
-                  as={Button}
-                  bgColor="#DAAAFF"
-                  // onClick={() => props.handleSubmit()}
-                >
-                  Register
-                </Field>
+                <Link to="/register">
+                  <Button bgColor="#DAAAFF">Register</Button>
+                </Link>
               </GS.LogoWrapper>
             </>
           )}
