@@ -90,10 +90,6 @@ const GS = {
     position: absolute;
     right: -43px;
     top: -1px;
-    -webkit-user-drag: none;
-    -khtml-user-drag: none;
-    -moz-user-drag: none;
-    -o-user-drag: none;
   `,
 
   LogoWrapper: styled.div<Wraper>`
@@ -130,11 +126,6 @@ const GS = {
     margin-top: 10px;
 
     margin-bottom: 20px;
-
-    -webkit-user-drag: none;
-    -khtml-user-drag: none;
-    -moz-user-drag: none;
-    -o-user-drag: none;
   `,
 
   SpanLogo: styled.span`
@@ -193,6 +184,8 @@ const GS = {
     border-radius: 20px;
     margin: 20px;
     min-width: 50px;
+    max-width: 300px;
+
     flex: 1;
   `,
   BlockImg: styled.img`
