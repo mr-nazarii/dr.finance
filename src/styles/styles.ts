@@ -239,6 +239,9 @@ const GS = {
 
   SelectItem: styled.select`
     margin-left: 6px;
+    border-radius: 9px;
+    background-color: black;
+    color: white;
   `,
 };
 
