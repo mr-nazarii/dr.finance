@@ -1,5 +1,10 @@
 import styled from "styled-components";
-import { ButtonProps, Wraper } from "../components/types/styleTypes";
+import {
+  ButtonProps,
+  LogoType,
+  SettingsBar,
+  Wraper,
+} from "../components/types/styleTypes";
 
 const GS = {
   FalseText: styled.p`
@@ -15,11 +20,12 @@ const GS = {
     align-items: flex-start;
   `,
 
-  LogoMain: styled.h1`
+  LogoMain: styled.h1<LogoType>`
+    border-radius: 12px;
     position: relative;
     font-style: normal;
     font-weight: 800;
-    font-size: 33px;
+    font-size: ${(props) => props.fontSize || "33px"};
     line-height: 36px;
     color: #ffffff;
     margin: 0 0 40px;
@@ -27,6 +33,8 @@ const GS = {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    background-color: black;
+    padding: 10px 10px;
   `,
 
   Background: styled.div`
@@ -88,8 +96,8 @@ const GS = {
     width: 45px;
     height: 45px;
     position: absolute;
-    right: -43px;
-    top: -1px;
+    right: -35px;
+    top: 8px;
   `,
 
   LogoWrapper: styled.div<Wraper>`
@@ -195,6 +203,42 @@ const GS = {
   BlockCurrencyImg: styled.img`
     width: 39px;
     margin-right: 5px;
+  `,
+
+  SettingsMenu: styled.ul<SettingsBar>`
+    z-index: 2;
+    background-color: white;
+    height: 100vh;
+    margin: 0;
+    position: fixed;
+    width: ${(props) => (!props.right ? "0px" : "220px")};
+    right: ${(props) => (!props.right ? "-200px" : "0px")};
+    transition: transform 0.2s ease-out;
+    list-style-type: none;
+    padding: 30px 0px;
+  `,
+
+  SettingsMenuLI: styled.li`
+    font-size: 20px;
+    font-weight: 700;
+    margin: 30px 0px;
+    padding: 0px 20px;
+  `,
+
+  MenuBackground: styled.div`
+    z-index: 1;
+    background-color: #00000060;
+    height: 100vh;
+    position: fixed;
+    width: 100vw;
+  `,
+
+  MainBckground: styled.div`
+    overflow-x: hidden;
+  `,
+
+  SelectItem: styled.select`
+    margin-left: 6px;
   `,
 };
 
