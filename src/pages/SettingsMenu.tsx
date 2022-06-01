@@ -14,7 +14,7 @@ const SettingsMenu = (props: any) => {
         <GS.SettingsMenuLI>Feedback</GS.SettingsMenuLI>
         <GS.SettingsMenuLI>
           Curency
-          <SelectInput currency={["USD", "EUR", "GBP", "UAH"]} />
+          <SelectInput currency={["USD", "EUR", "GBP"]} />
         </GS.SettingsMenuLI>
       </GS.SettingsMenu>
       {props.right ? (
