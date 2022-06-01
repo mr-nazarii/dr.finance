@@ -21,6 +21,7 @@ const GS = {
   `,
 
   LogoMain: styled.h1<LogoType>`
+    text-decoration: none;
     border-radius: 12px;
     position: relative;
     font-style: normal;
@@ -185,6 +186,16 @@ const GS = {
     flex: 1;
   `,
 
+  BlockWrapperSettingsInside: styled.div`
+    background-color: #ffffff;
+    display: inline-block;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    min-width: 50px;
+    max-width: 70px;
+    flex: 1;
+  `,
+
   BlockWrapperChart: styled.div`
     background-color: #ffffff;
     display: inline-block;
@@ -218,10 +229,14 @@ const GS = {
     padding: 30px 0px;
   `,
 
-  SettingsMenuLI: styled.li`
+  SettingsMenuLI: styled.li<any>`
+    display: flex;
+    justify-content: ${(props) => props.jContent || "flex-start"};
+    color: #000;
+    text-decoration: none;
     font-size: 20px;
     font-weight: 700;
-    margin: 30px 0px;
+    margin: 0 0 30px 0;
     padding: 0px 20px;
   `,
 

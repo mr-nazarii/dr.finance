@@ -7,18 +7,24 @@ const SettingsMenu = (props: any) => {
   return (
     <>
       <GS.SettingsMenu right={props.right}>
-        <GS.SettingsMenuLI>
-          <GS.LogoMain fontSize="30px">
-            <Link to="/mainPage">Dr.Finance</Link>
-          </GS.LogoMain>
+        <GS.SettingsMenuLI jContent={"flex-end"}>
+          <GS.BlockWrapperSettingsInside
+            onClick={() => props.setRight(!props.right)}
+          >
+            <GS.BlockImg src={process.env.PUBLIC_URL + "/settings.png"} />
+          </GS.BlockWrapperSettingsInside>
         </GS.SettingsMenuLI>
         <GS.SettingsMenuLI>
-          <Link to="/mainPage/profile">Profile</Link>
-        </GS.SettingsMenuLI>
-
-        <GS.SettingsMenuLI>
-          <Link to="/feedback">Feedback</Link>
-        </GS.SettingsMenuLI>
+          <Link to="/mainPage" style={{ textDecoration: "none" }}>
+            <GS.LogoMain fontSize="30px">Dr.Finance</GS.LogoMain>
+          </Link>
+        </GS.SettingsMenuLI>{" "}
+        <Link to="/mainPage/profile" style={{ textDecoration: "none" }}>
+          <GS.SettingsMenuLI>Profile</GS.SettingsMenuLI>
+        </Link>{" "}
+        <Link to="/feedback" style={{ textDecoration: "none" }}>
+          <GS.SettingsMenuLI>Feedback</GS.SettingsMenuLI>{" "}
+        </Link>
         <GS.SettingsMenuLI>
           Curency
           <SelectInput currency={["USD", "EUR", "GBP"]} />
