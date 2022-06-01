@@ -8,7 +8,9 @@ const SettingsMenu = (props: any) => {
     <>
       <GS.SettingsMenu right={props.right}>
         <GS.SettingsMenuLI>
-          <GS.LogoMain fontSize="30px">Dr.Finance</GS.LogoMain>
+          <GS.LogoMain fontSize="30px">
+            <Link to="/mainPage">Dr.Finance</Link>
+          </GS.LogoMain>
         </GS.SettingsMenuLI>
         <GS.SettingsMenuLI>
           <Link to="/mainPage/profile">Profile</Link>

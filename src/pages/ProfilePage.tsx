@@ -3,8 +3,7 @@ import Button from "../components/buttons/Button";
 import GS from "../styles/styles";
 
 const ProfilePage = () => {
-  // get the setting menu to the different file
-  // add an exit button off the settings menu
+  // chage style
 
   return (
     <GS.Background>
