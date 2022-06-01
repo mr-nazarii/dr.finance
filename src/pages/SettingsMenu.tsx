@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import SelectInput from "../components/form/SelectInput";
 import GS from "../styles/styles";
 
@@ -9,9 +10,13 @@ const SettingsMenu = (props: any) => {
         <GS.SettingsMenuLI>
           <GS.LogoMain fontSize="30px">Dr.Finance</GS.LogoMain>
         </GS.SettingsMenuLI>
-        <GS.SettingsMenuLI>Profile</GS.SettingsMenuLI>
+        <GS.SettingsMenuLI>
+          <Link to="/mainPage/profile">Profile</Link>
+        </GS.SettingsMenuLI>
 
-        <GS.SettingsMenuLI>Feedback</GS.SettingsMenuLI>
+        <GS.SettingsMenuLI>
+          <Link to="/feedback">Feedback</Link>
+        </GS.SettingsMenuLI>
         <GS.SettingsMenuLI>
           Curency
           <SelectInput currency={["USD", "EUR", "GBP"]} />

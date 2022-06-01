@@ -19,7 +19,7 @@ const PreEnterPage = () => {
           necessary to manage your finances and eventually to collect enough
           money to buy that house you always wanted along the beach
         </GS.MainText>
-        <GS.SafeImage src={process.env.PUBLIC_URL + "safe.png"} />
+        <GS.SafeImage src={process.env.PUBLIC_URL + "/safe.png"} />
 
         <GS.LogoWrapper jContent="space-around">
           <Link to="/login">

@@ -15,7 +15,7 @@ const NoPage = () => {
           Ooops Looks like this page dos'nt exist
         </GS.SectionTitle>
 
-        <GS.SafeImage src={process.env.PUBLIC_URL + "tools.png"} />
+        <GS.SafeImage src={process.env.PUBLIC_URL + "/tools.png"} />
 
         <Link to="/">
           <Button bgColor="#DAAAFF">Home Page</Button>

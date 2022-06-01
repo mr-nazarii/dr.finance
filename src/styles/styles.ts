@@ -129,7 +129,7 @@ const GS = {
 
   SafeImage: styled.img`
     width: 70%;
-
+    border-radius: 13px;
     height: auto;
     margin-top: 10px;
 
@@ -207,7 +207,7 @@ const GS = {
 
   SettingsMenu: styled.ul<SettingsBar>`
     z-index: 2;
-    background-color: white;
+    background-color: #ffffff;
     height: 100vh;
     margin: 0;
     position: fixed;
