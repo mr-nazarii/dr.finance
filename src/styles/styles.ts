@@ -260,6 +260,7 @@ const GS = {
   `,
 
   MenuBackground: styled.div`
+    top: 0;
     z-index: 1;
     background-color: ${colorVariables.black}60;
     height: 100vh;
@@ -273,6 +274,18 @@ const GS = {
 
   SelectItem: styled.select`
     margin-left: 6px;
+    border-radius: 9px;
+    background-color: ${colorVariables.black};
+    color: white;
+  `,
+
+  FinanceWrapper: styled.div`
+    z-index: 2;
+    top: 150px;
+    position: fixed;
+    min-width: 262px;
+    max-width: 462px;
+    flex: 1;
     border-radius: 9px;
     background-color: ${colorVariables.black};
     color: white;

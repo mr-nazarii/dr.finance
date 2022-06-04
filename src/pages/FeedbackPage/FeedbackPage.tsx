@@ -1,12 +1,10 @@
 import { Field, Formik } from "formik";
-import { Link } from "react-router-dom";
 import Button from "../../components/buttons/Button";
 import feedbackSchema from "../../components/form/shemas/feedbackSchema";
 import Input from "../../components/form/Input";
 import GS from "../../styles/styles";
 import Textarea from "../../components/form/Textarea";
 import { Rating, Typography } from "@mui/material";
-import { useState } from "react";
 import StarIcon from "@mui/icons-material/Star";
 
 const FeedbackPage = () => {

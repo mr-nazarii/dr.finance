@@ -12,8 +12,7 @@ const MainPage = () => {
           <GS.BlockImg src={process.env.PUBLIC_URL + "chart.png"} />
         </GS.BlockWrapperChart>
       </GS.LogoWrapper>
-
-      <ServisesSecond services={["thumbUp", "thumbDown", "stats", "wallet"]} />
+      <ServisesSecond />
     </GS.MainBckground>
   );
 };
