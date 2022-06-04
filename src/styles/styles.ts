@@ -39,11 +39,11 @@ const GS = {
     padding: 10px 10px;
   `,
 
-  Background: styled.div`
+  Background: styled.div<any>`
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
+    align-items: ${(props) => props.aItems || "center"};
+    height: ${(props) => props.height || "100vh"};
   `,
 
   LoginBackground: styled.div`
@@ -53,7 +53,7 @@ const GS = {
     min-width: 262px;
     max-width: 462px;
     flex: 1;
-
+    height: auto;
     margin: 20px;
     display: flex;
     justify-content: center;
@@ -112,13 +112,12 @@ const GS = {
   `,
 
   SectionTitle: styled.h2<any>`
-    color: ${colorVariables.white};
+    color: ${(prop) => prop.color || colorVariables.black};
     margin: 0;
     position: relative;
     bottom: 16px;
-    background-color: ${colorVariables.white};
+    background-color: ${(prop) => prop.bgColor || colorVariables.white};
     padding: 5px 12px;
-    color: ${colorVariables.black};
     border-radius: 12px;
     font-size: ${(props) => props.fSize || "1.5em"};
   `,
