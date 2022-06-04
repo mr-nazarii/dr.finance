@@ -5,10 +5,11 @@ import {
   SettingsBar,
   Wraper,
 } from "../components/types/styleTypes";
+import { colorVariables } from "./colors";
 
 const GS = {
   FalseText: styled.p`
-    color: red;
+    color: ${colorVariables.warningRed};
     margin: 0;
   `,
 
@@ -28,13 +29,13 @@ const GS = {
     font-weight: 800;
     font-size: ${(props) => props.fontSize || "33px"};
     line-height: 36px;
-    color: #ffffff;
+    color: ${colorVariables.white};
     margin: 0 0 40px;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    background-color: black;
+    background-color: ${colorVariables.black};
     padding: 10px 10px;
   `,
 
@@ -46,7 +47,7 @@ const GS = {
   `,
 
   LoginBackground: styled.div`
-    background-color: black;
+    background-color: ${colorVariables.black};
     border: none;
     border-radius: 12px;
     min-width: 262px;
@@ -67,29 +68,29 @@ const GS = {
     border-radius: 9px;
     width: 100%;
     padding: 0 0 0 10px;
-    box-shadow: inset 0px 8px 8px rgba(0, 0, 0, 0.25);
+    box-shadow: inset 0px 8px 8px ${colorVariables.blackWithOpacity};
     outline: none;
 
     &:focus-visible {
-      border: solid 3px #d67eff;
+      border: solid 3px ${colorVariables.buttonRegisterColor};
       outline: none;
     }
   `,
 
   ButtonStyleLogin: styled.button<ButtonProps>`
-    background: ${(props) => props.bgColor || "#93f084"};
+    background: ${(props) => props.bgColor || colorVariables.buttonLogInColor};
     border-radius: 9px;
     width: 105px;
     height: 36px;
-    box-shadow: inset 0px 6px 6px #ffffff72;
-    color: #000000;
+    box-shadow: inset 0px 6px 6px ${colorVariables.white}72;
+    color: ${colorVariables.black};
     border: 3px solid transparent;
     font-weight: 700;
 
     &:active {
-      border: solid 3px #d67eff;
+      border: solid 3px ${colorVariables.buttonRegisterColor};
       outline: none;
-      box-shadow: inset 0px 6px 6px rgba(0, 0, 0, 0.25);
+      box-shadow: inset 0px 6px 6px ${colorVariables.blackWithOpacity};
     }
   `,
 
@@ -110,26 +111,27 @@ const GS = {
     justify-content: ${(props) => props.jContent || "space-around"};
   `,
 
-  SectionTitle: styled.h2`
-    color: #ffffff;
+  SectionTitle: styled.h2<any>`
+    color: ${colorVariables.white};
     margin: 0;
     position: relative;
     bottom: 16px;
-    background-color: #ffffff;
+    background-color: ${colorVariables.white};
     padding: 5px 12px;
-    color: #000000;
+    color: ${colorVariables.black};
     border-radius: 12px;
+    font-size: ${(props) => props.fSize || "1.5em"};
   `,
 
   MainText: styled.p`
-    color: #ffffff;
+    color: ${colorVariables.white};
     text-align: justify;
     line-height: 27px;
     font-size: 16px;
   `,
 
-  SafeImage: styled.img`
-    width: 70%;
+  SafeImage: styled.img<any>`
+    width: ${(props) => props.imgWidth || "70%;"};
     border-radius: 13px;
     height: auto;
     margin-top: 10px;
@@ -138,18 +140,18 @@ const GS = {
   `,
 
   SpanLogo: styled.span`
-    background-color: #ffffff;
+    background-color: ${colorVariables.white};
     padding: 2px 4px;
     border-radius: 5px;
-    color: #000000;
+    color: ${colorVariables.black};
     font-weight: 800;
     margin-left: 5px;
   `,
 
   BlockWrapper: styled.div`
-    background-color: #ffffff;
+    background-color: ${colorVariables.white};
     display: inline-block;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 4px 4px ${colorVariables.blackWithOpacity};
     border-radius: 20px;
     margin: 20px;
     min-width: 100px;
@@ -159,8 +161,8 @@ const GS = {
   `,
 
   BlockWallet: styled.div`
-    background-color: #ffffff;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background-color: ${colorVariables.white};
+    box-shadow: 0px 4px 4px ${colorVariables.blackWithOpacity};
     border-radius: 20px;
     margin: 20px;
     min-width: 50px;
@@ -176,9 +178,9 @@ const GS = {
   `,
 
   BlockWrapperSettings: styled.div`
-    background-color: #ffffff;
+    background-color: ${colorVariables.white};
     display: inline-block;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 4px 4px ${colorVariables.blackWithOpacity};
     border-radius: 20px;
     margin: 20px;
     min-width: 50px;
@@ -187,9 +189,9 @@ const GS = {
   `,
 
   BlockWrapperSettingsInside: styled.div`
-    background-color: #ffffff;
+    background-color: ${colorVariables.white};
     display: inline-block;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 4px 4px ${colorVariables.blackWithOpacity};
     border-radius: 20px;
     min-width: 50px;
     max-width: 70px;
@@ -197,9 +199,9 @@ const GS = {
   `,
 
   BlockWrapperChart: styled.div`
-    background-color: #ffffff;
+    background-color: ${colorVariables.white};
     display: inline-block;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 4px 4px ${colorVariables.blackWithOpacity};
     border-radius: 20px;
     margin: 20px;
     min-width: 50px;
@@ -218,7 +220,7 @@ const GS = {
 
   SettingsMenu: styled.ul<SettingsBar>`
     z-index: 2;
-    background-color: #ffffff;
+    background-color: ${colorVariables.white};
     height: 100vh;
     margin: 0;
     position: fixed;
@@ -232,7 +234,7 @@ const GS = {
   SettingsMenuLI: styled.li<any>`
     display: flex;
     justify-content: ${(props) => props.jContent || "flex-start"};
-    color: #000;
+    color: ${colorVariables.black};
     text-decoration: none;
     font-size: 20px;
     font-weight: 700;
@@ -242,7 +244,7 @@ const GS = {
 
   MenuBackground: styled.div`
     z-index: 1;
-    background-color: #00000060;
+    background-color: ${colorVariables.black}60;
     height: 100vh;
     position: fixed;
     width: 100vw;
@@ -255,7 +257,7 @@ const GS = {
   SelectItem: styled.select`
     margin-left: 6px;
     border-radius: 9px;
-    background-color: black;
+    background-color: ${colorVariables.black};
     color: white;
   `,
 };
