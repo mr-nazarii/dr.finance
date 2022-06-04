@@ -10,9 +10,12 @@ const ProfilePage = () => {
       <GS.LoginBackground>
         <GS.SectionTitle>Profile</GS.SectionTitle>
 
-        <GS.SafeImage src={process.env.PUBLIC_URL + "/defaultProfile.webp"} />
+        <GS.SafeImage
+          imgWidth={"100%"}
+          src={process.env.PUBLIC_URL + "/defaultProfile.webp"}
+        />
         <GS.SectionTitle>Nazarii Kubik</GS.SectionTitle>
-        <GS.SectionTitle>fakeemail@gmail.com</GS.SectionTitle>
+        <GS.SectionTitle fSize={"16px"}>fakeemail@gmail.com</GS.SectionTitle>
         <Link to="/">
           <Button>Log Out</Button>
         </Link>
