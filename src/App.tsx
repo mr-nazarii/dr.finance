@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Route, Routes } from "react-router-dom";
+import FeedbackPage from "./pages/FeedbackPage/FeedbackPage";
 import Login from "./pages/Login";
 import Header from "./pages/MainPage/Header";
 import MainPage from "./pages/MainPage/MainPage";
@@ -24,6 +25,7 @@ const App = () => {
       >
         <Route index element={<MainPage />} />
         <Route path="profile" element={<ProfilePage />} />
+        <Route path="feedback" element={<FeedbackPage />} />
       </Route>
 
       <Route path="*" element={<NoPage />} />

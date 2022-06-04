@@ -6,7 +6,7 @@ import Logo from "../components/texts/Logo";
 import Input from "../components/form/Input";
 import { LoginFormValues } from "../components/types/formTypes";
 import { Link, useNavigate } from "react-router-dom";
-import loginSchema from "../components/form/loginSchema";
+import loginSchema from "../components/form/shemas/loginSchema";
 
 const Login = () => {
   const initialValues: LoginFormValues = {

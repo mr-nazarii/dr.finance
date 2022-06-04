@@ -4,7 +4,7 @@ import GS from "../styles/styles";
 import Button from "../components/buttons/Button";
 import Logo from "../components/texts/Logo";
 import Input from "../components/form/Input";
-import registerSchema from "../components/form/registerSchema";
+import registerSchema from "../components/form/shemas/registerSchema";
 import { RegisterFormValues } from "../components/types/formTypes";
 import { Link, useNavigate } from "react-router-dom";
 

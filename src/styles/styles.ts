@@ -11,10 +11,11 @@ const GS = {
   FalseText: styled.p`
     color: ${colorVariables.warningRed};
     margin: 0;
+    padding-left: 5px;
   `,
 
-  FalseWrapper: styled.div`
-    height: 30px;
+  FalseWrapper: styled.div<any>`
+    height: ${(props) => props.height || "30px"};
     display: flex;
     width: 100%;
     justify-content: flex-start;
@@ -46,8 +47,8 @@ const GS = {
     height: ${(props) => props.height || "100vh"};
   `,
 
-  LoginBackground: styled.div`
-    background-color: ${colorVariables.black};
+  LoginBackground: styled.div<any>`
+    background-color: ${(props) => props.bgColor || colorVariables.black};
     border: none;
     border-radius: 12px;
     min-width: 262px;
@@ -57,9 +58,9 @@ const GS = {
     margin: 20px;
     display: flex;
     justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    padding: 37px 24px 26px;
+    flex-direction: ${(props) => props.fDirection || "column"};
+    align-items: ${(props) => props.aItems || "center"};
+    padding: ${(props) => props.padding || "37px 24px 26px"};
   `,
 
   InputStyle: styled.input`
@@ -70,6 +71,22 @@ const GS = {
     padding: 0 0 0 10px;
     box-shadow: inset 0px 8px 8px ${colorVariables.blackWithOpacity};
     outline: none;
+
+    &:focus-visible {
+      border: solid 3px ${colorVariables.buttonRegisterColor};
+      outline: none;
+    }
+  `,
+
+  TextareaStyle: styled.textarea`
+    height: 108px;
+    border: 3px solid;
+    border-radius: 9px;
+    width: 100%;
+    padding: 0 0 0 10px;
+    box-shadow: inset 0px 8px 8px ${colorVariables.blackWithOpacity};
+    outline: none;
+    resize: none;
 
     &:focus-visible {
       border: solid 3px ${colorVariables.buttonRegisterColor};
@@ -111,7 +128,7 @@ const GS = {
     justify-content: ${(props) => props.jContent || "space-around"};
   `,
 
-  SectionTitle: styled.h2<any>`
+  SectionTitle: styled.p<any>`
     color: ${(prop) => prop.color || colorVariables.black};
     margin: 0;
     position: relative;
@@ -120,6 +137,7 @@ const GS = {
     padding: 5px 12px;
     border-radius: 12px;
     font-size: ${(props) => props.fSize || "1.5em"};
+    font-weight: 700;
   `,
 
   MainText: styled.p`
@@ -227,7 +245,7 @@ const GS = {
     right: ${(props) => (!props.right ? "-200px" : "0px")};
     transition: transform 0.2s ease-out;
     list-style-type: none;
-    padding: 30px 0px;
+    padding: 20px 0px;
   `,
 
   SettingsMenuLI: styled.li<any>`

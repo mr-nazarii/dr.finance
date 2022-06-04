@@ -22,7 +22,7 @@ const SettingsMenu = (props: any) => {
         <Link to="/mainPage/profile" style={{ textDecoration: "none" }}>
           <GS.SettingsMenuLI>Profile</GS.SettingsMenuLI>
         </Link>{" "}
-        <Link to="/feedback" style={{ textDecoration: "none" }}>
+        <Link to="/mainPage/feedback" style={{ textDecoration: "none" }}>
           <GS.SettingsMenuLI>Feedback</GS.SettingsMenuLI>{" "}
         </Link>
         <GS.SettingsMenuLI>
