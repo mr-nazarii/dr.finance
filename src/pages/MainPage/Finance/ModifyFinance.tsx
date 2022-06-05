@@ -9,7 +9,7 @@ import {
 import React, { useState } from "react";
 import GS from "../../../styles/styles";
 import { Send, Savings, AttachMoney, Paid } from "@mui/icons-material";
-import { purple } from "@mui/material/colors";
+
 const ModifyFinance = () => {
   const [select, setSelect] = useState();
   const [num, setNum] = useState(0);
@@ -23,17 +23,21 @@ const ModifyFinance = () => {
   };
 
   // recieve inputs data
+  // change style
+  // maybe utilize formik for convinence (think through both forms (can the form with formik be dynamic as a template))
 
   return (
     <>
       <GS.FinanceWrapper>
+        <GS.SectionTitle>Add income</GS.SectionTitle>
+
         <FormControl
           component="form"
           fullWidth
           onSubmit={(event: any) => {
             event.preventDefault();
             const obj = { type: select, amount: num };
-            alert(JSON.stringify(obj));
+            alert(JSON.stringify(obj, null, 2));
           }}
         >
           <InputLabel id="demo-simple-select-label" color="secondary">

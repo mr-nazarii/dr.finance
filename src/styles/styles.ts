@@ -138,6 +138,7 @@ const GS = {
     border-radius: 12px;
     font-size: ${(props) => props.fSize || "1.5em"};
     font-weight: 700;
+    text-align: center;
   `,
 
   MainText: styled.p`
