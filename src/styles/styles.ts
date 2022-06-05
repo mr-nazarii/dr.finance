@@ -287,8 +287,9 @@ const GS = {
     max-width: 462px;
     flex: 1;
     border-radius: 9px;
-    background-color: ${colorVariables.black};
+    background-color: ${colorVariables.white};
     color: white;
+    padding: 20px 30px;
   `,
 };
 
