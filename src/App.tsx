@@ -12,17 +12,12 @@ import Register from "./pages/Register";
 const App = () => {
   // If logged In pass this
 
-  const [right, setRight] = useState(false);
-
   return (
     <Routes>
       <Route path="/" element={<PreEnterPage />} />
       <Route path="/register" element={<Register />} />
       <Route path="/login" element={<Login />} />
-      <Route
-        path="/mainPage"
-        element={<Header right={right} setRight={setRight} />}
-      >
+      <Route path="/mainPage" element={<Header />}>
         <Route index element={<MainPage />} />
         <Route path="profile" element={<ProfilePage />} />
         <Route path="feedback" element={<FeedbackPage />} />

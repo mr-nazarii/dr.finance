@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
 import { useAppSelector } from "../../hooks/hooks";
+
 import GS from "../../styles/styles";
 import SettingsMenu from "../SettingsMenu";
 
 const Header = (props: any) => {
   // get the setting menu to the different file
   // add an exit button off the settings menu
-  const currency = useAppSelector((state) => state.profile.currency);
+  const { currency } = useAppSelector((state) => state.profile);
+  const [show, setShow] = useState(false);
 
   return (
     <>
@@ -18,10 +20,10 @@ const Header = (props: any) => {
           />
           500
         </GS.BlockWallet>
-        <GS.BlockWrapperSettings onClick={() => props.setRight(!props.right)}>
+        <GS.BlockWrapperSettings onClick={() => setShow(!show)}>
           <GS.BlockImg src={process.env.PUBLIC_URL + "/settings.png"} />
         </GS.BlockWrapperSettings>
-        <SettingsMenu right={props.right} setRight={props.setRight} />
+        <SettingsMenu show={show} setShow={setShow} />
       </GS.LogoWrapper>
       <Outlet />
     </>
