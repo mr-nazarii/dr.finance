@@ -1,6 +1,6 @@
 import React from "react";
 import GS from "../../styles/styles";
-import ServisesSecond from "./ServisesSecond";
+import ServisesSecond from "./ServisesSecond/ServisesSecond";
 
 const MainPage = () => {
   // get the setting menu to the different file
