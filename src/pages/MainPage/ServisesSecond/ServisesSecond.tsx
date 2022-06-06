@@ -1,18 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 
 import GS from "../../../styles/styles";
-import IncomeModal from "./IncomeModal";
+import ExpensesModal from "../Finance/AddExpense/ExpensesModal";
+import IncomeModal from "../Finance/AddIncome/IncomeModal";
 
 const ServisesSecond = () => {
-  const [show, setShow] = useState(false);
-
   let num = 0;
   return (
     <GS.LogoWrapper jContent="center">
-      <IncomeModal show={show} setShow={setShow} />
-      <GS.BlockWrapper key={num++}>
-        <GS.BlockImg src={process.env.PUBLIC_URL + `thumbDown.png`} />
-      </GS.BlockWrapper>
+      <IncomeModal />
+      <ExpensesModal />
       <GS.BlockWrapper key={num++}>
         <GS.BlockImg src={process.env.PUBLIC_URL + `stats.png`} />
       </GS.BlockWrapper>

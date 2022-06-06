@@ -16,6 +16,7 @@ const AddIncome = (props: any) => {
         onChange={props.handleChange}
         color="secondary"
         style={{ marginBottom: "15px" }}
+        defaultValue="salary"
       >
         <MenuItem value={"salary"}>
           <Savings style={{ color: "green" }} />
