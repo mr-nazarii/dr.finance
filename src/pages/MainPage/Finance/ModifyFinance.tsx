@@ -15,7 +15,7 @@ import AddIncome from "./AddIncome/AddIncome";
 import { AddExpense } from "./AddExpense/AddExpense";
 
 const ModifyFinance = (props: any) => {
-  const [select, setSelect] = useState();
+  const [select, setSelect] = useState("salary");
   const [num, setNum] = useState(0);
 
   const handleChange = (event: any) => {
@@ -35,9 +35,7 @@ const ModifyFinance = (props: any) => {
     return expenses;
   };
 
-  // recieve inputs data
   // change style
-  // maybe utilize formik for convinence (think through both forms (can the form with formik be dynamic as a template))
   // sending data income expense fix
   return (
     <>
