@@ -16,7 +16,7 @@ import { AddExpense } from "./AddExpense/AddExpense";
 
 const ModifyFinance = (props: any) => {
   const [select, setSelect] = useState("salary");
-  const [num, setNum] = useState(0);
+  const [num, setNum] = useState("");
 
   const handleChange = (event: any) => {
     setSelect(event.target.value as any);
