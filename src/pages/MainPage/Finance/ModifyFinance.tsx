@@ -11,7 +11,8 @@ import { Send } from "@mui/icons-material";
 
 import React, { useState } from "react";
 import GS from "../../../styles/styles";
-import AddIncome from "./AddIncome";
+import AddIncome from "./AddIncome/AddIncome";
+import { AddExpense } from "./AddExpense/AddExpense";
 
 const ModifyFinance = (props: any) => {
   const [select, setSelect] = useState();
@@ -23,6 +24,15 @@ const ModifyFinance = (props: any) => {
 
   const handleAmountChange = (event: any) => {
     setNum(event.target.value as any);
+  };
+
+  const transcript = (boolean: any) => {
+    if (boolean) {
+      const income = { income: { type: select, amount: num } };
+      return income;
+    }
+    const expenses = { expenses: { type: select, amount: num } };
+    return expenses;
   };
 
   // recieve inputs data
@@ -42,8 +52,7 @@ const ModifyFinance = (props: any) => {
           onSubmit={(event: any) => {
             event.preventDefault();
 
-            const obj = { income: { type: select, amount: num } };
-            alert(JSON.stringify(obj, null, 2));
+            alert(JSON.stringify(transcript(props.income), null, 2));
           }}
         >
           {props.income ? (
@@ -53,7 +62,14 @@ const ModifyFinance = (props: any) => {
               handleAmountChange={handleAmountChange}
               num={num}
             />
-          ) : null}
+          ) : (
+            <AddExpense
+              select={select}
+              handleChange={handleChange}
+              handleAmountChange={handleAmountChange}
+              num={num}
+            />
+          )}
 
           <Button
             type="submit"
