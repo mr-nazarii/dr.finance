@@ -1,16 +1,14 @@
-import { User } from "./userModel";
 import express, { Application, Request, Response, NextFunction } from "express";
 import fs from "fs/promises";
 import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
+import { User } from "./userModel";
 import { getUser } from "./models/middleware";
 
 const app: Application = express();
 const port = process.env.PORT || 5000;
-mongoose.connect(
-  "mongodb+srv://admin:admin680@drfinance.ksuhvjx.mongodb.net/test"
-);
+mongoose.connect("");
 
 const db = mongoose.connection;
 
