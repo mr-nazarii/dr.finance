@@ -1,5 +1,5 @@
 import { Field, Formik } from "formik";
-import React from "react";
+import React, { useState } from "react";
 import GS from "../styles/styles";
 import Button from "../components/buttons/Button";
 import Logo from "../components/texts/Logo";
@@ -7,6 +7,7 @@ import Input from "../components/form/Input";
 import { LoginFormValues } from "../components/types/formTypes";
 import { Link, useNavigate } from "react-router-dom";
 import loginSchema from "../components/form/shemas/loginSchema";
+import { loginUser } from "../api/backendAPI";
 
 const Login = () => {
   const initialValues: LoginFormValues = {
@@ -14,18 +15,30 @@ const Login = () => {
     password: "",
   };
 
+  const [warning, setWarning] = useState("");
+
   const navigate = useNavigate();
   return (
     <GS.Background>
       <GS.LoginBackground>
         <Logo />
         <GS.SectionTitle>Log In</GS.SectionTitle>
+        <GS.FalseWrapper jContent="center">
+          <GS.FalseText>{warning}</GS.FalseText>
+        </GS.FalseWrapper>
         <Formik
           initialValues={initialValues}
           validationSchema={loginSchema}
-          onSubmit={(values, actions) => {
+          onSubmit={async (values, actions) => {
             console.log({ values, actions });
-            alert(JSON.stringify(values, null, 2));
+
+            const auth = await loginUser(values);
+
+            if (auth.status) {
+              setWarning(auth.data.message);
+              return;
+            }
+
             actions.resetForm();
             navigate("/mainPage");
           }}
@@ -61,7 +74,11 @@ const Login = () => {
               </GS.FalseWrapper>
 
               <GS.LogoWrapper jContent="space-around">
-                <Field as={Button} onClick={() => props.handleSubmit()}>
+                <Field
+                  as={Button}
+                  onClick={() => props.handleSubmit()}
+                  type="submit"
+                >
                   Log In
                 </Field>
                 <Link to="/register">
