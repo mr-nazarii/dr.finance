@@ -24,6 +24,7 @@ const Register = () => {
       <GS.LoginBackground>
         <Logo />
         <GS.SectionTitle>Register</GS.SectionTitle>
+
         <Formik
           initialValues={initialValues}
           validationSchema={registerSchema}
