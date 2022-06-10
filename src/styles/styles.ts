@@ -18,7 +18,7 @@ const GS = {
     height: ${(props) => props.height || "30px"};
     display: flex;
     width: 100%;
-    justify-content: flex-start;
+    justify-content: ${(props) => props.jContent || "flex-start"};
     align-items: flex-start;
   `,
 
