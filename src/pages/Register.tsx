@@ -7,6 +7,7 @@ import Input from "../components/form/Input";
 import registerSchema from "../components/form/shemas/registerSchema";
 import { RegisterFormValues } from "../components/types/formTypes";
 import { Link, useNavigate } from "react-router-dom";
+import { createUser } from "../api/backendAPI";
 
 const Register = () => {
   const initialValues: RegisterFormValues = {
@@ -27,10 +28,15 @@ const Register = () => {
           initialValues={initialValues}
           validationSchema={registerSchema}
           onSubmit={(values, actions) => {
-            console.log({ values, actions });
-            alert(JSON.stringify(values, null, 2));
+            const object = {
+              name: values.name,
+              surname: values.surname,
+              email: values.email,
+              password: values.password,
+            };
+            createUser(object);
             actions.resetForm();
-            navigate("/mainPage");
+            navigate("/login");
           }}
         >
           {(props) => (
@@ -112,6 +118,7 @@ const Register = () => {
                   as={Button}
                   bgColor="#DAAAFF"
                   onClick={() => props.handleSubmit()}
+                  type="submit"
                 >
                   Register
                 </Field>
