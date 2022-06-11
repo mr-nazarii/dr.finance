@@ -17,7 +17,7 @@ const IncomeModal = (props: any) => {
       </GS.BlockWrapper>
       {show ? (
         <>
-          <ModifyFinance income={true} />
+          <ModifyFinance setShow={setShow} show={show} income={true} />
           <GS.MenuBackground onClick={() => setShow(!show)} />
         </>
       ) : null}
