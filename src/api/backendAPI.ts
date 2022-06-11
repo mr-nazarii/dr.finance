@@ -52,3 +52,16 @@ export const addExpensesTranscript = async (newIncome: any) => {
     return error.response;
   }
 };
+
+export const findUserbyId = async (newIncome: any) => {
+  try {
+    const user = await axios.get(
+      `http://localhost:5000/account?id=${newIncome}`
+    );
+    console.log(user.data);
+    return user.data;
+  } catch (error: any) {
+    console.log(error.response);
+    return error.response;
+  }
+};
