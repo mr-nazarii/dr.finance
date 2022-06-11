@@ -8,15 +8,17 @@ import { LoginFormValues } from "../components/types/formTypes";
 import { Link, useNavigate } from "react-router-dom";
 import loginSchema from "../components/form/shemas/loginSchema";
 import { loginUser } from "../api/backendAPI";
+import { useAppDispatch } from "../hooks/hooks";
+import { profileTokenConfigure } from "../store/reducers/profileSlice";
 
 const Login = () => {
   const initialValues: LoginFormValues = {
     email: "",
     password: "",
   };
-
+  const dispatch = useAppDispatch();
   const [warning, setWarning] = useState("");
-
+  // change local storage to JWT in the future
   const navigate = useNavigate();
   return (
     <GS.Background>
@@ -39,6 +41,8 @@ const Login = () => {
               return;
             }
 
+            dispatch(profileTokenConfigure(auth));
+            localStorage.setItem("uToken", auth);
             actions.resetForm();
             navigate("/mainPage");
           }}
