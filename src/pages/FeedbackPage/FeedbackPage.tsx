@@ -6,6 +6,8 @@ import GS from "../../styles/styles";
 import Textarea from "../../components/form/Textarea";
 import { Rating, Typography } from "@mui/material";
 import StarIcon from "@mui/icons-material/Star";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 const FeedbackPage = () => {
   const initialValues: any = {
@@ -13,6 +15,15 @@ const FeedbackPage = () => {
     description: "",
     rate: 0,
   };
+
+  const navigate = useNavigate();
+  const token = localStorage.getItem("uToken");
+
+  useEffect(() => {
+    if (token === null) {
+      navigate("/login");
+    }
+  }, []);
 
   return (
     <GS.Background aItems={"flex-start"} height={"auto"}>

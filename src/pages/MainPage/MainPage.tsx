@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import GS from "../../styles/styles";
 import ServisesSecond from "./ServisesSecond/ServisesSecond";
 
 const MainPage = () => {
-  // get the setting menu to the different file
-  // add an exit button off the settings menu
+  const navigate = useNavigate();
+  const token = localStorage.getItem("uToken");
+
+  useEffect(() => {
+    if (token === null) {
+      navigate("/login");
+    }
+  }, []);
+
   return (
     <GS.MainBckground>
       <GS.LogoWrapper jContent="center">

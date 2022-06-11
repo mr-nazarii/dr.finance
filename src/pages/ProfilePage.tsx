@@ -1,11 +1,19 @@
-import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import Button from "../components/buttons/Button";
 import { colorVariables } from "../styles/colors";
 import GS from "../styles/styles";
 
 const ProfilePage = () => {
   // chage style
+  const navigate = useNavigate();
+  const token = localStorage.getItem("uToken");
 
+  useEffect(() => {
+    if (token === null) {
+      navigate("/login");
+    }
+  }, []);
   return (
     <GS.Background aItems={"flex-start"} height={"auto"}>
       <GS.LoginBackground>
