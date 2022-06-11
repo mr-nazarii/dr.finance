@@ -1,21 +1,18 @@
-import {
-  Button,
-  FormControl,
-  InputLabel,
-  MenuItem,
-  Select,
-  TextField,
-} from "@mui/material";
-
-import { Send } from "@mui/icons-material";
-
-import React, { useState } from "react";
+import { Button, FormControl } from "@mui/material";
+import { Send, Close } from "@mui/icons-material";
+import React, { useEffect, useState } from "react";
 import GS from "../../../styles/styles";
 import AddIncome from "./AddIncome/AddIncome";
 import { AddExpense } from "./AddExpense/AddExpense";
+import { useNavigate } from "react-router-dom";
+import { useAppDispatch } from "../../../hooks/hooks";
+import {
+  addExpensesTranscript,
+  addIncomeTranscript,
+} from "../../../api/backendAPI";
 
 const ModifyFinance = (props: any) => {
-  const [select, setSelect] = useState("salary");
+  const [select, setSelect] = useState("");
   const [num, setNum] = useState("");
 
   const handleChange = (event: any) => {
@@ -26,22 +23,37 @@ const ModifyFinance = (props: any) => {
     setNum(event.target.value as any);
   };
 
+  const navigate = useNavigate();
+  const token = localStorage.getItem("uToken");
+
+  useEffect(() => {
+    if (token === null) {
+      navigate("/login");
+    }
+  }, []);
+
   const transcript = (boolean: any) => {
     if (boolean) {
-      const income = { income: { type: select, amount: num } };
+      const income = { id: token, income: { type: select, amount: num } };
+
+      addIncomeTranscript(income);
       return income;
     }
-    const expenses = { expenses: { type: select, amount: num } };
+    const expenses = { id: token, expenses: { type: select, amount: num } };
+
+    addExpensesTranscript(expenses);
     return expenses;
   };
 
   // change style
-  // sending data income expense fix
   return (
     <>
       <GS.FinanceWrapper>
         <GS.SectionTitle>
           {props.income ? "Add income" : "Add Expense"}
+          <GS.CloseButton onClick={() => props.setShow(!props.show)}>
+            <Close style={{ color: "red" }} />
+          </GS.CloseButton>
         </GS.SectionTitle>
 
         <FormControl
@@ -50,7 +62,14 @@ const ModifyFinance = (props: any) => {
           onSubmit={(event: any) => {
             event.preventDefault();
 
-            alert(JSON.stringify(transcript(props.income), null, 2));
+            if (!select || !num) {
+              return;
+            }
+
+            transcript(props.income);
+
+            setSelect("");
+            setNum("");
           }}
         >
           {props.income ? (

@@ -17,7 +17,7 @@ const ExpensesModal = (props: any) => {
       </GS.BlockWrapper>
       {show ? (
         <>
-          <ModifyFinance income={false} />
+          <ModifyFinance setShow={setShow} show={show} income={false} />
           <GS.MenuBackground onClick={() => setShow(!show)} />
         </>
       ) : null}
