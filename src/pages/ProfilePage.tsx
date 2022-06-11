@@ -36,7 +36,13 @@ const ProfilePage = () => {
           fakeemail@gmail.com
         </GS.SectionTitle>
         <Link to="/">
-          <Button>Log Out</Button>
+          <Button
+            onClick={() => {
+              localStorage.removeItem("uToken");
+            }}
+          >
+            Log Out
+          </Button>
         </Link>
       </GS.LoginBackground>
     </GS.Background>
