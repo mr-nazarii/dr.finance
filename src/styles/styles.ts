@@ -139,6 +139,7 @@ const GS = {
     font-size: ${(props) => props.fSize || "1.5em"};
     font-weight: 700;
     text-align: center;
+    position: relative;
   `,
 
   MainText: styled.p`
@@ -291,6 +292,13 @@ const GS = {
     background-color: ${colorVariables.white};
     color: white;
     padding: 20px 30px;
+  `,
+
+  CloseButton: styled.span`
+    width: 30px;
+    position: absolute;
+    right: -24px;
+    top: 9px;
   `,
 };
 
