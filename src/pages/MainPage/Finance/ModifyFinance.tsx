@@ -10,10 +10,14 @@ import {
   addExpensesTranscript,
   addIncomeTranscript,
 } from "../../../api/backendAPI";
+import { loadUser } from "../../../store/loadUser";
 
 const ModifyFinance = (props: any) => {
   const [select, setSelect] = useState("");
   const [num, setNum] = useState("");
+  const navigate = useNavigate();
+  const dispatch = useAppDispatch();
+  const token = localStorage.getItem("uToken");
 
   const handleChange = (event: any) => {
     setSelect(event.target.value as any);
@@ -23,25 +27,24 @@ const ModifyFinance = (props: any) => {
     setNum(event.target.value as any);
   };
 
-  const navigate = useNavigate();
-  const token = localStorage.getItem("uToken");
-
   useEffect(() => {
     if (token === null) {
       navigate("/login");
     }
   }, []);
 
-  const transcript = (boolean: any) => {
+  const transcript = async (boolean: any) => {
     if (boolean) {
       const income = { id: token, income: { type: select, amount: num } };
 
-      addIncomeTranscript(income);
+      await addIncomeTranscript(income);
+      loadUser(dispatch, token);
       return income;
     }
     const expenses = { id: token, expenses: { type: select, amount: num } };
 
-    addExpensesTranscript(expenses);
+    await addExpensesTranscript(expenses);
+    loadUser(dispatch, token);
     return expenses;
   };
 
