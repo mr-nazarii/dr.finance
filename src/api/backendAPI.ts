@@ -58,10 +58,8 @@ export const findUserbyId = async (newIncome: any) => {
     const user = await axios.get(
       `http://localhost:5000/account?id=${newIncome}`
     );
-    console.log(user.data);
     return user.data;
   } catch (error: any) {
-    console.log(error.response);
     return error.response;
   }
 };

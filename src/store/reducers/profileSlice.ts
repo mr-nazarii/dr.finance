@@ -5,7 +5,7 @@ const initialState: ProfileState = {
   currency: "USD",
   uTocken: "",
   name: "",
-  string: "",
+  surname: "",
   email: "",
   password: "",
   joinDate: "",
@@ -28,7 +28,7 @@ export const profileSlice = createSlice({
 
     setProfile(state: any, action: PayloadAction<string>) {
       const {
-        id,
+        _id,
         name,
         email,
         password,
@@ -39,7 +39,7 @@ export const profileSlice = createSlice({
         total,
       }: any = action.payload;
 
-      state.id = id;
+      state.uTocken = _id;
       state.name = name;
       state.email = email;
       state.password = password;

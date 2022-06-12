@@ -1,19 +1,25 @@
 import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Button from "../components/buttons/Button";
+import { useAppDispatch, useAppSelector } from "../hooks/hooks";
+import { loadUser } from "../store/loadUser";
 import { colorVariables } from "../styles/colors";
 import GS from "../styles/styles";
 
 const ProfilePage = () => {
   // chage style
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
   const token = localStorage.getItem("uToken");
+  const { name, surname, email } = useAppSelector((state) => state.profile);
 
   useEffect(() => {
     if (token === null) {
       navigate("/login");
     }
+    loadUser(dispatch, token);
   }, []);
+
   return (
     <GS.Background aItems={"flex-start"} height={"auto"}>
       <GS.LoginBackground>
@@ -26,14 +32,14 @@ const ProfilePage = () => {
           color={colorVariables.white}
           bgColor={colorVariables.black}
         >
-          Nazarii Kubik
+          {name} {surname}
         </GS.SectionTitle>
         <GS.SectionTitle
           color={colorVariables.white}
           bgColor={colorVariables.black}
           fSize={"16px"}
         >
-          fakeemail@gmail.com
+          {email}
         </GS.SectionTitle>
         <Link to="/">
           <Button

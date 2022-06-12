@@ -1,6 +1,7 @@
-import React, { useState } from "react";
-import { Outlet } from "react-router-dom";
-import { useAppSelector } from "../../hooks/hooks";
+import React, { useEffect, useState } from "react";
+import { Outlet, useNavigate } from "react-router-dom";
+import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
+import { loadUser } from "../../store/loadUser";
 
 import GS from "../../styles/styles";
 import SettingsMenu from "../SettingsMenu";
@@ -10,6 +11,17 @@ const Header = (props: any) => {
   // add an exit button off the settings menu
   const { currency } = useAppSelector((state) => state.profile);
   const [show, setShow] = useState(false);
+  const navigate = useNavigate();
+  const dispatch = useAppDispatch();
+  const token = localStorage.getItem("uToken");
+  const total = useAppSelector((state) => state.profile.total);
+
+  useEffect(() => {
+    if (token === null) {
+      navigate("/login");
+    }
+    loadUser(dispatch, token);
+  }, []);
 
   return (
     <>
@@ -18,7 +30,7 @@ const Header = (props: any) => {
           <GS.BlockCurrencyImg
             src={process.env.PUBLIC_URL + `/${currency}.png`}
           />
-          500
+          {total as any}
         </GS.BlockWallet>
         <GS.BlockWrapperSettings onClick={() => setShow(!show)}>
           <GS.BlockImg src={process.env.PUBLIC_URL + "/settings.png"} />
