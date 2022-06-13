@@ -61,6 +61,8 @@ const GS = {
     flex-direction: ${(props) => props.fDirection || "column"};
     align-items: ${(props) => props.aItems || "center"};
     padding: ${(props) => props.padding || "37px 24px 26px"};
+    z-index: 3;
+    position: ${(props) => props.position || "static"};
   `,
 
   InputStyle: styled.input`
