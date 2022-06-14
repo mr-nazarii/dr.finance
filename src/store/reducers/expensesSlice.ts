@@ -1,7 +1,7 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { UserFinancesState } from "./../../components/types/storeTypes/types";
+import { createSlice } from "@reduxjs/toolkit";
+import { ExpensesState } from "../../components/types/storeTypes/types";
 
-const initialState: UserFinancesState = {
+const initialState: ExpensesState = {
   bills: 0,
   car: 0,
   clothes: 0,
@@ -19,10 +19,10 @@ const initialState: UserFinancesState = {
 };
 
 const userFinancesSlice = createSlice({
-  name: "userFinances",
+  name: "expenses",
   initialState: initialState,
   reducers: {
-    setFinances(state: any, action: any) {
+    setExpenses(state: any, action: any) {
       action.payload.map((el: any) => {
         if (el.type === "bills") {
           state.bills += +el.amount;
@@ -66,10 +66,12 @@ const userFinancesSlice = createSlice({
         if (el.type === "transport") {
           state.transport += +el.amount;
         }
+
+        return "succsess";
       });
     },
 
-    setFinance(state: any, action: any) {
+    setExpense(state: any, action: any) {
       if (action.payload.expenses.type === "bills") {
         state.bills += +action.payload.expenses.amount;
       }
@@ -116,6 +118,6 @@ const userFinancesSlice = createSlice({
   },
 });
 
-export const { setFinances, setFinance } = userFinancesSlice.actions;
+export const { setExpenses, setExpense } = userFinancesSlice.actions;
 
 export default userFinancesSlice.reducer;

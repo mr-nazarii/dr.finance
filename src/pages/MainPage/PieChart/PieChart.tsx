@@ -6,34 +6,45 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { useAppSelector } from "../../../hooks/hooks";
 import { ChevronRight, ChevronLeft } from "@mui/icons-material/";
 import { ExpensesData, hoverLabelExpenses } from "./ExpensesChart";
+import { IncomeData } from "./IncomeChart";
+import { TotalData } from "./TotalChart";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const PieChart = () => {
-  const expenses: any = useAppSelector((state) => state.finances);
+  const expenses: any = useAppSelector((state) => state.expenses);
+  const incomes: any = useAppSelector((state) => state.income);
+
   const expensesAll: any = useAppSelector((state) => state.profile.expenses);
   const incomeAll: any = useAppSelector((state) => state.profile.income);
+
   const [page, setPage] = useState(0);
 
   let rawExpenses: any = [];
   let rawIncome: any = [];
 
   expensesAll.map((expense: any) => {
-    rawExpenses.push(expense.amount);
+    return rawExpenses.push(expense.amount);
   });
 
   incomeAll.map((income: any) => {
-    rawIncome.push(income.amount);
+    return rawIncome.push(income.amount);
   });
 
   let uniqueExp: any[] = [];
-  let amount: any[] = [];
+  let amountExp: any[] = [];
 
-  let pages = [0, 1, 2];
+  let uniqueInc: any[] = [];
+  let amountInc: any[] = [];
+
+  for (const [key, value] of Object.entries(incomes)) {
+    uniqueInc.push(key);
+    amountInc.push(value);
+  }
 
   for (const [key, value] of Object.entries(expenses)) {
     uniqueExp.push(key);
-    amount.push(value);
+    amountExp.push(value);
   }
 
   return (
@@ -70,27 +81,62 @@ const PieChart = () => {
         </GS.CloseButton>
       </GS.SectionTitle>
 
-      <GS.SectionTitle fSize={"18px"} color="green">
-        Gained $
-        {rawIncome.reduce((partialSum: any, a: any) => +partialSum + +a, 0)}
-      </GS.SectionTitle>
-      <GS.SectionTitle fSize={"18px"} color="brown">
-        Spent $
-        {rawExpenses.reduce((partialSum: any, a: any) => +partialSum + +a, 0)}
-      </GS.SectionTitle>
+      {page === 0 ? (
+        <GS.SectionTitle fSize={"18px"} color="brown">
+          Spent $
+          {rawExpenses.reduce((partialSum: any, a: any) => +partialSum + +a, 0)}
+        </GS.SectionTitle>
+      ) : page === 1 ? (
+        <GS.SectionTitle fSize={"18px"} color="green">
+          Gained $
+          {rawIncome.reduce((partialSum: any, a: any) => +partialSum + +a, 0)}
+        </GS.SectionTitle>
+      ) : (
+        <GS.LogoWrapper jContent={"space-around"}>
+          <GS.SectionTitle fSize={"18px"} color="green">
+            Gained $
+            {rawIncome.reduce((partialSum: any, a: any) => +partialSum + +a, 0)}
+          </GS.SectionTitle>
+          <GS.SectionTitle fSize={"18px"} color="brown">
+            Spent $
+            {rawExpenses.reduce(
+              (partialSum: any, a: any) => +partialSum + +a,
+              0
+            )}
+          </GS.SectionTitle>
+          <GS.SectionTitle fSize={"18px"}>
+            Saved $
+            {rawIncome.reduce(
+              (partialSum: any, a: any) => +partialSum + +a,
+              0
+            ) -
+              rawExpenses.reduce(
+                (partialSum: any, a: any) => +partialSum + +a,
+                0
+              )}
+          </GS.SectionTitle>
+        </GS.LogoWrapper>
+      )}
+
       {page === 0 ? (
         <Doughnut
-          data={ExpensesData(uniqueExp, amount)}
+          data={ExpensesData(uniqueExp, amountExp)}
           plugins={[hoverLabelExpenses(rawExpenses)]}
         />
       ) : page === 1 ? (
         <Doughnut
-          data={ExpensesData(uniqueExp, amount)}
-          plugins={[hoverLabelExpenses(rawExpenses)]}
+          data={IncomeData(uniqueInc, amountInc)}
+          plugins={[hoverLabelExpenses(rawIncome)]}
         />
       ) : (
         <Doughnut
-          data={ExpensesData(uniqueExp, amount)}
+          data={TotalData([
+            rawExpenses.reduce(
+              (partialSum: any, a: any) => +partialSum + +a,
+              0
+            ),
+            rawIncome.reduce((partialSum: any, a: any) => +partialSum + +a, 0),
+          ])}
           plugins={[hoverLabelExpenses(rawExpenses)]}
         />
       )}

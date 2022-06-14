@@ -17,7 +17,7 @@ const ProfilePage = () => {
     if (token === null) {
       navigate("/login");
     }
-    loadUser(dispatch, token);
+    loadUser(dispatch, token, "setProfile");
   }, []);
 
   return (

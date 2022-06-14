@@ -11,7 +11,6 @@ import {
   addIncomeTranscript,
 } from "../../../api/backendAPI";
 import { loadUser } from "../../../store/loadUser";
-import { setFinance } from "../../../store/reducers/userFinancesSlice";
 
 const ModifyFinance = (props: any) => {
   const [select, setSelect] = useState("");
@@ -32,24 +31,27 @@ const ModifyFinance = (props: any) => {
     if (token === null) {
       navigate("/login");
     }
-  }, []);
+  });
 
   const transcript = async (boolean: any) => {
     if (boolean) {
       const income = { id: token, income: { type: select, amount: num } };
 
       await addIncomeTranscript(income);
-      loadUser(dispatch, token, false, income);
+      loadUser(dispatch, token, "income", income);
+      loadUser(dispatch, token, "setUser");
+
       return income;
     }
     const expenses = { id: token, expenses: { type: select, amount: num } };
 
     await addExpensesTranscript(expenses);
-    loadUser(dispatch, token, false, expenses);
+    loadUser(dispatch, token, "expense", expenses);
+    loadUser(dispatch, token, "setUser");
+
     return expenses;
   };
 
-  // change style
   return (
     <>
       <GS.FinanceWrapper>

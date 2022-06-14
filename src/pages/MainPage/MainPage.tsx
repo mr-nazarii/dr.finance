@@ -17,7 +17,7 @@ const MainPage = () => {
     if (token === null) {
       navigate("/login");
     }
-  }, []);
+  });
 
   return (
     <GS.MainBckground>

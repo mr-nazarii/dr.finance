@@ -1,10 +1,12 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import profileReducer from "./reducers/profileSlice";
-import financesReducer from "./reducers/userFinancesSlice";
+import expensesReducer from "./reducers/expensesSlice";
+import incomeReducer from "./reducers/incomeSlice";
 
 const rootReducer = combineReducers({
   profile: profileReducer,
-  finances: financesReducer,
+  expenses: expensesReducer,
+  income: incomeReducer,
 });
 
 export const store = configureStore({

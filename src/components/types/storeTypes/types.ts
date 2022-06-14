@@ -11,7 +11,7 @@ export interface ProfileState {
   total?: Number;
 }
 
-export interface UserFinancesState {
+export interface ExpensesState {
   bills: number;
   car: number;
   clothes: number;
@@ -26,4 +26,10 @@ export interface UserFinancesState {
   sports?: number;
   taxi?: number;
   transport?: number;
+}
+
+export interface IncomeState {
+  salary: number;
+  deposit: number;
+  savings: number;
 }

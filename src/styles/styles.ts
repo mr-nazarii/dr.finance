@@ -121,12 +121,12 @@ const GS = {
     top: 8px;
   `,
 
-  LogoWrapper: styled.div<Wraper>`
+  LogoWrapper: styled.div<any>`
     flex-wrap: wrap;
     display: flex;
     align-content: center;
     position: relative;
-    width: 100%;
+    width: ${(props) => props.width || "100%"};
     justify-content: ${(props) => props.jContent || "space-around"};
   `,
 
