@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
+import useEffectOnce from "../../hooks/useEffectOnce";
 import { loadUser } from "../../store/loadUser";
 
 import GS from "../../styles/styles";
@@ -16,12 +17,12 @@ const Header = (props: any) => {
   const token = localStorage.getItem("uToken");
   const total = useAppSelector((state) => state.profile.total);
 
-  useEffect(() => {
+  useEffectOnce(() => {
     if (token === null) {
       navigate("/login");
     }
-    loadUser(dispatch, token);
-  }, []);
+    loadUser(dispatch, token, true);
+  });
 
   return (
     <>

@@ -11,6 +11,7 @@ import {
   addIncomeTranscript,
 } from "../../../api/backendAPI";
 import { loadUser } from "../../../store/loadUser";
+import { setFinance } from "../../../store/reducers/userFinancesSlice";
 
 const ModifyFinance = (props: any) => {
   const [select, setSelect] = useState("");
@@ -38,13 +39,13 @@ const ModifyFinance = (props: any) => {
       const income = { id: token, income: { type: select, amount: num } };
 
       await addIncomeTranscript(income);
-      loadUser(dispatch, token);
+      loadUser(dispatch, token, false, income);
       return income;
     }
     const expenses = { id: token, expenses: { type: select, amount: num } };
 
     await addExpensesTranscript(expenses);
-    loadUser(dispatch, token);
+    loadUser(dispatch, token, false, expenses);
     return expenses;
   };
 
