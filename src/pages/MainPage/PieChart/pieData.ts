@@ -10,9 +10,8 @@ export const hoverLabel = {
 
     if (chart._active.length > 0) {
       const textLabel = `$${
-        chart.config.data.datasets[0].data[chart._active[0].index].amount
+        chart.config.data.datasets[0].data[chart._active[0].index]
       }`;
-
       ctx.font = "bolder 24px Arial";
       ctx.fillStyle = "rgba(255,255,255,0.)";
       ctx.textAlign = "center";

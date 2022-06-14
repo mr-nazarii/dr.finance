@@ -1,6 +1,5 @@
 import React from "react";
 import { Doughnut } from "react-chartjs-2";
-import { colorVariables } from "../../../styles/colors";
 import GS from "../../../styles/styles";
 import { hoverLabel } from "./pieData";
 
@@ -10,21 +9,22 @@ import { useAppSelector } from "../../../hooks/hooks";
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const PieChart = () => {
-  const { expenses }: any = useAppSelector((state) => state.profile);
+  const expenses: any = useAppSelector((state) => state.finances);
 
   let uniqueExp: any[] = [];
   let amount: any[] = [];
 
-  const exp = expenses?.map((exp: any) => {
-    uniqueExp.push(exp.type);
-  });
+  for (const [key, value] of Object.entries(expenses)) {
+    uniqueExp.push(key);
+    amount.push(value);
+  }
 
   const data = {
     labels: uniqueExp,
     datasets: [
       {
         label: "chart",
-        data: expenses,
+        data: amount,
         backgroundColor: [
           "rgba(75, 192, 192, 0.2)",
           "rgba(255, 99, 132, 0.2)",
@@ -65,15 +65,11 @@ const PieChart = () => {
     ],
   };
 
-  const options = {
-    parsing: {
-      key: "amount",
-    },
-  };
+  const options = {};
 
   return (
     <GS.FinanceWrapper>
-      <GS.SectionTitle> Finance chart</GS.SectionTitle>
+      <GS.SectionTitle> Expenses chart</GS.SectionTitle>
       <Doughnut data={data} options={options} plugins={[hoverLabel]} />
     </GS.FinanceWrapper>
   );

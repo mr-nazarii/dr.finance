@@ -1,8 +1,10 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import profileReducer from "./reducers/profileSlice";
+import financesReducer from "./reducers/userFinancesSlice";
 
 const rootReducer = combineReducers({
   profile: profileReducer,
+  finances: financesReducer,
 });
 
 export const store = configureStore({
