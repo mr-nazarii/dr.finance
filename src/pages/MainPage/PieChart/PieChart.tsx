@@ -1,76 +1,99 @@
-import React from "react";
+import React, { useState } from "react";
 import { Doughnut } from "react-chartjs-2";
 import GS from "../../../styles/styles";
-import { hoverLabel } from "./pieData";
 
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { useAppSelector } from "../../../hooks/hooks";
+import { ChevronRight, ChevronLeft } from "@mui/icons-material/";
+import { ExpensesData, hoverLabelExpenses } from "./ExpensesChart";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const PieChart = () => {
   const expenses: any = useAppSelector((state) => state.finances);
+  const expensesAll: any = useAppSelector((state) => state.profile.expenses);
+  const incomeAll: any = useAppSelector((state) => state.profile.income);
+  const [page, setPage] = useState(0);
+
+  let rawExpenses: any = [];
+  let rawIncome: any = [];
+
+  expensesAll.map((expense: any) => {
+    rawExpenses.push(expense.amount);
+  });
+
+  incomeAll.map((income: any) => {
+    rawIncome.push(income.amount);
+  });
 
   let uniqueExp: any[] = [];
   let amount: any[] = [];
+
+  let pages = [0, 1, 2];
 
   for (const [key, value] of Object.entries(expenses)) {
     uniqueExp.push(key);
     amount.push(value);
   }
 
-  const data = {
-    labels: uniqueExp,
-    datasets: [
-      {
-        label: "chart",
-        data: amount,
-        backgroundColor: [
-          "rgba(75, 192, 192, 0.2)",
-          "rgba(255, 99, 132, 0.2)",
-          "rgba(126, 192, 75, 0.2)",
-          "rgba(165, 150, 36, 0.2)",
-          "rgb(70, 48, 161,0.2)",
-          "rgb(146, 33, 33,0.2)",
-          "rgb(255, 133, 82, 0.2)",
-          "rgba(247, 99, 255, 0.2)",
-          "rgba(153, 192, 75, 0.2)",
-          "rgba(36, 137, 165, 0.2)",
-          "rgb(117, 88, 233, 0.2)",
-          "rgb(88, 233, 216, 0.2)",
-          "rgb(255, 82, 82, 0.2)",
-          "rgb(233, 215, 88, 0.2)",
-        ],
-        borderColor: [
-          "rgba(75, 192, 192, 1)",
-          "rgba(255, 99, 132, 1)",
-          "rgb(85, 192, 75)",
-          "rgb(233, 215, 88)",
-          "rgb(117, 88, 233)",
-          "rgb(233, 88, 88)",
-          "rgb(255, 133, 82)",
-          "rgb(247, 99, 255)",
-          "rgb(153, 192, 75)",
-          "rgb(36, 137, 165)",
-          "rgb(233, 215, 88)",
-          "rgb(117, 88, 233)",
-          "rgb(88, 233, 216)",
-          "rgb(255, 82, 82)",
-        ],
-        borderWidth: 1,
-        legend: {
-          display: true,
-        },
-      },
-    ],
-  };
-
-  const options = {};
-
   return (
     <GS.FinanceWrapper>
-      <GS.SectionTitle> Expenses chart</GS.SectionTitle>
-      <Doughnut data={data} options={options} plugins={[hoverLabel]} />
+      <GS.SectionTitle>
+        <GS.CloseButton right={"286px"}>
+          <ChevronLeft
+            onClick={() => {
+              if (page === 0) {
+                setPage(2);
+              } else if (page === 1) {
+                setPage(0);
+              } else if (page === 2) {
+                setPage(1);
+              }
+            }}
+            fontSize="large"
+          />
+        </GS.CloseButton>
+        {page === 0 ? "Expenses" : page === 1 ? "Income" : "Total"} chart
+        <GS.CloseButton>
+          <ChevronRight
+            onClick={() => {
+              if (page === 0) {
+                setPage(1);
+              } else if (page === 1) {
+                setPage(2);
+              } else if (page === 2) {
+                setPage(0);
+              }
+            }}
+            fontSize="large"
+          />
+        </GS.CloseButton>
+      </GS.SectionTitle>
+
+      <GS.SectionTitle fSize={"18px"} color="green">
+        Gained $
+        {rawIncome.reduce((partialSum: any, a: any) => +partialSum + +a, 0)}
+      </GS.SectionTitle>
+      <GS.SectionTitle fSize={"18px"} color="brown">
+        Spent $
+        {rawExpenses.reduce((partialSum: any, a: any) => +partialSum + +a, 0)}
+      </GS.SectionTitle>
+      {page === 0 ? (
+        <Doughnut
+          data={ExpensesData(uniqueExp, amount)}
+          plugins={[hoverLabelExpenses(rawExpenses)]}
+        />
+      ) : page === 1 ? (
+        <Doughnut
+          data={ExpensesData(uniqueExp, amount)}
+          plugins={[hoverLabelExpenses(rawExpenses)]}
+        />
+      ) : (
+        <Doughnut
+          data={ExpensesData(uniqueExp, amount)}
+          plugins={[hoverLabelExpenses(rawExpenses)]}
+        />
+      )}
     </GS.FinanceWrapper>
   );
 };

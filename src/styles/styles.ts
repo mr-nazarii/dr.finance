@@ -296,11 +296,11 @@ const GS = {
     padding: 20px 30px;
   `,
 
-  CloseButton: styled.span`
+  CloseButton: styled.span<any>`
     width: 30px;
     position: absolute;
-    right: -24px;
-    top: 9px;
+    right: ${(props) => props.right || "-11px"};
+    top: 4px;
   `,
 };
 
