@@ -88,7 +88,23 @@ export const TableInner = (props: any) => {
                   <TableCell align="center" component="th" scope="row">
                     {item.type}
                   </TableCell>
-                  <TableCell align="center">${item.amount}</TableCell>
+
+                  {props.type === "income" ? (
+                    <TableCell
+                      style={{ color: "green", fontWeight: "bold" }}
+                      align="center"
+                    >
+                      + ${item.amount}
+                    </TableCell>
+                  ) : (
+                    <TableCell
+                      style={{ color: "red", fontWeight: "bold" }}
+                      align="center"
+                    >
+                      - ${item.amount}
+                    </TableCell>
+                  )}
+
                   <TableCell align="right">
                     <Edit />
                   </TableCell>
