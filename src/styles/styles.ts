@@ -63,7 +63,7 @@ const GS = {
     flex-direction: ${(props) => props.fDirection || "column"};
     align-items: ${(props) => props.aItems || "center"};
     padding: ${(props) => props.padding || "37px 24px 26px"};
-    z-index: 3;
+    z-index: 1;
     position: ${(props) => props.position || "static"};
   `,
 
@@ -241,7 +241,7 @@ const GS = {
   `,
 
   SettingsMenu: styled.ul<SettingsBar>`
-    z-index: 2;
+    z-index: 5;
     background-color: ${colorVariables.white};
     height: 100vh;
     margin: 0;
@@ -266,7 +266,7 @@ const GS = {
 
   MenuBackground: styled.div`
     top: 0;
-    z-index: 1;
+    z-index: 2;
     background-color: ${colorVariables.black}60;
     height: 100vh;
     position: fixed;
@@ -285,7 +285,7 @@ const GS = {
   `,
 
   FinanceWrapper: styled.div`
-    z-index: 2;
+    z-index: 3;
     top: 150px;
     position: fixed;
     min-width: 262px;

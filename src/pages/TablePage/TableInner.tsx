@@ -9,6 +9,7 @@ import Paper from "@mui/material/Paper";
 import GS from "../../styles/styles";
 
 export const TableInner = (props: any) => {
+  let num = 1;
   return (
     <TableContainer
       component={Paper}
@@ -26,7 +27,7 @@ export const TableInner = (props: any) => {
         <TableHead>
           <TableRow>
             <TableCell
-              colSpan={2}
+              colSpan={3}
               style={{ borderBottom: "none", paddingBottom: "0" }}
             >
               <GS.SectionTitle
@@ -38,6 +39,12 @@ export const TableInner = (props: any) => {
             </TableCell>
           </TableRow>
           <TableRow>
+            <TableCell
+              style={{ borderBottom: "1px solid black" }}
+              padding="checkbox"
+            >
+              <GS.SectionTitle bottom={"0"}>№</GS.SectionTitle>
+            </TableCell>
             <TableCell style={{ borderBottom: "1px solid black" }}>
               <GS.SectionTitle bottom={"0"}>Type</GS.SectionTitle>
             </TableCell>
@@ -52,6 +59,9 @@ export const TableInner = (props: any) => {
               key={item.type}
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
             >
+              <TableCell align="center" component="th" scope="row">
+                {num++}
+              </TableCell>
               <TableCell align="center" component="th" scope="row">
                 {item.type}
               </TableCell>
