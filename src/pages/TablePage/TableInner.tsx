@@ -7,13 +7,16 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import GS from "../../styles/styles";
+import Checkbox from "@mui/material/Checkbox";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import { Delete, Edit } from "@mui/icons-material";
 
 export const TableInner = (props: any) => {
   let num = 1;
   return (
     <TableContainer
       component={Paper}
-      style={{ width: "80%", borderRadius: "10px" }}
+      style={{ width: "80%", borderRadius: "10px", zIndex: 1 }}
     >
       <Table
         sx={{
@@ -22,12 +25,13 @@ export const TableInner = (props: any) => {
           borderSpacing: "0px 4px",
           textTransform: "capitalize",
         }}
-        aria-label="simple table"
+        stickyHeader
+        aria-label="sticky table"
       >
         <TableHead>
           <TableRow>
             <TableCell
-              colSpan={3}
+              colSpan={5}
               style={{ borderBottom: "none", paddingBottom: "0" }}
             >
               <GS.SectionTitle
@@ -43,6 +47,12 @@ export const TableInner = (props: any) => {
               style={{ borderBottom: "1px solid black" }}
               padding="checkbox"
             >
+              <Checkbox />
+            </TableCell>
+            <TableCell
+              style={{ borderBottom: "1px solid black" }}
+              padding="checkbox"
+            >
               <GS.SectionTitle bottom={"0"}>№</GS.SectionTitle>
             </TableCell>
             <TableCell style={{ borderBottom: "1px solid black" }}>
@@ -51,23 +61,40 @@ export const TableInner = (props: any) => {
             <TableCell align="left" style={{ borderBottom: "1px solid black" }}>
               <GS.SectionTitle bottom={"0"}>Amount</GS.SectionTitle>
             </TableCell>
+            <TableCell
+              align="right"
+              style={{ borderBottom: "1px solid black" }}
+            >
+              <Delete />
+            </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {props.items.map((item: any) => (
-            <TableRow
-              key={item.type}
-              sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-            >
-              <TableCell align="center" component="th" scope="row">
-                {num++}
-              </TableCell>
-              <TableCell align="center" component="th" scope="row">
-                {item.type}
-              </TableCell>
-              <TableCell align="center">${item.amount}</TableCell>
-            </TableRow>
-          ))}
+          {props.items
+            ? props.items.map((item: any) => (
+                <TableRow
+                  key={item.type}
+                  sx={{
+                    "&:last-child td, &:last-child th": { border: 0 },
+                    "&:nth-of-type(even)": { backgroundColor: "gainsboro" },
+                  }}
+                >
+                  <TableCell align="center" component="th" scope="row">
+                    <Checkbox />
+                  </TableCell>
+                  <TableCell align="center" component="th" scope="row">
+                    {num++}
+                  </TableCell>
+                  <TableCell align="center" component="th" scope="row">
+                    {item.type}
+                  </TableCell>
+                  <TableCell align="center">${item.amount}</TableCell>
+                  <TableCell align="right">
+                    <Edit />
+                  </TableCell>
+                </TableRow>
+              ))
+            : null}
         </TableBody>
       </Table>
     </TableContainer>

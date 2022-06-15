@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Doughnut } from "react-chartjs-2";
 import GS from "../../../styles/styles";
-
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { useAppSelector } from "../../../hooks/hooks";
 import { ChevronRight, ChevronLeft } from "@mui/icons-material/";
