@@ -42,9 +42,11 @@ const GS = {
 
   Background: styled.div<any>`
     display: flex;
-    justify-content: center;
+    justify-content: ${(props) => props.jContent || "center"};
+    flex-direction: ${(props) => props.fDirection || "row"};
     align-items: ${(props) => props.aItems || "center"};
     height: ${(props) => props.height || "100vh"};
+    gap: ${(props) => props.gap || "none"};
   `,
 
   LoginBackground: styled.div<any>`
@@ -133,14 +135,13 @@ const GS = {
   SectionTitle: styled.p<any>`
     color: ${(prop) => prop.color || colorVariables.black};
     margin: 0;
-    position: relative;
-    bottom: 16px;
+    bottom: ${(prop) => prop.bottom || "16px"};
     background-color: ${(prop) => prop.bgColor || colorVariables.white};
     padding: 5px 12px;
     border-radius: 12px;
     font-size: ${(props) => props.fSize || "1.5em"};
     font-weight: 700;
-    text-align: center;
+    text-align: ${(prop) => prop.tAlign || "center"};
     position: relative;
   `,
 

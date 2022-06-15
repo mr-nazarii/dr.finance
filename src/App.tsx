@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Route, Routes } from "react-router-dom";
 import FeedbackPage from "./pages/FeedbackPage/FeedbackPage";
 import Login from "./pages/Login";
@@ -8,6 +8,7 @@ import NoPage from "./pages/NoPage";
 import PreEnterPage from "./pages/PreEnterPage";
 import ProfilePage from "./pages/ProfilePage";
 import Register from "./pages/Register";
+import { BasicTable } from "./pages/TablePage/TablePage";
 
 const App = () => {
   // If logged In pass this
@@ -21,6 +22,7 @@ const App = () => {
         <Route index element={<MainPage />} />
         <Route path="profile" element={<ProfilePage />} />
         <Route path="feedback" element={<FeedbackPage />} />
+        <Route path="stats" element={<BasicTable />} />
       </Route>
 
       <Route path="*" element={<NoPage />} />

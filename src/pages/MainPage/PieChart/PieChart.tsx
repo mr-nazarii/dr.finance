@@ -46,7 +46,7 @@ const PieChart = () => {
     uniqueExp.push(key);
     amountExp.push(value);
   }
-
+  // Fix on mobile devices the Total chart
   return (
     <GS.FinanceWrapper>
       <GS.SectionTitle>
@@ -92,7 +92,7 @@ const PieChart = () => {
           {rawIncome.reduce((partialSum: any, a: any) => +partialSum + +a, 0)}
         </GS.SectionTitle>
       ) : (
-        <GS.LogoWrapper jContent={"space-around"}>
+        <GS.LogoWrapper jContent={"space-around"} width="none">
           <GS.SectionTitle fSize={"18px"} color="green">
             Gained $
             {rawIncome.reduce((partialSum: any, a: any) => +partialSum + +a, 0)}
