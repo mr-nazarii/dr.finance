@@ -35,7 +35,10 @@ const ModifyFinance = (props: any) => {
 
   const transcript = async (boolean: any) => {
     if (boolean) {
-      const income = { id: token, income: { type: select, amount: num } };
+      const income = {
+        id: token,
+        income: { date: new Date().getTime(), type: select, amount: num },
+      };
 
       await addIncomeTranscript(income);
       loadUser(dispatch, token, "income", income);
@@ -43,7 +46,10 @@ const ModifyFinance = (props: any) => {
 
       return income;
     }
-    const expenses = { id: token, expenses: { type: select, amount: num } };
+    const expenses = {
+      id: token,
+      expenses: { date: new Date().getTime(), type: select, amount: num },
+    };
 
     await addExpensesTranscript(expenses);
     loadUser(dispatch, token, "expense", expenses);

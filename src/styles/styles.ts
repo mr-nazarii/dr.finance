@@ -47,6 +47,7 @@ const GS = {
     align-items: ${(props) => props.aItems || "center"};
     height: ${(props) => props.height || "100vh"};
     gap: ${(props) => props.gap || "none"};
+    padding: 10px 0 30px 0;
   `,
 
   LoginBackground: styled.div<any>`
