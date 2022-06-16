@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -8,17 +8,46 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import GS from "../../styles/styles";
 import Checkbox from "@mui/material/Checkbox";
-import FormControlLabel from "@mui/material/FormControlLabel";
+// import FormControlLabel from "@mui/material/FormControlLabel";
 import { Delete, Edit } from "@mui/icons-material";
 import { colorVariables } from "../../styles/colors";
+import { deleteExpense } from "../../api/backendAPI";
+import { useAppDispatch } from "../../hooks/hooks";
+import { deleteExpenseFromState } from "../../store/reducers/profileSlice";
 
 export const TableInner = (props: any) => {
+  const dispatch = useAppDispatch();
+  const token = localStorage.getItem("uToken");
+  const [obj, setObj] = useState(null as any);
   let num = 1;
 
   const getDate = (date: any) => {
     const data = new Date(date);
     const string = `${data.getDate()}/${data.getMonth()}/${data.getFullYear()}  ${data.getHours()}:${data.getMinutes()}`;
     return string;
+  };
+
+  const deleteRecord = (element: any) => {
+    deleteExpense(element);
+    dispatch(
+      deleteExpenseFromState(
+        props.items.filter((el: any) => el.date !== +element.expenses.date)
+      )
+      // also delete decrement the amount after deleting
+    );
+  };
+
+  const handleChange = (event: any, element: any) => {
+    let newObj = {
+      id: token,
+      expenses: props.items.filter(
+        (item: any) => item.date === element.date
+      )[0],
+    };
+
+    if (event.target.checked) {
+      setObj(newObj);
+    }
   };
 
   return (
@@ -79,7 +108,7 @@ export const TableInner = (props: any) => {
               align="right"
               style={{ borderBottom: "1px solid black" }}
             >
-              <Delete />
+              <Delete onClick={() => deleteRecord(obj)} />
             </TableCell>
           </TableRow>
         </TableHead>
@@ -95,7 +124,7 @@ export const TableInner = (props: any) => {
                   }}
                 >
                   <TableCell align="center" component="th" scope="row">
-                    <Checkbox />
+                    <Checkbox onChange={(e) => handleChange(e, item)} />
                   </TableCell>
                   <TableCell align="center" component="th" scope="row">
                     {num++}
@@ -107,7 +136,6 @@ export const TableInner = (props: any) => {
                       bottom="0"
                       fSize="16px"
                     >
-                      {" "}
                       {getDate(item.date)}
                     </GS.SectionTitle>
                   </TableCell>

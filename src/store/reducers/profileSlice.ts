@@ -49,10 +49,18 @@ export const profileSlice = createSlice({
       state.joinDate = joinDate;
       state.total = total;
     },
+
+    deleteExpenseFromState(state: any, action: PayloadAction<any>) {
+      state.expenses = action.payload;
+    },
   },
 });
 
-export const { profileLogedToggle, profileTokenConfigure, setProfile } =
-  profileSlice.actions;
+export const {
+  profileLogedToggle,
+  profileTokenConfigure,
+  setProfile,
+  deleteExpenseFromState,
+} = profileSlice.actions;
 
 export default profileSlice.reducer;

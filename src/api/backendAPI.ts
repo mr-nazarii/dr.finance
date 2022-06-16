@@ -63,3 +63,16 @@ export const findUserbyId = async (newIncome: any) => {
     return error.response;
   }
 };
+
+export const deleteExpense = async (item: any) => {
+  try {
+    console.log(JSON.stringify(item, null, 2));
+    const user = await axios.put(
+      `http://localhost:5000/account/delete/expense`,
+      item
+    );
+    return user.data;
+  } catch (error: any) {
+    return error.response;
+  }
+};
