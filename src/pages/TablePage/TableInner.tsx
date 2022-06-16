@@ -10,9 +10,17 @@ import GS from "../../styles/styles";
 import Checkbox from "@mui/material/Checkbox";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import { Delete, Edit } from "@mui/icons-material";
+import { colorVariables } from "../../styles/colors";
 
 export const TableInner = (props: any) => {
   let num = 1;
+
+  const getDate = (date: any) => {
+    const data = new Date(date);
+    const string = `${data.getDate()}/${data.getMonth()}/${data.getFullYear()}  ${data.getHours()}:${data.getMinutes()}`;
+    return string;
+  };
+
   return (
     <TableContainer
       component={Paper}
@@ -31,7 +39,7 @@ export const TableInner = (props: any) => {
         <TableHead>
           <TableRow>
             <TableCell
-              colSpan={5}
+              colSpan={6}
               style={{ borderBottom: "none", paddingBottom: "0" }}
             >
               <GS.SectionTitle
@@ -55,6 +63,12 @@ export const TableInner = (props: any) => {
             >
               <GS.SectionTitle bottom={"0"}>№</GS.SectionTitle>
             </TableCell>
+            <TableCell
+              style={{ borderBottom: "1px solid black" }}
+              padding="checkbox"
+            >
+              <GS.SectionTitle bottom={"0"}>Date</GS.SectionTitle>
+            </TableCell>
             <TableCell style={{ borderBottom: "1px solid black" }}>
               <GS.SectionTitle bottom={"0"}>Type</GS.SectionTitle>
             </TableCell>
@@ -73,7 +87,8 @@ export const TableInner = (props: any) => {
           {props.items
             ? props.items.map((item: any) => (
                 <TableRow
-                  key={item.type}
+                  key={item.date}
+                  id={item.date}
                   sx={{
                     "&:last-child td, &:last-child th": { border: 0 },
                     "&:nth-of-type(even)": { backgroundColor: "gainsboro" },
@@ -84,6 +99,17 @@ export const TableInner = (props: any) => {
                   </TableCell>
                   <TableCell align="center" component="th" scope="row">
                     {num++}
+                  </TableCell>
+                  <TableCell align="center" component="th" scope="row">
+                    <GS.SectionTitle
+                      bgColor={colorVariables.black}
+                      color={colorVariables.white}
+                      bottom="0"
+                      fSize="16px"
+                    >
+                      {" "}
+                      {getDate(item.date)}
+                    </GS.SectionTitle>
                   </TableCell>
                   <TableCell align="center" component="th" scope="row">
                     {item.type}
