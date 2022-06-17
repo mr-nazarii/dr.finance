@@ -18,6 +18,7 @@ export const TableInner = (props: any) => {
   const dispatch = useAppDispatch();
   const token = localStorage.getItem("uToken");
   const [obj, setObj] = useState(null as any);
+  const [toggle, setToggle] = useState(false as boolean);
 
   const deleteRecord = (element: any, type: any) => {
     if (type === "income") {
@@ -27,7 +28,6 @@ export const TableInner = (props: any) => {
         deleteIncomeFromState(
           props.items.filter((el: any) => el.date !== +element.income.date)
         )
-        // also delete decrement the amount after deleting
       );
     } else {
       deleteExpense(element);
@@ -36,7 +36,6 @@ export const TableInner = (props: any) => {
         deleteExpenseFromState(
           props.items.filter((el: any) => el.date !== +element.expenses.date)
         )
-        // also delete decrement the amount after deleting
       );
     }
   };
@@ -78,11 +77,18 @@ export const TableInner = (props: any) => {
         stickyHeader
         aria-label="sticky table"
       >
-        <TableHeaderRow type={props.type} obj={obj} />
+        <TableHeaderRow
+          toggle={toggle}
+          setToggle={setToggle}
+          type={props.type}
+          obj={obj}
+        />
+
         <TableBodyRow
           handleChange={handleChange}
           items={props.items}
           type={props.type}
+          toggle={toggle}
         />
       </Table>
     </TableContainer>

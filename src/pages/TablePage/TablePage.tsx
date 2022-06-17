@@ -1,7 +1,6 @@
 import * as React from "react";
 
 import { useAppSelector } from "../../hooks/hooks";
-import { colorVariables } from "../../styles/colors";
 import GS from "../../styles/styles";
 import TableInner from "./TableInner";
 

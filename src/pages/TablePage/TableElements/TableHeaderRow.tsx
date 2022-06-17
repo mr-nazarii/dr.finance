@@ -2,9 +2,7 @@ import React from "react";
 import TableCell from "@mui/material/TableCell";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
-import Checkbox from "@mui/material/Checkbox";
 // import FormControlLabel from "@mui/material/FormControlLabel";
-import { Delete } from "@mui/icons-material";
 import GS from "../../../styles/styles";
 
 export const TableHeaderRow = (props: any) => {
