@@ -41,62 +41,63 @@ export const TableBodyRow = (props: any) => {
   return (
     <>
       <TableBody>
-        {(rowsPerPage > 0
-          ? props.items.slice(
-              page * rowsPerPage,
-              page * rowsPerPage + rowsPerPage
-            )
-          : props.items
-        ).map((item: any) => (
-          <TableRow
-            key={item.date}
-            id={item.date}
-            sx={{
-              "&:last-child td, &:last-child th": { border: 0 },
-              "&:nth-of-type(even)": { backgroundColor: "gainsboro" },
-            }}
-          >
-            <TableCell align="center" component="th" scope="row">
-              {num++}
-            </TableCell>
-            <TableCell align="center" component="th" scope="row">
-              <GS.SectionTitle
-                bgColor={colorVariables.black}
-                color={colorVariables.white}
-                bottom="0"
-                fSize="16px"
-              >
-                {getDate(item.date)}
-              </GS.SectionTitle>
-            </TableCell>
-            <TableCell align="center" component="th" scope="row">
-              {item.type}
-            </TableCell>
-
-            {props.type === "income" ? (
-              <TableCell
-                style={{ color: "green", fontWeight: "bold" }}
-                align="center"
-              >
-                + ${item.amount}
+        {props.items &&
+          (rowsPerPage > 0
+            ? props.items.slice(
+                page * rowsPerPage,
+                page * rowsPerPage + rowsPerPage
+              )
+            : props.items
+          ).map((item: any) => (
+            <TableRow
+              key={item.date}
+              id={item.date}
+              sx={{
+                "&:last-child td, &:last-child th": { border: 0 },
+                "&:nth-of-type(even)": { backgroundColor: "gainsboro" },
+              }}
+            >
+              <TableCell align="center" component="th" scope="row">
+                {num++}
               </TableCell>
-            ) : (
-              <TableCell
-                style={{ color: "red", fontWeight: "bold" }}
-                align="center"
-              >
-                - ${item.amount}
+              <TableCell align="center" component="th" scope="row">
+                <GS.SectionTitle
+                  bgColor={colorVariables.black}
+                  color={colorVariables.white}
+                  bottom="0"
+                  fSize="16px"
+                >
+                  {getDate(item.date)}
+                </GS.SectionTitle>
               </TableCell>
-            )}
+              <TableCell align="center" component="th" scope="row">
+                {item.type}
+              </TableCell>
 
-            <TableCell align="right">
-              <Edit />
-            </TableCell>
-            <TableCell align="right">
-              <Delete onClick={() => props.handleChange(item, props.type)} />
-            </TableCell>
-          </TableRow>
-        ))}
+              {props.type === "income" ? (
+                <TableCell
+                  style={{ color: "green", fontWeight: "bold" }}
+                  align="center"
+                >
+                  + ${item.amount}
+                </TableCell>
+              ) : (
+                <TableCell
+                  style={{ color: "red", fontWeight: "bold" }}
+                  align="center"
+                >
+                  - ${item.amount}
+                </TableCell>
+              )}
+
+              <TableCell align="right">
+                <Edit />
+              </TableCell>
+              <TableCell align="right">
+                <Delete onClick={() => props.handleChange(item, props.type)} />
+              </TableCell>
+            </TableRow>
+          ))}
         {emptyRows > 0 && (
           <TableRow style={{ height: 53 * emptyRows }}>
             <TableCell colSpan={6} />
