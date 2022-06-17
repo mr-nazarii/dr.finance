@@ -13,11 +13,28 @@ import {
 import { loadUser } from "../../../store/loadUser";
 
 const ModifyFinance = (props: any) => {
-  const [select, setSelect] = useState("");
-  const [num, setNum] = useState("");
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const token = localStorage.getItem("uToken");
+
+  const standardValue = () => {
+    if (props.value) {
+      console.log(props.value);
+      return props.value.type;
+    }
+    return "";
+  };
+
+  const standardAmount = () => {
+    if (props.value) {
+      return props.value.amount;
+    }
+    return "";
+  };
+
+  const [num, setNum] = useState(standardAmount());
+
+  const [select, setSelect] = useState(standardValue());
 
   const handleChange = (event: any) => {
     setSelect(event.target.value as any);

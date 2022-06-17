@@ -13,12 +13,14 @@ import {
 } from "../../store/reducers/profileSlice";
 import { TableBodyRow } from "./TableElements/TableBodyRow";
 import { TableHeaderRow } from "./TableElements/TableHeaderRow";
+import ModifyFinance from "../MainPage/Finance/ModifyFinance";
+import GS from "../../styles/styles";
 
 export const TableInner = (props: any) => {
   const dispatch = useAppDispatch();
   const token = localStorage.getItem("uToken");
-  const [obj, setObj] = useState(null as any);
-  const [toggle, setToggle] = useState(false as boolean);
+  const [show, setShow] = useState(false as boolean);
+  const [obj, setObj] = useState({} as Object);
 
   const deleteRecord = (element: any, type: any) => {
     if (type === "income") {
@@ -62,36 +64,53 @@ export const TableInner = (props: any) => {
     }
   };
 
-  return (
-    <TableContainer
-      component={Paper}
-      style={{ width: "80%", borderRadius: "10px", zIndex: 1 }}
-    >
-      <Table
-        sx={{
-          minWidth: 220,
-          borderCollapse: "separate",
-          borderSpacing: "0px 4px",
-          textTransform: "capitalize",
-        }}
-        stickyHeader
-        aria-label="sticky table"
-      >
-        <TableHeaderRow
-          toggle={toggle}
-          setToggle={setToggle}
-          type={props.type}
-          obj={obj}
-        />
+  const giveType = () => {
+    if (props.type === "income") {
+      return true;
+    }
+    return false;
+  };
 
-        <TableBodyRow
-          handleChange={handleChange}
-          items={props.items}
-          type={props.type}
-          toggle={toggle}
-        />
-      </Table>
-    </TableContainer>
+  return (
+    <>
+      <TableContainer
+        component={Paper}
+        style={{ width: "80%", borderRadius: "10px", zIndex: 1 }}
+      >
+        <Table
+          sx={{
+            minWidth: 220,
+            borderCollapse: "separate",
+            borderSpacing: "0px 4px",
+            textTransform: "capitalize",
+          }}
+          stickyHeader
+          aria-label="sticky table"
+        >
+          <TableHeaderRow type={props.type} />
+
+          <TableBodyRow
+            setShow={setShow}
+            show={show}
+            handleChange={handleChange}
+            items={props.items}
+            type={props.type}
+            setObj={setObj}
+          />
+        </Table>
+      </TableContainer>
+      {show ? (
+        <>
+          <ModifyFinance
+            income={giveType()}
+            value={obj}
+            setShow={setShow}
+            show={show}
+          />
+          <GS.MenuBackground onClick={() => setShow(!show)} />
+        </>
+      ) : null}
+    </>
   );
 };
 

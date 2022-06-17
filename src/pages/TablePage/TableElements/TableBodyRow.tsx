@@ -91,7 +91,16 @@ export const TableBodyRow = (props: any) => {
               )}
 
               <TableCell align="right">
-                <Edit />
+                <Edit
+                  onClick={() => {
+                    props.setShow(!props.show);
+                    props.setObj({
+                      type: item.type,
+                      amount: item.amount,
+                      date: item.date,
+                    });
+                  }}
+                />
               </TableCell>
               <TableCell align="right">
                 <Delete onClick={() => props.handleChange(item, props.type)} />
