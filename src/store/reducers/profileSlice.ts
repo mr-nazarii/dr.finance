@@ -52,6 +52,31 @@ export const profileSlice = createSlice({
 
     deleteExpenseFromState(state: any, action: PayloadAction<any>) {
       state.expenses = action.payload;
+      let newAmmountArr: any[] = [];
+
+      state.expenses.map((el: any) => {
+        return newAmmountArr.push(el.amount);
+      });
+
+      state.total = newAmmountArr.reduce(
+        (partialSum: any, a: any) => +partialSum + +a,
+        0
+      );
+    },
+
+    deleteIncomeFromState(state: any, action: PayloadAction<any>) {
+      state.income = action.payload;
+
+      let newAmmountArr: any[] = [];
+
+      state.income.map((el: any) => {
+        return newAmmountArr.push(el.amount);
+      });
+
+      state.total = newAmmountArr.reduce(
+        (partialSum: any, a: any) => +partialSum + +a,
+        0
+      );
     },
   },
 });
@@ -61,6 +86,7 @@ export const {
   profileTokenConfigure,
   setProfile,
   deleteExpenseFromState,
+  deleteIncomeFromState,
 } = profileSlice.actions;
 
 export default profileSlice.reducer;
