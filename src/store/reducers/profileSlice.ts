@@ -52,31 +52,38 @@ export const profileSlice = createSlice({
 
     deleteExpenseFromState(state: any, action: PayloadAction<any>) {
       state.expenses = action.payload;
-      let newAmmountArr: any[] = [];
+      let newExpenses: any[] = [];
+      let newIncome: any[] = [];
 
       state.expenses.map((el: any) => {
-        return newAmmountArr.push(el.amount);
+        return newExpenses.push(el.amount);
       });
 
-      state.total = newAmmountArr.reduce(
-        (partialSum: any, a: any) => +partialSum + +a,
-        0
-      );
+      state.income.map((el: any) => {
+        return newIncome.push(el.amount);
+      });
+
+      state.total =
+        newIncome.reduce((partialSum: any, a: any) => +partialSum + +a, 0) -
+        newExpenses.reduce((partialSum: any, a: any) => +partialSum + +a, 0);
     },
 
     deleteIncomeFromState(state: any, action: PayloadAction<any>) {
       state.income = action.payload;
+      let newExpenses: any[] = [];
+      let newIncome: any[] = [];
 
-      let newAmmountArr: any[] = [];
-
-      state.income.map((el: any) => {
-        return newAmmountArr.push(el.amount);
+      state.expenses.map((el: any) => {
+        return newExpenses.push(el.amount);
       });
 
-      state.total = newAmmountArr.reduce(
-        (partialSum: any, a: any) => +partialSum + +a,
-        0
-      );
+      state.income.map((el: any) => {
+        return newIncome.push(el.amount);
+      });
+
+      state.total =
+        newIncome.reduce((partialSum: any, a: any) => +partialSum + +a, 0) -
+        newExpenses.reduce((partialSum: any, a: any) => +partialSum + +a, 0);
     },
   },
 });
