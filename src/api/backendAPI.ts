@@ -89,3 +89,16 @@ export const deleteIncome = async (item: any) => {
     return error.response;
   }
 };
+
+export const editIncome = async (item: any) => {
+  try {
+    console.log(JSON.stringify(item, null, 2));
+    const user = await axios.put(
+      `http://localhost:5000/account/edit/income`,
+      item
+    );
+    return user.data;
+  } catch (error: any) {
+    return error.response;
+  }
+};

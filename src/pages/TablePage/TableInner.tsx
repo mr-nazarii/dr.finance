@@ -106,6 +106,7 @@ export const TableInner = (props: any) => {
             value={obj}
             setShow={setShow}
             show={show}
+            edit={giveType()}
           />
           <GS.MenuBackground onClick={() => setShow(!show)} />
         </>

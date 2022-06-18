@@ -9,8 +9,10 @@ import { useAppDispatch } from "../../../hooks/hooks";
 import {
   addExpensesTranscript,
   addIncomeTranscript,
+  editIncome,
 } from "../../../api/backendAPI";
 import { loadUser } from "../../../store/loadUser";
+import { editIncomeState } from "../../../store/reducers/profileSlice";
 
 const ModifyFinance = (props: any) => {
   const navigate = useNavigate();
@@ -93,6 +95,20 @@ const ModifyFinance = (props: any) => {
 
             if (!select || !num) {
               return;
+            } else if (props.edit === true) {
+              const income = {
+                id: token,
+                income: {
+                  date: new Date().getTime(),
+                  type: select,
+                  amount: num,
+                },
+              };
+
+              // Fix
+              editIncome(income);
+              dispatch(editIncomeState(income));
+            } else if (props.edit === false) {
             }
 
             transcript(props.income);
