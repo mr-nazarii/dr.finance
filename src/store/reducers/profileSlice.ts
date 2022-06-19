@@ -108,6 +108,29 @@ export const profileSlice = createSlice({
         newIncome.reduce((partialSum: any, a: any) => +partialSum + +a, 0) -
         newExpenses.reduce((partialSum: any, a: any) => +partialSum + +a, 0);
     },
+
+    editExpensesState(state: any, action: PayloadAction<any>) {
+      let newExpenses: any[] = [];
+      let newIncome: any[] = [];
+
+      const oldIncome = state.expenses.filter(
+        (el: any) => el.date !== action.payload.expenses.date
+      );
+
+      state.expenses = [...oldIncome, action.payload.expenses];
+
+      state.expenses.map((el: any) => {
+        return newExpenses.push(el.amount);
+      });
+
+      state.income.map((el: any) => {
+        return newIncome.push(el.amount);
+      });
+
+      state.total =
+        newIncome.reduce((partialSum: any, a: any) => +partialSum + +a, 0) -
+        newExpenses.reduce((partialSum: any, a: any) => +partialSum + +a, 0);
+    },
   },
 });
 
@@ -118,6 +141,7 @@ export const {
   deleteExpenseFromState,
   deleteIncomeFromState,
   editIncomeState,
+  editExpensesState,
 } = profileSlice.actions;
 
 export default profileSlice.reducer;

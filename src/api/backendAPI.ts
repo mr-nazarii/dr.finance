@@ -102,3 +102,16 @@ export const editIncome = async (item: any) => {
     return error.response;
   }
 };
+
+export const editExpense = async (item: any) => {
+  try {
+    console.log(JSON.stringify(item, null, 2));
+    const user = await axios.put(
+      `http://localhost:5000/account/edit/expense`,
+      item
+    );
+    return user.data;
+  } catch (error: any) {
+    return error.response;
+  }
+};

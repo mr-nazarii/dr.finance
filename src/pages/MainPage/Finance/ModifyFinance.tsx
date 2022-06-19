@@ -9,10 +9,14 @@ import { useAppDispatch } from "../../../hooks/hooks";
 import {
   addExpensesTranscript,
   addIncomeTranscript,
+  editExpense,
   editIncome,
 } from "../../../api/backendAPI";
 import { loadUser } from "../../../store/loadUser";
-import { editIncomeState } from "../../../store/reducers/profileSlice";
+import {
+  editExpensesState,
+  editIncomeState,
+} from "../../../store/reducers/profileSlice";
 
 const ModifyFinance = (props: any) => {
   const navigate = useNavigate();
@@ -105,11 +109,20 @@ const ModifyFinance = (props: any) => {
                 },
               };
 
-              console.log(income);
-
               editIncome(income);
               dispatch(editIncomeState(income));
             } else if (props.edit === "expenses") {
+              const expenses = {
+                id: token,
+                expenses: {
+                  date: props.value.date,
+                  type: select,
+                  amount: num,
+                },
+              };
+
+              editExpense(expenses);
+              dispatch(editExpensesState(expenses));
             } else {
               transcript(props.income);
 
