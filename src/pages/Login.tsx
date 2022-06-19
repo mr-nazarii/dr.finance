@@ -1,15 +1,14 @@
-import { Field, Formik } from "formik";
+import { Formik } from "formik";
 import React, { useState } from "react";
 import GS from "../styles/styles";
-import Button from "../components/buttons/Button";
 import Logo from "../components/texts/Logo";
-import Input from "../components/form/Input";
 import { LoginFormValues } from "../components/types/formTypes";
 import { Link, useNavigate } from "react-router-dom";
 import loginSchema from "../components/form/shemas/loginSchema";
 import { loginUser } from "../api/backendAPI";
 import { useAppDispatch } from "../hooks/hooks";
 import { profileTokenConfigure } from "../store/reducers/profileSlice";
+import { FormButton, FormTextField } from "../styles/muiStyles";
 
 const Login = () => {
   const initialValues: LoginFormValues = {
@@ -49,45 +48,56 @@ const Login = () => {
         >
           {(props) => (
             <>
-              <Field
+              <FormTextField
+                id="email"
                 name="email"
-                as={Input}
+                label="Email"
+                variant="filled"
                 type="text"
                 placeholder="Email Address"
-                onChangeText={props.handleChange("email")}
+                onChange={props.handleChange("email")}
                 value={props.values.email}
               />
-              <GS.FalseWrapper>
+              <GS.FalseWrapper jContent="center">
                 {props.errors.email && props.touched.email ? (
                   <GS.FalseText>{props.errors.email}</GS.FalseText>
                 ) : null}
               </GS.FalseWrapper>
-
-              <Field
+              <FormTextField
+                id="password"
                 name="password"
-                as={Input}
+                label="Password"
+                variant="filled"
                 type="password"
                 placeholder="Password"
-                onChangeText={props.handleChange("password")}
+                onChange={props.handleChange("password")}
                 value={props.values.password}
               />
-              <GS.FalseWrapper>
+
+              <GS.FalseWrapper jContent="center">
                 {props.errors.password && props.touched.password ? (
                   <GS.FalseText>{props.errors.password}</GS.FalseText>
                 ) : null}
               </GS.FalseWrapper>
 
               <GS.LogoWrapper jContent="space-around">
-                <Field
-                  as={Button}
+                <FormButton
+                  variant="contained"
+                  size="large"
+                  backgroundColor="login"
                   onClick={() => props.handleSubmit()}
                   type="submit"
                 >
                   Log In
-                </Field>
-                <Link to="/register">
-                  <Button bgColor="#DAAAFF">Register</Button>
-                </Link>
+                </FormButton>
+                <FormButton
+                  component={Link}
+                  to="/register"
+                  variant="contained"
+                  size="large"
+                >
+                  Register
+                </FormButton>
               </GS.LogoWrapper>
             </>
           )}

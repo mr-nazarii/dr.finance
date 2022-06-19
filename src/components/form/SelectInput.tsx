@@ -1,36 +1,40 @@
+import { MenuItem, Select } from "@mui/material";
 import React from "react";
 import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
 import { profileLogedToggle } from "../../store/reducers/profileSlice";
-import GS from "../../styles/styles";
 
 const SelectInput = (props: any) => {
   const currency = useAppSelector((state) => state.profile.currency);
   const dispatch = useAppDispatch();
   let num = 0;
   return (
-    <GS.SelectItem
+    <Select
       name="currency"
       id=""
-      onChange={(e) => dispatch(profileLogedToggle(e.target.value))}
+      onChange={(event: any) =>
+        dispatch(profileLogedToggle(event.target.value))
+      }
+      defaultValue={"USD"}
+      label="Currency"
     >
       {props.currency
         ? props.currency.map((curr: any) => {
             if (curr === currency) {
               return (
-                <option key={num++} value={curr} defaultChecked>
+                <MenuItem key={num++} value={curr} defaultChecked>
                   {curr}
-                </option>
+                </MenuItem>
               );
             }
             num++;
             return (
-              <option key={num++} value={curr}>
+              <MenuItem key={num++} value={curr}>
                 {curr}
-              </option>
+              </MenuItem>
             );
           })
         : null}
-    </GS.SelectItem>
+    </Select>
   );
 };
 

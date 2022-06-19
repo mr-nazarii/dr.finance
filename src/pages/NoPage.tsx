@@ -1,9 +1,9 @@
 import React from "react";
 import GS from "../styles/styles";
-import Button from "../components/buttons/Button";
 import Logo from "../components/texts/Logo";
 
 import { Link } from "react-router-dom";
+import { FormButton } from "../styles/muiStyles";
 
 const NoPage = () => {
   return (
@@ -17,9 +17,9 @@ const NoPage = () => {
 
         <GS.SafeImage src={process.env.PUBLIC_URL + "/tools.png"} />
 
-        <Link to="/">
-          <Button bgColor="#DAAAFF">Home Page</Button>
-        </Link>
+        <FormButton variant="contained" size="large" to="/" component={Link}>
+          Home Page{" "}
+        </FormButton>
       </GS.LoginBackground>
     </GS.Background>
   );

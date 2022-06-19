@@ -1,9 +1,9 @@
 import React from "react";
 import GS from "../styles/styles";
-import Button from "../components/buttons/Button";
 import Logo from "../components/texts/Logo";
 
 import { Link } from "react-router-dom";
+import { FormButton } from "../styles/muiStyles";
 
 const PreEnterPage = () => {
   return (
@@ -22,12 +22,23 @@ const PreEnterPage = () => {
         <GS.SafeImage src={process.env.PUBLIC_URL + "/safe.png"} />
 
         <GS.LogoWrapper jContent="space-around">
-          <Link to="/login">
-            <Button>Log In</Button>
-          </Link>
-          <Link to="/register">
-            <Button bgColor="#DAAAFF">Register</Button>
-          </Link>
+          <FormButton
+            variant="contained"
+            size="large"
+            backgroundColor="login"
+            component={Link}
+            to="/login"
+          >
+            Log In
+          </FormButton>
+          <FormButton
+            component={Link}
+            to="/register"
+            variant="contained"
+            size="large"
+          >
+            Register
+          </FormButton>
         </GS.LogoWrapper>
       </GS.LoginBackground>
     </GS.Background>
