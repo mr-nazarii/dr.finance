@@ -1,9 +1,15 @@
 import styled from "styled-components";
 import {
-  ButtonProps,
   LogoType,
   SettingsBar,
-  Wraper,
+  FalseWrapperType,
+  BackgroundType,
+  LoginBackgroundType,
+  LogoWrapperType,
+  SectionTitleType,
+  SafeImageType,
+  SettingsMenuLIType,
+  CloseButtonType,
 } from "../components/types/styleTypes";
 import { colorVariables } from "./colors";
 
@@ -14,7 +20,7 @@ const GS = {
     padding-left: 5px;
   `,
 
-  FalseWrapper: styled.div<any>`
+  FalseWrapper: styled.div<FalseWrapperType>`
     height: ${(props) => props.height || "30px"};
     display: flex;
     width: 100%;
@@ -40,27 +46,27 @@ const GS = {
     padding: 10px 10px;
   `,
 
-  Background: styled.div<any>`
+  Background: styled.div<BackgroundType>`
     display: flex;
     justify-content: ${(props) => props.jContent || "center"};
     flex-direction: ${(props) => props.fDirection || "row"};
     align-items: ${(props) => props.aItems || "center"};
     height: ${(props) => props.height || "100vh"};
     gap: ${(props) => props.gap || "none"};
-    padding: 10px 0 30px 0;
+    margin: 10px 0 10px 0;
   `,
 
-  LoginBackground: styled.div<any>`
-    background-color: ${(props) => props.bgColor || colorVariables.black};
+  LoginBackground: styled.div<LoginBackgroundType>`
     border: none;
     border-radius: 12px;
     min-width: 262px;
     max-width: 462px;
     flex: 1;
     height: auto;
-    margin: 20px;
+    margin: 15px;
     display: flex;
     justify-content: center;
+    background-color: ${(props) => props.bgColor || colorVariables.black};
     flex-direction: ${(props) => props.fDirection || "column"};
     align-items: ${(props) => props.aItems || "center"};
     padding: ${(props) => props.padding || "37px 24px 26px"};
@@ -68,52 +74,18 @@ const GS = {
     position: ${(props) => props.position || "static"};
   `,
 
-  InputStyle: styled.input`
-    height: 38px;
-    border: 3px solid;
-    border-radius: 9px;
-    width: 100%;
-    padding: 0 0 0 10px;
-    box-shadow: inset 0px 8px 8px ${colorVariables.blackWithOpacity};
-    outline: none;
-
-    &:focus-visible {
-      border: solid 3px ${colorVariables.buttonRegisterColor};
-      outline: none;
-    }
-  `,
-
   TextareaStyle: styled.textarea`
-    height: 108px;
+    height: 208px;
     border: 3px solid;
-    border-radius: 9px;
-    width: 100%;
+    border-radius: 13px;
+    min-width: 260px;
+    max-width: 260px;
+    flex: 1;
     padding: 0 0 0 10px;
-    box-shadow: inset 0px 8px 8px ${colorVariables.blackWithOpacity};
+
     outline: none;
     resize: none;
-
-    &:focus-visible {
-      border: solid 3px ${colorVariables.buttonRegisterColor};
-      outline: none;
-    }
-  `,
-
-  ButtonStyleLogin: styled.button<ButtonProps>`
-    background: ${(props) => props.bgColor || colorVariables.buttonLogInColor};
-    border-radius: 9px;
-    width: 105px;
-    height: 36px;
-    box-shadow: inset 0px 6px 6px ${colorVariables.white}72;
-    color: ${colorVariables.black};
-    border: 3px solid transparent;
-    font-weight: 700;
-
-    &:active {
-      border: solid 3px ${colorVariables.buttonRegisterColor};
-      outline: none;
-      box-shadow: inset 0px 6px 6px ${colorVariables.blackWithOpacity};
-    }
+    padding-bottom: 40px;
   `,
 
   ImageDollar: styled.img`
@@ -124,7 +96,7 @@ const GS = {
     top: 8px;
   `,
 
-  LogoWrapper: styled.div<any>`
+  LogoWrapper: styled.div<LogoWrapperType>`
     flex-wrap: wrap;
     display: flex;
     align-content: center;
@@ -133,7 +105,7 @@ const GS = {
     justify-content: ${(props) => props.jContent || "space-around"};
   `,
 
-  SectionTitle: styled.p<any>`
+  SectionTitle: styled.p<SectionTitleType>`
     color: ${(prop) => prop.color || colorVariables.black};
     margin: 0;
     bottom: ${(prop) => prop.bottom || "16px"};
@@ -153,7 +125,7 @@ const GS = {
     font-size: 16px;
   `,
 
-  SafeImage: styled.img<any>`
+  SafeImage: styled.img<SafeImageType>`
     width: ${(props) => props.imgWidth || "70%;"};
     border-radius: 13px;
     height: auto;
@@ -254,7 +226,7 @@ const GS = {
     padding: 20px 0px;
   `,
 
-  SettingsMenuLI: styled.li<any>`
+  SettingsMenuLI: styled.li<SettingsMenuLIType>`
     display: flex;
     justify-content: ${(props) => props.jContent || "flex-start"};
     color: ${colorVariables.black};
@@ -298,7 +270,7 @@ const GS = {
     padding: 20px 30px;
   `,
 
-  CloseButton: styled.span<any>`
+  CloseButton: styled.span<CloseButtonType>`
     width: 30px;
     position: absolute;
     right: ${(props) => props.right || "-11px"};

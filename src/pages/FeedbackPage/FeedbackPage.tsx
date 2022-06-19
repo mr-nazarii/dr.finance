@@ -1,13 +1,12 @@
 import { Field, Formik } from "formik";
-import Button from "../../components/buttons/Button";
 import feedbackSchema from "../../components/form/shemas/feedbackSchema";
-import Input from "../../components/form/Input";
 import GS from "../../styles/styles";
 import Textarea from "../../components/form/Textarea";
 import { Rating, Typography } from "@mui/material";
 import StarIcon from "@mui/icons-material/Star";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
+import { FormButton, FormTextField } from "../../styles/muiStyles";
 
 const FeedbackPage = () => {
   const initialValues: any = {
@@ -23,7 +22,7 @@ const FeedbackPage = () => {
     if (token === null) {
       navigate("/login");
     }
-  }, []);
+  });
 
   return (
     <GS.Background aItems={"flex-start"} height={"auto"}>
@@ -44,12 +43,14 @@ const FeedbackPage = () => {
         >
           {(props) => (
             <>
-              <Field
+              <FormTextField
+                id="title"
                 name="title"
-                as={Input}
+                label="title"
+                variant="filled"
                 type="text"
                 placeholder="Title"
-                onChangeText={props.handleChange("title")}
+                onChange={props.handleChange("title")}
                 value={props.values.title}
               />
               <GS.FalseWrapper height={"20px"}>
@@ -66,15 +67,16 @@ const FeedbackPage = () => {
                 onChangeText={props.handleChange("description")}
                 value={props.values.description}
               />
+
               <GS.FalseWrapper height={"20px"}>
                 {/* {props.errors.description && props.touched.description ? (
                   <GS.FalseText>Description</GS.FalseText>
                 ) : null} */}
               </GS.FalseWrapper>
               <GS.LoginBackground
-                style={{ alignSelf: "flex-start", margin: "0px 0px 30px 0px" }}
+                style={{ alignSelf: "center", margin: "0px 0px 30px 0px" }}
                 bgColor={"trasperent"}
-                aItems={"flex-start"}
+                aItems={"center"}
                 padding={"0"}
               >
                 <Typography style={{ color: "white" }} component="legend">
@@ -94,9 +96,15 @@ const FeedbackPage = () => {
                 />
               </GS.LoginBackground>
               <GS.LogoWrapper jContent="space-around">
-                <Field as={Button} onClick={() => props.handleSubmit()}>
-                  Send
-                </Field>
+                <FormButton
+                  variant="contained"
+                  size="large"
+                  backgroundColor="login"
+                  onClick={() => props.handleSubmit()}
+                  type="submit"
+                >
+                  Send{" "}
+                </FormButton>
               </GS.LogoWrapper>
             </>
           )}

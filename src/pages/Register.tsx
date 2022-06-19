@@ -1,13 +1,12 @@
-import { Field, Formik } from "formik";
+import { Formik } from "formik";
 import React from "react";
 import GS from "../styles/styles";
-import Button from "../components/buttons/Button";
 import Logo from "../components/texts/Logo";
-import Input from "../components/form/Input";
 import registerSchema from "../components/form/shemas/registerSchema";
 import { RegisterFormValues } from "../components/types/formTypes";
 import { Link, useNavigate } from "react-router-dom";
 import { createUser } from "../api/backendAPI";
+import { FormButton, FormTextField } from "../styles/muiStyles";
 
 const Register = () => {
   const initialValues: RegisterFormValues = {
@@ -42,87 +41,105 @@ const Register = () => {
         >
           {(props) => (
             <>
-              <Field
+              <FormTextField
+                id="name"
                 name="name"
-                as={Input}
+                label="Name"
+                variant="filled"
                 type="text"
                 placeholder="Name"
-                onChangeText={props.handleChange("name")}
+                onChange={props.handleChange("name")}
                 value={props.values.name}
               />
-              <GS.FalseWrapper>
+              <GS.FalseWrapper jContent="center">
                 {props.errors.name && props.touched.name ? (
                   <GS.FalseText>{props.errors.name}</GS.FalseText>
                 ) : null}
               </GS.FalseWrapper>
-
-              <Field
+              <FormTextField
+                id="surname"
                 name="surname"
-                as={Input}
+                label="Surname"
+                variant="filled"
                 type="text"
                 placeholder="Surname"
-                onChangeText={props.handleChange("surname")}
+                onChange={props.handleChange("surname")}
                 value={props.values.surname}
               />
-              <GS.FalseWrapper>
+
+              <GS.FalseWrapper jContent="center">
                 {props.errors.surname && props.touched.surname ? (
                   <GS.FalseText>{props.errors.surname}</GS.FalseText>
                 ) : null}
               </GS.FalseWrapper>
-
-              <Field
+              <FormTextField
+                id="email"
                 name="email"
-                as={Input}
+                label="Email"
+                variant="filled"
                 type="text"
-                placeholder="Email Address"
-                onChangeText={props.handleChange("email")}
+                placeholder="Email"
+                onChange={props.handleChange("email")}
                 value={props.values.email}
               />
-              <GS.FalseWrapper>
+
+              <GS.FalseWrapper jContent="center">
                 {props.errors.email && props.touched.email ? (
                   <GS.FalseText>{props.errors.email}</GS.FalseText>
                 ) : null}
               </GS.FalseWrapper>
 
-              <Field
+              <FormTextField
+                id="password"
                 name="password"
-                as={Input}
+                label="Password"
+                variant="filled"
                 type="password"
                 placeholder="Password"
-                onChangeText={props.handleChange("password")}
+                onChange={props.handleChange("password")}
                 value={props.values.password}
               />
-              <GS.FalseWrapper>
+              <GS.FalseWrapper jContent="center">
                 {props.errors.password && props.touched.password ? (
                   <GS.FalseText>{props.errors.password}</GS.FalseText>
                 ) : null}
               </GS.FalseWrapper>
-              <Field
+              <FormTextField
+                id="confirmPassword"
                 name="confirmPassword"
-                as={Input}
+                label="ConfirmPassword"
+                variant="filled"
                 type="password"
                 placeholder="Confirm Password"
-                onChangeText={props.handleChange("confirmPassword")}
+                onChange={props.handleChange("confirmPassword")}
                 value={props.values.confirmPassword}
               />
-              <GS.FalseWrapper>
+
+              <GS.FalseWrapper jContent="center">
                 {props.errors.confirmPassword &&
                 props.touched.confirmPassword ? (
                   <GS.FalseText>{props.errors.confirmPassword}</GS.FalseText>
                 ) : null}
               </GS.FalseWrapper>
               <GS.LogoWrapper jContent="space-around">
-                <Link to="/login">
-                  <Button>Log In</Button>
-                </Link>
-                <Field
-                  as={Button}
-                  bgColor="#DAAAFF"
+                <FormButton
+                  variant="contained"
+                  size="large"
+                  backgroundColor="login"
+                  component={Link}
+                  to="/login"
+                >
+                  Log In
+                </FormButton>
+
+                <FormButton
+                  variant="contained"
+                  size="large"
                   onClick={() => props.handleSubmit()}
                   type="submit"
                 >
                   Register
-                </Field>
+                </FormButton>
               </GS.LogoWrapper>
             </>
           )}

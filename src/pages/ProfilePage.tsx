@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Button from "../components/buttons/Button";
 import { useAppDispatch, useAppSelector } from "../hooks/hooks";
 import { loadUser } from "../store/loadUser";
 import { colorVariables } from "../styles/colors";
+import { FormButton } from "../styles/muiStyles";
 import GS from "../styles/styles";
 
 const ProfilePage = () => {
@@ -41,15 +41,17 @@ const ProfilePage = () => {
         >
           {email}
         </GS.SectionTitle>
-        <Link to="/">
-          <Button
-            onClick={() => {
-              localStorage.removeItem("uToken");
-            }}
-          >
-            Log Out
-          </Button>
-        </Link>
+
+        <FormButton
+          variant="contained"
+          size="large"
+          backgroundColor="login"
+          onClick={() => localStorage.removeItem("uToken")}
+          to="/"
+          component={Link}
+        >
+          Log out
+        </FormButton>
       </GS.LoginBackground>
     </GS.Background>
   );

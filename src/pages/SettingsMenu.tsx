@@ -26,8 +26,8 @@ const SettingsMenu = (props: any) => {
         <Link to="/mainPage/feedback" style={{ textDecoration: "none" }}>
           <GS.SettingsMenuLI>Feedback</GS.SettingsMenuLI>{" "}
         </Link>
+        <GS.SettingsMenuLI>Curency</GS.SettingsMenuLI>
         <GS.SettingsMenuLI>
-          Curency
           <SelectInput currency={["USD", "EUR", "GBP"]} />
         </GS.SettingsMenuLI>
       </GS.SettingsMenu>
