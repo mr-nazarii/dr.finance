@@ -91,17 +91,10 @@ export const profileSlice = createSlice({
       let newIncome: any[] = [];
 
       const oldIncome = state.income.filter(
-        (el: any) => el.date === action.payload.income.date
-      );
-
-      const restIncome = state.income.filter(
         (el: any) => el.date !== action.payload.income.date
       );
 
-      oldIncome.type = action.payload.income.type;
-      oldIncome.amount = action.payload.income.amount;
-
-      state.income = [...restIncome, oldIncome];
+      state.income = [...oldIncome, action.payload.income];
 
       state.expenses.map((el: any) => {
         return newExpenses.push(el.amount);

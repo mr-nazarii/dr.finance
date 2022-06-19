@@ -71,6 +71,13 @@ export const TableInner = (props: any) => {
     return false;
   };
 
+  const editType = () => {
+    if (props.type === "income") {
+      return "income";
+    }
+    return "expenses";
+  };
+
   return (
     <>
       <TableContainer
@@ -106,7 +113,7 @@ export const TableInner = (props: any) => {
             value={obj}
             setShow={setShow}
             show={show}
-            edit={giveType()}
+            edit={editType()}
           />
           <GS.MenuBackground onClick={() => setShow(!show)} />
         </>

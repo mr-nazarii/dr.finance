@@ -95,26 +95,27 @@ const ModifyFinance = (props: any) => {
 
             if (!select || !num) {
               return;
-            } else if (props.edit === true) {
+            } else if (props.edit === "income") {
               const income = {
                 id: token,
                 income: {
-                  date: new Date().getTime(),
+                  date: props.value.date,
                   type: select,
                   amount: num,
                 },
               };
 
-              // Fix
+              console.log(income);
+
               editIncome(income);
               dispatch(editIncomeState(income));
-            } else if (props.edit === false) {
+            } else if (props.edit === "expenses") {
+            } else {
+              transcript(props.income);
+
+              setSelect("");
+              setNum("");
             }
-
-            transcript(props.income);
-
-            setSelect("");
-            setNum("");
           }}
         >
           {props.income ? (
