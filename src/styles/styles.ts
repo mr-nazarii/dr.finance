@@ -256,7 +256,9 @@ const GS = {
 
   FinanceWrapper: styled.div`
     z-index: 3;
-    top: 150px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     position: fixed;
     min-width: 262px;
     max-width: 462px;

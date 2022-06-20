@@ -1,4 +1,4 @@
-import { Button, Drawer, TextareaAutosize, TextField } from "@mui/material";
+import { Button, Drawer, TextField } from "@mui/material";
 import { styled } from "@mui/system";
 import { colorVariables } from "./colors";
 

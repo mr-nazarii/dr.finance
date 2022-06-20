@@ -31,9 +31,6 @@ const SettingsMenu = (props: any) => {
           <SelectInput currency={["USD", "EUR", "GBP"]} />
         </GS.SettingsMenuLI>
       </GS.SettingsMenu>
-      {props.show ? (
-        <GS.MenuBackground onClick={() => props.setShow(!props.show)} />
-      ) : null}
     </>
   );
 };

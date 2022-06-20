@@ -14,7 +14,7 @@ import {
 import { TableBodyRow } from "./TableElements/TableBodyRow";
 import { TableHeaderRow } from "./TableElements/TableHeaderRow";
 import ModifyFinance from "../MainPage/Finance/ModifyFinance";
-import GS from "../../styles/styles";
+import { Modal } from "@mui/material";
 
 export const TableInner = (props: any) => {
   const dispatch = useAppDispatch();
@@ -106,18 +106,20 @@ export const TableInner = (props: any) => {
           />
         </Table>
       </TableContainer>
-      {show ? (
-        <>
-          <ModifyFinance
-            income={giveType()}
-            value={obj}
-            setShow={setShow}
-            show={show}
-            edit={editType()}
-          />
-          <GS.MenuBackground onClick={() => setShow(!show)} />
-        </>
-      ) : null}
+      <Modal
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+        open={show}
+        onClose={() => setShow(false)}
+      >
+        <ModifyFinance
+          income={giveType()}
+          value={obj}
+          setShow={setShow}
+          show={show}
+          edit={editType()}
+        />
+      </Modal>
     </>
   );
 };

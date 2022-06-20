@@ -1,5 +1,4 @@
-import { Drawer, Typography } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
 import useEffectOnce from "../../hooks/useEffectOnce";
