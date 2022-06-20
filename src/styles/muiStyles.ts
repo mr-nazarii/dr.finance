@@ -1,4 +1,4 @@
-import { Button, TextareaAutosize, TextField } from "@mui/material";
+import { Button, Drawer, TextareaAutosize, TextField } from "@mui/material";
 import { styled } from "@mui/system";
 import { colorVariables } from "./colors";
 
@@ -71,3 +71,5 @@ export const FormTextField = styled(TextField, {})<any>`
     }
   }
 `;
+
+export const SettingsDrawer = styled(Drawer, {})<any>``;

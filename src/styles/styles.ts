@@ -218,9 +218,6 @@ const GS = {
     background-color: ${colorVariables.white};
     height: 100vh;
     margin: 0;
-    position: fixed;
-    width: ${(props) => (!props.right ? "0px" : "220px")};
-    right: ${(props) => (!props.right ? "-200px" : "0px")};
     transition: transform 0.2s ease-out;
     list-style-type: none;
     padding: 20px 0px;

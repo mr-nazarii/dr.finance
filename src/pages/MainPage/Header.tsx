@@ -1,8 +1,10 @@
+import { Drawer, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
 import useEffectOnce from "../../hooks/useEffectOnce";
 import { loadUser } from "../../store/loadUser";
+import { SettingsDrawer } from "../../styles/muiStyles";
 
 import GS from "../../styles/styles";
 import SettingsMenu from "../SettingsMenu";
@@ -38,7 +40,14 @@ const Header = (props: any) => {
         <GS.BlockWrapperSettings onClick={() => setShow(!show)}>
           <GS.BlockImg src={process.env.PUBLIC_URL + "/settings.png"} />
         </GS.BlockWrapperSettings>
-        <SettingsMenu show={show} setShow={setShow} />
+
+        <SettingsDrawer
+          anchor={"right"}
+          open={show}
+          onClose={() => setShow(!show)}
+        >
+          <SettingsMenu show={show} setShow={setShow} />
+        </SettingsDrawer>
       </GS.LogoWrapper>
       <Outlet />
     </>
