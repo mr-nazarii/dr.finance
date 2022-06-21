@@ -1,4 +1,11 @@
-import { Button, Drawer, TextField } from "@mui/material";
+import {
+  Button,
+  Drawer,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+  TextField,
+} from "@mui/material";
 import { styled } from "@mui/system";
 import { colorVariables } from "./colors";
 
@@ -25,6 +32,26 @@ export const FormTextarea = styled(TextField, {})<any>`
     min-width: 230px;
     max-width: 230px;
     flex: 1;
+  }
+`;
+
+export const SettingsItemIcon = styled(ListItemIcon, {})<any>`
+  &.MuiListItemIcon-root {
+    min-width: 32px !important;
+    color: ${colorVariables.buttonRegisterColorDarker};
+  }
+`;
+
+export const SettingsListItem = styled(ListItem, {})<any>`
+  &.MuiListItem-root {
+    display: flex;
+    justify-content: flex-end;
+  }
+`;
+
+export const SettingsItemText = styled(ListItemText, {})<any>`
+  &.MuiListItemText-root {
+    color: ${colorVariables.black};
   }
 `;
 

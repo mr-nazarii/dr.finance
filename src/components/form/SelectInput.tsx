@@ -16,6 +16,7 @@ const SelectInput = (props: any) => {
       }
       defaultValue={"USD"}
       label="Currency"
+      variant="standard"
     >
       {props.currency
         ? props.currency.map((curr: any) => {
