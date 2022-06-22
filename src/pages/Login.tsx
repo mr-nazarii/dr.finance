@@ -31,8 +31,6 @@ const Login = () => {
           initialValues={initialValues}
           validationSchema={loginSchema}
           onSubmit={async (values, actions) => {
-            console.log({ values, actions });
-
             const auth = await loginUser(values);
 
             if (auth.status) {
@@ -84,7 +82,7 @@ const Login = () => {
                 <FormButton
                   variant="contained"
                   size="large"
-                  backgroundColor="login"
+                  backgroundcolor="login"
                   onClick={() => props.handleSubmit()}
                   type="submit"
                 >
