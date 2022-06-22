@@ -22,7 +22,6 @@ const ModifyFinance = (props: any) => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const token = localStorage.getItem("uToken");
-
   const standardValue = () => {
     if (props.value) {
       console.log(props.value);

@@ -7,6 +7,7 @@ import {
   TextField,
 } from "@mui/material";
 import { styled } from "@mui/system";
+import { Link } from "react-router-dom";
 import { colorVariables } from "./colors";
 
 export const FormButton = styled(Button, {})<any>`
@@ -33,6 +34,17 @@ export const FormTextarea = styled(TextField, {})<any>`
     max-width: 230px;
     flex: 1;
   }
+`;
+
+export const SecondaryServiceLink = styled(Link, {})<any>`
+  background-color: ${colorVariables.white};
+  display: inline-block;
+  box-shadow: 0px 4px 4px ${colorVariables.blackWithOpacity};
+  border-radius: 20px;
+  margin: 20px;
+  min-width: 100px;
+  max-width: 180px;
+  flex: 1;
 `;
 
 export const SettingsItemIcon = styled(ListItemIcon, {})<any>`

@@ -1,11 +1,10 @@
 import { Modal } from "@mui/material";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import GS from "../../../../styles/styles";
 import ModifyFinance from "../ModifyFinance";
 
 const ExpensesModal = (props: any) => {
   const date = new Date().getTime();
-
   const [show, setShow] = useState(false);
 
   return (
