@@ -25,7 +25,7 @@ const PreEnterPage = () => {
           <FormButton
             variant="contained"
             size="large"
-            backgroundColor="login"
+            backgroundcolor="login"
             component={Link}
             to="/login"
           >

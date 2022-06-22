@@ -64,7 +64,7 @@ const FeedbackPage = () => {
                 as={Textarea}
                 type="text"
                 placeholder="Description"
-                onChangeText={props.handleChange("description")}
+                onChange={props.handleChange("description")}
                 value={props.values.description}
               />
 
@@ -99,7 +99,7 @@ const FeedbackPage = () => {
                 <FormButton
                   variant="contained"
                   size="large"
-                  backgroundColor="login"
+                  backgroundcolor="login"
                   onClick={() => props.handleSubmit()}
                   type="submit"
                 >

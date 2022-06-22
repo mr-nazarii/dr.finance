@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import GS from "../../../../styles/styles";
 import ModifyFinance from "../ModifyFinance";
 
-const IncomeModal = (props: any) => {
+const IncomeModal = React.forwardRef((props: any, ref) => {
   const date = new Date().getTime();
 
   const [show, setShow] = useState(false);
@@ -27,6 +27,6 @@ const IncomeModal = (props: any) => {
       </Modal>
     </>
   );
-};
+});
 
 export default IncomeModal;

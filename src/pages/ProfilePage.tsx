@@ -18,7 +18,7 @@ const ProfilePage = () => {
       navigate("/login");
     }
     loadUser(dispatch, token, "setProfile");
-  }, []);
+  });
 
   return (
     <GS.Background aItems={"flex-start"} height={"auto"}>
@@ -45,7 +45,7 @@ const ProfilePage = () => {
         <FormButton
           variant="contained"
           size="large"
-          backgroundColor="login"
+          backgroundcolor="login"
           onClick={() => localStorage.removeItem("uToken")}
           to="/"
           component={Link}

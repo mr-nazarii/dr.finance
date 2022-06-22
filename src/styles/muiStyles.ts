@@ -12,7 +12,7 @@ import { colorVariables } from "./colors";
 
 export const FormButton = styled(Button, {})<any>`
   background-color: ${(props) =>
-    props.backgroundColor === "login"
+    props.backgroundcolor === "login"
       ? colorVariables.buttonLogInColor
       : colorVariables.buttonRegisterColor};
 
@@ -20,7 +20,7 @@ export const FormButton = styled(Button, {})<any>`
 
   &:hover {
     background-color: ${(props) =>
-      props.backgroundColor === "login"
+      props.backgroundcolor === "login"
         ? colorVariables.buttonLogInColor
         : colorVariables.buttonRegisterColor};
   }
