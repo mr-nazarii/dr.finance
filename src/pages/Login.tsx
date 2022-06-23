@@ -33,6 +33,8 @@ const Login = () => {
           onSubmit={async (values, actions) => {
             const auth = await loginUser(values);
 
+            console.log("Here");
+
             if (auth.status) {
               setWarning(auth.data.message);
               return;

@@ -18,7 +18,6 @@ export const loginUser = async (newUser: any) => {
       "http://localhost:5000/account/login",
       newUser
     );
-
     return user.data.accessTocken;
   } catch (error: any) {
     return error.response;
