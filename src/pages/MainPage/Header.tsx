@@ -22,6 +22,7 @@ const Header = (props: any) => {
     if (token === null) {
       navigate("/login");
     }
+    console.log("Header load token", token);
     loadUser(dispatch, token, "setUser");
     loadUser(dispatch, token, "expenses");
     loadUser(dispatch, token, "incomes");

@@ -61,6 +61,7 @@ const ModifyFinance = (props: any) => {
         id: token,
         income: { date: new Date().getTime(), type: select, amount: num },
       };
+      console.log("The Transcript", income);
 
       await addIncomeTranscript(income);
       loadUser(dispatch, token, "income", income);

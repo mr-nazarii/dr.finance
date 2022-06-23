@@ -1,6 +1,7 @@
 export interface ProfileState {
   currency: string;
   uTocken: string;
+  _id: string;
   name: string;
   surname: string;
   email: string;

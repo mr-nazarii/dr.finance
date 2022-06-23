@@ -4,6 +4,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 const initialState: ProfileState = {
   currency: "USD",
   uTocken: "",
+  _id: "",
   name: "",
   surname: "",
   email: "",
@@ -39,7 +40,7 @@ export const profileSlice = createSlice({
         total,
       }: any = action.payload;
 
-      state.uTocken = _id;
+      state._id = _id;
       state.name = name;
       state.email = email;
       state.password = password;

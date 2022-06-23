@@ -29,7 +29,13 @@ export const addIncomeTranscript = async (newIncome: any) => {
   try {
     const user = await axios.put(
       "http://localhost:5000/account/income",
-      newIncome
+
+      newIncome,
+      {
+        headers: {
+          Authorization: "Bearer " + newIncome.id,
+        },
+      }
     );
 
     console.log(user.data);
@@ -44,7 +50,12 @@ export const addExpensesTranscript = async (newIncome: any) => {
   try {
     const user = await axios.put(
       "http://localhost:5000/account/expenses",
-      newIncome
+      newIncome,
+      {
+        headers: {
+          Authorization: "Bearer " + newIncome.id,
+        },
+      }
     );
     console.log(user.data);
     return user.data;
@@ -70,7 +81,12 @@ export const deleteExpense = async (item: any) => {
     console.log(JSON.stringify(item, null, 2));
     const user = await axios.put(
       `http://localhost:5000/account/delete/expense`,
-      item
+      item,
+      {
+        headers: {
+          Authorization: "Bearer " + item.id,
+        },
+      }
     );
     return user.data;
   } catch (error: any) {
@@ -83,7 +99,12 @@ export const deleteIncome = async (item: any) => {
     console.log(JSON.stringify(item, null, 2));
     const user = await axios.put(
       `http://localhost:5000/account/delete/income`,
-      item
+      item,
+      {
+        headers: {
+          Authorization: "Bearer " + item.id,
+        },
+      }
     );
     return user.data;
   } catch (error: any) {
@@ -96,7 +117,12 @@ export const editIncome = async (item: any) => {
     console.log(JSON.stringify(item, null, 2));
     const user = await axios.put(
       `http://localhost:5000/account/edit/income`,
-      item
+      item,
+      {
+        headers: {
+          Authorization: "Bearer " + item.id,
+        },
+      }
     );
     return user.data;
   } catch (error: any) {
@@ -109,7 +135,12 @@ export const editExpense = async (item: any) => {
     console.log(JSON.stringify(item, null, 2));
     const user = await axios.put(
       `http://localhost:5000/account/edit/expense`,
-      item
+      item,
+      {
+        headers: {
+          Authorization: "Bearer " + item.id,
+        },
+      }
     );
     return user.data;
   } catch (error: any) {
