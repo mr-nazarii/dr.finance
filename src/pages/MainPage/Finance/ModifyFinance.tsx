@@ -111,6 +111,7 @@ const ModifyFinance = (props: any) => {
 
               editIncome(income);
               dispatch(editIncomeState(income));
+              props.setShow(false);
             } else if (props.edit === "expenses") {
               const expenses = {
                 id: token,
@@ -123,6 +124,7 @@ const ModifyFinance = (props: any) => {
 
               editExpense(expenses);
               dispatch(editExpensesState(expenses));
+              props.setShow(false);
             } else {
               transcript(props.income);
 

@@ -7,18 +7,7 @@ import { FormButton } from "../styles/muiStyles";
 import GS from "../styles/styles";
 
 const ProfilePage = () => {
-  // chage style
-  const navigate = useNavigate();
-  const dispatch = useAppDispatch();
-  const token = localStorage.getItem("uToken");
   const { name, surname, email } = useAppSelector((state) => state.profile);
-
-  useEffect(() => {
-    if (token === null) {
-      navigate("/login");
-    }
-    loadUser(dispatch, token, "setProfile");
-  });
 
   return (
     <GS.Background aItems={"flex-start"} height={"auto"}>
