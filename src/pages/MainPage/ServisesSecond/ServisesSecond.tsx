@@ -12,8 +12,8 @@ const ServisesSecond = () => {
   return (
     <GS.LogoWrapper jContent="center">
       <IncomeModal />
-
       <ExpensesModal />
+
       <SecondaryServiceLink key={num++} to={"/mainPage/stats"}>
         <GS.BlockImg src={process.env.PUBLIC_URL + `stats.png`} />
       </SecondaryServiceLink>

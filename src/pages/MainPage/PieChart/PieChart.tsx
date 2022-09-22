@@ -3,10 +3,11 @@ import { Doughnut } from "react-chartjs-2";
 import GS from "../../../styles/styles";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { useAppSelector } from "../../../hooks/hooks";
-import { ChevronRight, ChevronLeft } from "@mui/icons-material/";
+
 import { ExpensesData, hoverLabelExpenses } from "./ExpensesChart";
 import { IncomeData } from "./IncomeChart";
 import { TotalData } from "./TotalChart";
+import { PieHeader } from "./PieHeader";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -48,62 +49,31 @@ const PieChart = () => {
   // Fix on mobile devices the Total chart
   return (
     <GS.FinanceWrapper>
-      <GS.SectionTitle>
-        <GS.CloseButton right={"286px"}>
-          <ChevronLeft
-            onClick={() => {
-              if (page === 0) {
-                setPage(2);
-              } else if (page === 1) {
-                setPage(0);
-              } else if (page === 2) {
-                setPage(1);
-              }
-            }}
-            fontSize="large"
-          />
-        </GS.CloseButton>
-        {page === 0 ? "Expenses" : page === 1 ? "Income" : "Total"} chart
-        <GS.CloseButton>
-          <ChevronRight
-            onClick={() => {
-              if (page === 0) {
-                setPage(1);
-              } else if (page === 1) {
-                setPage(2);
-              } else if (page === 2) {
-                setPage(0);
-              }
-            }}
-            fontSize="large"
-          />
-        </GS.CloseButton>
-      </GS.SectionTitle>
-
+      <PieHeader page={page} setPage={setPage} />
       {page === 0 ? (
-        <GS.SectionTitle fSize={"18px"} color="brown">
+        <GS.Calculations fSize={"18px"} color="brown">
           Spent $
           {rawExpenses.reduce((partialSum: any, a: any) => +partialSum + +a, 0)}
-        </GS.SectionTitle>
+        </GS.Calculations>
       ) : page === 1 ? (
-        <GS.SectionTitle fSize={"18px"} color="green">
+        <GS.Calculations fSize={"18px"} color="green">
           Gained $
           {rawIncome.reduce((partialSum: any, a: any) => +partialSum + +a, 0)}
-        </GS.SectionTitle>
+        </GS.Calculations>
       ) : (
         <GS.LogoWrapper jContent={"space-around"} width="none">
-          <GS.SectionTitle fSize={"18px"} color="green">
+          <GS.Calculations fSize={"18px"} color="green">
             Gained $
             {rawIncome.reduce((partialSum: any, a: any) => +partialSum + +a, 0)}
-          </GS.SectionTitle>
-          <GS.SectionTitle fSize={"18px"} color="brown">
+          </GS.Calculations>
+          <GS.Calculations fSize={"18px"} color="brown">
             Spent $
             {rawExpenses.reduce(
               (partialSum: any, a: any) => +partialSum + +a,
               0
             )}
-          </GS.SectionTitle>
-          <GS.SectionTitle fSize={"18px"}>
+          </GS.Calculations>
+          <GS.Calculations fSize={"18px"}>
             Saved $
             {rawIncome.reduce(
               (partialSum: any, a: any) => +partialSum + +a,
@@ -113,7 +83,7 @@ const PieChart = () => {
                 (partialSum: any, a: any) => +partialSum + +a,
                 0
               )}
-          </GS.SectionTitle>
+          </GS.Calculations>
         </GS.LogoWrapper>
       )}
 

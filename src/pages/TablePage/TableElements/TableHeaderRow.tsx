@@ -16,7 +16,6 @@ export const TableHeaderRow = (props: any) => {
           >
             <GS.SectionTitle
               bgColor={props.type === "income" ? "green" : "red"}
-              bottom={"0"}
             >
               {props.type === "income" ? "income" : "expenses"}
             </GS.SectionTitle>
@@ -27,33 +26,33 @@ export const TableHeaderRow = (props: any) => {
             style={{ borderBottom: "1px solid black" }}
             padding="checkbox"
           >
-            <GS.SectionTitle bottom={"0"}>№</GS.SectionTitle>
+            <GS.TableHeader>№</GS.TableHeader>
           </TableCell>
           <TableCell
             style={{ borderBottom: "1px solid black" }}
             padding="checkbox"
           >
-            <GS.SectionTitle bottom={"0"}>Date</GS.SectionTitle>
+            <GS.TableHeader>Date</GS.TableHeader>
           </TableCell>
           <TableCell style={{ borderBottom: "1px solid black" }}>
-            <GS.SectionTitle bottom={"0"}>Type</GS.SectionTitle>
+            <GS.TableHeader>Type</GS.TableHeader>
           </TableCell>
           <TableCell align="left" style={{ borderBottom: "1px solid black" }}>
-            <GS.SectionTitle bottom={"0"}>Amount</GS.SectionTitle>
+            <GS.TableHeader>Amount</GS.TableHeader>
           </TableCell>
           <TableCell
             align="left"
             padding="checkbox"
             style={{ borderBottom: "1px solid black" }}
           >
-            <GS.SectionTitle bottom={"0"}>Edit</GS.SectionTitle>
+            <GS.TableHeader>Edit</GS.TableHeader>
           </TableCell>
           <TableCell
             align="left"
             padding="checkbox"
             style={{ borderBottom: "1px solid black" }}
           >
-            <GS.SectionTitle bottom={"0"}>Delete</GS.SectionTitle>
+            <GS.TableHeader>Delete</GS.TableHeader>
           </TableCell>
         </TableRow>
       </TableHead>

@@ -16,6 +16,7 @@ import {
   MoneyOff,
 } from "@mui/icons-material";
 import { InputLabel, MenuItem, Select, TextField } from "@mui/material";
+import { FormAmountTemp, FormSelectTemp } from "../../../../styles/muiStyles";
 
 export const AddExpense = (props: any) => {
   return (
@@ -24,7 +25,7 @@ export const AddExpense = (props: any) => {
       <InputLabel id="demo-simple-select-label" color="secondary">
         Type
       </InputLabel>
-      <Select
+      <FormSelectTemp
         labelId="demo-simple-select-label"
         id="demo-simple-select"
         value={props.select}
@@ -91,8 +92,8 @@ export const AddExpense = (props: any) => {
           <Train style={{ color: "red" }} />
           transport
         </MenuItem>
-      </Select>
-      <TextField
+      </FormSelectTemp>
+      <FormAmountTemp
         color="secondary"
         id="outlined-number"
         label="Amount"

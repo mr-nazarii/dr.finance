@@ -2,7 +2,7 @@ import { Field, Formik } from "formik";
 import feedbackSchema from "../../components/form/shemas/feedbackSchema";
 import GS from "../../styles/styles";
 import Textarea from "../../components/form/Textarea";
-import { Rating, Typography } from "@mui/material";
+import { Rating, TextareaAutosize, Typography } from "@mui/material";
 import StarIcon from "@mui/icons-material/Star";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
@@ -46,12 +46,13 @@ const FeedbackPage = () => {
               <FormTextField
                 id="title"
                 name="title"
-                label="title"
+                label="Title"
                 variant="filled"
                 type="text"
                 placeholder="Title"
                 onChange={props.handleChange("title")}
                 value={props.values.title}
+                fullWidth="100%"
               />
               <GS.FalseWrapper height={"20px"}>
                 {/* {props.errors.title && props.touched.title ? (
@@ -59,14 +60,30 @@ const FeedbackPage = () => {
                 ) : null} */}
               </GS.FalseWrapper>
 
-              <Field
+              <TextareaAutosize
+                name="description"
+                aria-label="minimum height"
+                minRows={3}
+                onChange={props.handleChange("description")}
+                placeholder="Description"
+                value={props.values.description}
+                style={{
+                  width: "100%",
+                  borderRadius: "13px",
+                  padding: "10px",
+                  color: "purple",
+                }}
+              />
+
+              {/* <Field
                 name="description"
                 as={Textarea}
                 type="text"
                 placeholder="Description"
                 onChange={props.handleChange("description")}
                 value={props.values.description}
-              />
+                fullWidth="100%"
+              /> */}
 
               <GS.FalseWrapper height={"20px"}>
                 {/* {props.errors.description && props.touched.description ? (

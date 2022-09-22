@@ -1,20 +1,20 @@
 import { Savings, AttachMoney, Paid } from "@mui/icons-material";
 import { InputLabel, MenuItem, Select, TextField } from "@mui/material";
 import React from "react";
+import { FormAmount, FormSelect } from "../../../../styles/muiStyles";
 
 const AddIncome = (props: any) => {
   return (
     <>
-      <InputLabel id="demo-simple-select-label" color="secondary">
+      <InputLabel id="demo-simple-select-label" style={{ color: "green" }}>
         Type
       </InputLabel>
-      <Select
+      <FormSelect
         labelId="demo-simple-select-label"
         id="demo-simple-select"
         value={props.select}
         label="Type"
         onChange={props.handleChange}
-        color="secondary"
         style={{ marginBottom: "15px" }}
         defaultValue="salary"
       >
@@ -30,16 +30,15 @@ const AddIncome = (props: any) => {
           <Paid style={{ color: "green" }} />
           Savings
         </MenuItem>
-      </Select>
+      </FormSelect>
 
-      <TextField
-        color="secondary"
+      <FormAmount
+        style={{ marginBottom: "15px" }}
         id="outlined-number"
         label="Amount"
         type="number"
         value={props.num}
         onChange={props.handleAmountChange}
-        style={{ marginBottom: "15px" }}
       />
     </>
   );

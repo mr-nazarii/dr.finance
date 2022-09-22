@@ -48,39 +48,32 @@ const Login = () => {
         >
           {(props) => (
             <>
-              <FormTextField
-                id="email"
-                name="email"
-                label="Email"
-                variant="filled"
-                type="text"
-                placeholder="Email Address"
-                onChange={props.handleChange("email")}
-                value={props.values.email}
-              />
-              <GS.FalseWrapper jContent="center">
-                {props.errors.email && props.touched.email ? (
-                  <GS.FalseText>{props.errors.email}</GS.FalseText>
-                ) : null}
-              </GS.FalseWrapper>
-              <FormTextField
-                id="password"
-                name="password"
-                label="Password"
-                variant="filled"
-                type="password"
-                placeholder="Password"
-                onChange={props.handleChange("password")}
-                value={props.values.password}
-              />
+              <GS.InputsWrapper>
+                <FormTextField
+                  id="email"
+                  name="email"
+                  label="Email"
+                  variant="filled"
+                  type="text"
+                  placeholder="Email Address"
+                  onChange={props.handleChange("email")}
+                  value={props.values.email}
+                  fullWidth="100%"
+                />
 
-              <GS.FalseWrapper jContent="center">
-                {props.errors.password && props.touched.password ? (
-                  <GS.FalseText>{props.errors.password}</GS.FalseText>
-                ) : null}
-              </GS.FalseWrapper>
-
-              <GS.LogoWrapper jContent="space-around">
+                <FormTextField
+                  id="password"
+                  name="password"
+                  label="Password"
+                  variant="filled"
+                  type="password"
+                  placeholder="Password"
+                  onChange={props.handleChange("password")}
+                  value={props.values.password}
+                  fullWidth="100%"
+                />
+              </GS.InputsWrapper>
+              <GS.LogoWrapper jContent="space-between">
                 <FormButton
                   variant="contained"
                   size="large"

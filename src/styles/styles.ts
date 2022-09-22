@@ -30,20 +30,21 @@ const GS = {
 
   LogoMain: styled.h1<LogoType>`
     text-decoration: none;
-    border-radius: 12px;
-    position: relative;
-    font-style: normal;
-    font-weight: 800;
+    font-weight: 700;
+    font-size: 58px;
+    line-height: 63px;
+    text-align: center;
+    text-transform: uppercase;
     font-size: ${(props) => props.fontSize || "33px"};
-    line-height: 36px;
-    color: ${colorVariables.white};
-    margin: 0 0 40px;
+    color: ${(props) => props.color || colorVariables.white};
+    background-color: ${(props) => props.bgcolor || "none"};
+    margin: 0px;
+    border-radius: 13px;
+    padding: 0px 10px;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    background-color: ${colorVariables.black};
-    padding: 10px 10px;
   `,
 
   Background: styled.div<BackgroundType>`
@@ -60,7 +61,7 @@ const GS = {
     border: none;
     border-radius: 12px;
     min-width: 262px;
-    max-width: 462px;
+    max-width: 362px;
     flex: 1;
     height: auto;
     margin: 15px;
@@ -69,7 +70,7 @@ const GS = {
     background-color: ${(props) => props.bgColor || colorVariables.black};
     flex-direction: ${(props) => props.fDirection || "column"};
     align-items: ${(props) => props.aItems || "center"};
-    padding: ${(props) => props.padding || "37px 24px 26px"};
+    padding: ${(props) => props.padding || "20px 24px 26px"};
     z-index: 1;
     position: ${(props) => props.position || "static"};
   `,
@@ -82,18 +83,18 @@ const GS = {
     max-width: 260px;
     flex: 1;
     padding: 0 0 0 10px;
-
+    width: 100%;
     outline: none;
     resize: none;
     padding-bottom: 40px;
   `,
 
-  ImageDollar: styled.img`
-    width: 45px;
-    height: 45px;
-    position: absolute;
-    right: -35px;
-    top: 8px;
+  InputsWrapper: styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 20px;
+    margin: 30px 0px;
   `,
 
   LogoWrapper: styled.div<LogoWrapperType>`
@@ -105,24 +106,48 @@ const GS = {
     justify-content: ${(props) => props.jContent || "space-around"};
   `,
 
+  Calculations: styled.p<any>`
+    font-size: 14px;
+    text-align: center;
+    margin: 10px 0px 20px;
+    font-weight: bold;
+    color: ${(prop) => prop.color || colorVariables.black};
+  `,
+
   SectionTitle: styled.p<SectionTitleType>`
     color: ${(prop) => prop.color || colorVariables.black};
-    margin: 0;
+    margin: 10px 0;
     bottom: ${(prop) => prop.bottom || "16px"};
     background-color: ${(prop) => prop.bgColor || colorVariables.white};
     padding: 5px 12px;
     border-radius: 12px;
     font-size: ${(props) => props.fSize || "1.5em"};
-    font-weight: 700;
     text-align: ${(prop) => prop.tAlign || "center"};
-    position: relative;
+    font-weight: bolder;
+    line-height: 39px;
+    text-align: center;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
   `,
 
-  MainText: styled.p`
-    color: ${colorVariables.white};
-    text-align: justify;
-    line-height: 27px;
+  TableHeader: styled.p<any>`
+    font-weight: 500;
+    font-size: 18px;
+    color: ${colorVariables.black};
+    margin: 0 10px;
+    line-height: 24px;
+    text-align: center;
+  `,
+
+  ProfileEmail: styled.p<any>`
+    font-weight: 10px;
     font-size: 16px;
+    color: ${colorVariables.white};
+    margin-top: -20px;
+    margin-bottom: 40px;
+    font-weight: 400;
+    line-height: 24px;
   `,
 
   SafeImage: styled.img<SafeImageType>`
@@ -263,17 +288,14 @@ const GS = {
     min-width: 262px;
     max-width: 462px;
     flex: 1;
-    border-radius: 9px;
+    border-radius: 23px;
     background-color: ${colorVariables.white};
     color: white;
     padding: 20px 30px;
   `,
 
   CloseButton: styled.span<CloseButtonType>`
-    width: 30px;
-    position: absolute;
-    right: ${(props) => props.right || "-11px"};
-    top: 4px;
+    color: ${colorVariables.black};
   `,
 };
 

@@ -29,6 +29,8 @@ export interface SettingsBar {
 
 export interface LogoType {
   fontSize?: string;
+  bgcolor?: string;
+  color?: string;
 }
 
 export interface FalseWrapperType {

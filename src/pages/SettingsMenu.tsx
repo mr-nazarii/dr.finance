@@ -11,21 +11,30 @@ import {
 } from "@mui/icons-material";
 import GS from "../styles/styles";
 import {
+  CurrencyItemText,
+  HeaderListItem,
   SettingsItemIcon,
   SettingsItemText,
   SettingsListItem,
 } from "../styles/muiStyles";
+import { colorVariables } from "../styles/colors";
 
 const SettingsMenu = (props: any) => {
   return (
     <>
       <List>
-        <SettingsListItem>
+        <HeaderListItem>
           <Close onClick={() => props.setShow(!props.show)} />
-        </SettingsListItem>
-        <SettingsListItem>
-          <GS.LogoMain fontSize="30px">Dr.Finance</GS.LogoMain>
-        </SettingsListItem>
+        </HeaderListItem>
+        <HeaderListItem>
+          <GS.LogoMain
+            color={colorVariables.white}
+            bgcolor={colorVariables.black}
+            fontSize="30px"
+          >
+            Dr.Finance
+          </GS.LogoMain>
+        </HeaderListItem>
 
         <SettingsListItem component={Link} to="/mainPage">
           <SettingsItemIcon>
@@ -50,14 +59,14 @@ const SettingsMenu = (props: any) => {
           <SettingsItemText>Feedback</SettingsItemText>
         </SettingsListItem>
 
-        <SettingsListItem>
+        <HeaderListItem>
           <SettingsItemIcon>
             <CurrencyExchange />
           </SettingsItemIcon>
-          <SettingsItemText>Curency</SettingsItemText>
+          <CurrencyItemText>Curency</CurrencyItemText>
 
           <SelectInput currency={["USD", "EUR", "GBP"]} />
-        </SettingsListItem>
+        </HeaderListItem>
       </List>
     </>
   );

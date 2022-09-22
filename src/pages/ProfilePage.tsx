@@ -23,13 +23,7 @@ const ProfilePage = () => {
         >
           {name} {surname}
         </GS.SectionTitle>
-        <GS.SectionTitle
-          color={colorVariables.white}
-          bgColor={colorVariables.black}
-          fSize={"16px"}
-        >
-          {email}
-        </GS.SectionTitle>
+        <GS.ProfileEmail>{email}</GS.ProfileEmail>
 
         <FormButton
           variant="contained"

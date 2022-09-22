@@ -3,7 +3,7 @@ export enum colorVariables {
   black = "#000000",
   warningRed = "#ff0000",
   blackWithOpacity = "#00000040",
-  buttonRegisterColor = "#b869f5",
+  buttonRegisterColor = "#8D49B7",
   buttonRegisterColorDarker = "#8f42c9",
-  buttonLogInColor = "#70e85d",
+  buttonLogInColor = "#49B75B",
 }

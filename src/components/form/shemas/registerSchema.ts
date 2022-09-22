@@ -1,8 +1,8 @@
 import * as yup from "yup";
 
 const registerSchema = yup.object({
-  name: yup.string().required("Name is required"),
-  surname: yup.string().required("Surname is required"),
+  firstname: yup.string().required("Name is required"),
+  lastname: yup.string().required("Surname is required"),
   email: yup
     .string()
     .email("Not an Email")

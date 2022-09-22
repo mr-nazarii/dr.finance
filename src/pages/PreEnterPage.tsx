@@ -11,16 +11,7 @@ const PreEnterPage = () => {
       <GS.LoginBackground>
         <GS.SectionTitle>Welcome to</GS.SectionTitle>
         <Logo />
-
-        <GS.MainText>
-          You are here because you finally want to get in control of your
-          finances and put them to work for you.
-          <GS.SpanLogo>Dr.Finance</GS.SpanLogo> provides you all the tools
-          necessary to manage your finances and eventually to collect enough
-          money to buy that house you always wanted along the beach
-        </GS.MainText>
         <GS.SafeImage src={process.env.PUBLIC_URL + "/safe.png"} />
-
         <GS.LogoWrapper jContent="space-around">
           <FormButton
             variant="contained"

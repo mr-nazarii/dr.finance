@@ -1,5 +1,5 @@
 import { Button, FormControl } from "@mui/material";
-import { Send, Close } from "@mui/icons-material";
+import { Send } from "@mui/icons-material";
 import React, { useEffect, useState } from "react";
 import GS from "../../../styles/styles";
 import AddIncome from "./AddIncome/AddIncome";
@@ -17,6 +17,7 @@ import {
   editExpensesState,
   editIncomeState,
 } from "../../../store/reducers/profileSlice";
+import { ModalHeader } from "./ModalHeader";
 
 const ModifyFinance = (props: any) => {
   const navigate = useNavigate();
@@ -84,13 +85,11 @@ const ModifyFinance = (props: any) => {
   return (
     <>
       <GS.FinanceWrapper>
-        <GS.SectionTitle>
-          {props.income ? "Add income" : "Add Expense"}
-          <GS.CloseButton onClick={() => props.setShow(!props.show)}>
-            <Close style={{ color: "red" }} />
-          </GS.CloseButton>
-        </GS.SectionTitle>
-
+        <ModalHeader
+          income={props.income}
+          setShow={props.setShow}
+          show={props.show}
+        />
         <FormControl
           component="form"
           fullWidth

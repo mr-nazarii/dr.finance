@@ -1,9 +1,11 @@
 import {
   Button,
   Drawer,
+  InputLabel,
   ListItem,
   ListItemIcon,
   ListItemText,
+  Select,
   TextField,
 } from "@mui/material";
 import { styled } from "@mui/system";
@@ -18,21 +20,18 @@ export const FormButton = styled(Button, {})<any>`
 
   color: ${colorVariables.white};
 
+  border-radius: 13px;
+  font-weight: 700;
+  font-size: 17px;
+  line-height: 30px;
+  text-align: center;
+  text-transform: uppercase;
+
   &:hover {
     background-color: ${(props) =>
       props.backgroundcolor === "login"
         ? colorVariables.buttonLogInColor
         : colorVariables.buttonRegisterColor};
-  }
-`;
-
-export const FormTextarea = styled(TextField, {})<any>`
-  & .MuiInputBase-input {
-    background-color: white;
-
-    min-width: 230px;
-    max-width: 230px;
-    flex: 1;
   }
 `;
 
@@ -54,14 +53,39 @@ export const SettingsItemIcon = styled(ListItemIcon, {})<any>`
   }
 `;
 
+export const HeaderListItem = styled(ListItem, {})<any>`
+  &.MuiListItem-root {
+    display: flex;
+    justify-content: flex-end;
+    transition: all 0.2s ease-out;
+    color: black;
+  }
+`;
+
 export const SettingsListItem = styled(ListItem, {})<any>`
   &.MuiListItem-root {
     display: flex;
     justify-content: flex-end;
+    transition: all 0.2s ease-out;
+
+    &:hover {
+      background-color: ${colorVariables.black};
+      transition: all 0.2s ease-out;
+    }
   }
 `;
 
 export const SettingsItemText = styled(ListItemText, {})<any>`
+  &.MuiListItemText-root {
+    color: ${colorVariables.black};
+
+    &:hover {
+      color: ${colorVariables.white};
+    }
+  }
+`;
+
+export const CurrencyItemText = styled(ListItemText, {})<any>`
   &.MuiListItemText-root {
     color: ${colorVariables.black};
   }
@@ -79,9 +103,6 @@ export const FormTextField = styled(TextField, {})<any>`
   & .MuiInputBase-input {
     background-color: white;
     border-radius: 13px;
-    min-width: 230px;
-    max-width: 230px;
-    flex: 1;
   }
 
   & .MuiInputBase-root .MuiFilledInput-underline .MuiInputBase-colorPrimary {
@@ -112,3 +133,57 @@ export const FormTextField = styled(TextField, {})<any>`
 `;
 
 export const SettingsDrawer = styled(Drawer, {})<any>``;
+
+export const FormSelect = styled(Select, {})<any>`
+  & .MuiSelect-select {
+    border-color: green;
+    border-width: 2px;
+  }
+
+  & .MuiOutlinedInput-notchedOutline {
+    border-color: green !important;
+    border-width: 2px;
+  }
+
+  & .MuiOutlinedInput-notchedOutline {
+    border-color: green !important;
+  }
+`;
+
+export const FormSelectTemp = styled(Select, {})<any>`
+  & .MuiSelect-select {
+    border-color: red;
+    border-width: 2px;
+  }
+
+  & .MuiOutlinedInput-notchedOutline {
+    border-color: red !important;
+    border-width: 2px;
+  }
+
+  & .MuiOutlinedInput-notchedOutline {
+    border-color: red !important;
+  }
+`;
+
+export const FormAmountTemp = styled(TextField, {})<any>`
+  & .MuiOutlinedInput-notchedOutline {
+    border-color: red !important;
+    border-width: 2px;
+  }
+
+  & .MuiInputLabel-root {
+    color: red !important;
+  }
+`;
+
+export const FormAmount = styled(TextField, {})<any>`
+  & .MuiOutlinedInput-notchedOutline {
+    border-color: green !important;
+    border-width: 2px;
+  }
+
+  & .MuiInputLabel-root {
+    color: green !important;
+  }
+`;

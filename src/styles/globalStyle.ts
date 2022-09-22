@@ -22,12 +22,10 @@ html {
 body {
   margin: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: linear-gradient(147.04deg, #d67eff 0%, #bbffb0 100%);
+  background: linear-gradient(116.75deg, #DF9BFF 0.97%, #78FFCE 100%);
   background-repeat: no-repeat;
   background-attachment: fixed;
   height: 100vh;
