@@ -35,8 +35,11 @@ const GS = {
     font-size: 50px;
     line-height: 87px;
     text-align: center;
-    text-transform: uppercase;
 
+    text-transform: uppercase;
+    @media (max-width: 575px) {
+      font-size: 45px;
+    }
     color: ${(props) => props.color || colorVariables.white};
     background-color: ${(props) => props.bgcolor || "none"};
     margin: 0px;
@@ -66,7 +69,6 @@ const GS = {
   TextareaStyle: styled.textarea`
     height: 208px;
     border: 3px solid;
-    border-radius: 13px;
     min-width: 260px;
     max-width: 260px;
     flex: 1;
@@ -86,11 +88,11 @@ const GS = {
   `,
 
   LogoWrapper: styled.div<LogoWrapperType>`
-    flex-wrap: wrap;
+    /* flex-wrap: wrap;
     display: flex;
     align-content: center;
     position: relative;
-    width: ${(props) => props.width || "100%"};
+    width: ${(props) => props.width || "100%"}; */
     justify-content: ${(props) => props.jContent || "space-around"};
   `,
 
@@ -116,7 +118,6 @@ const GS = {
     background-color: ${colorVariables.black};
     color: ${colorVariables.white};
     padding: 10px;
-    border-radius: 12px;
   `,
 
   TableHeader: styled.p<any>`
@@ -140,7 +141,6 @@ const GS = {
 
   SafeImage: styled.img<SafeImageType>`
     width: ${(props) => props.imgWidth || "12em"};
-    border-radius: 13px;
     height: auto;
     margin-top: 10px;
 
@@ -150,73 +150,115 @@ const GS = {
   SpanLogo: styled.span`
     background-color: ${colorVariables.white};
     padding: 2px 4px;
-    border-radius: 5px;
     color: ${colorVariables.black};
     font-weight: 800;
     margin-left: 5px;
   `,
 
-  BlockWrapper: styled.div`
+  BlockWrapper: styled(Col)`
     background-color: ${colorVariables.white};
-    display: inline-block;
-    box-shadow: 0px 4px 4px ${colorVariables.blackWithOpacity};
-    border-radius: 20px;
-    margin: 20px;
-    min-width: 100px;
-    max-width: 180px;
+    box-shadow: -5px 8px 8px ${colorVariables.blackWithOpacity};
+    width: 200px !important;
 
-    flex: 1;
+    div {
+      background-color: ${colorVariables.black};
+    }
+
+    p {
+      text-transform: uppercase;
+      color: ${colorVariables.white};
+    }
+
+    p:first-child {
+      font-weight: 400;
+      margin: 0;
+    }
+
+    &:hover p:last-child {
+      color: #c349e9;
+      transition: color 0.3s linear;
+    }
+
+    p:last-child {
+      font-weight: 700;
+      font-size: 35px;
+      line-height: 25px;
+      position: relative;
+      left: -3px;
+      transition: color 0.3s linear;
+    }
+
+    @media (max-width: 450px) {
+      width: 150px !important;
+    }
   `,
 
-  BlockWallet: styled.div`
-    background-color: ${colorVariables.white};
-    box-shadow: 0px 4px 4px ${colorVariables.blackWithOpacity};
-    border-radius: 20px;
-    margin: 20px;
-    min-width: 50px;
-    max-width: 302px;
+  BlockWallet: styled(Col)`
+    background-color: ${colorVariables.black};
+    box-shadow: -5px 8px 8px ${colorVariables.blackWithOpacity};
+    color: ${colorVariables.white};
 
-    font-size: 18px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    font-weight: 700;
-    padding: 0 10px;
-    padding-right: 40px;
+    p {
+      font-size: 18px;
+      font-weight: 700;
+      margin: 0;
+    }
   `,
 
-  BlockWrapperSettings: styled.div`
+  BlockWrapperSettings: styled(Col)`
     background-color: ${colorVariables.white};
-    display: inline-block;
-    box-shadow: 0px 4px 4px ${colorVariables.blackWithOpacity};
-    border-radius: 20px;
-    margin: 20px;
-    min-width: 50px;
-    max-width: 70px;
-    flex: 1;
+    box-shadow: -5px 8px 8px ${colorVariables.blackWithOpacity};
   `,
 
   BlockWrapperSettingsInside: styled.div`
     background-color: ${colorVariables.white};
     display: inline-block;
-    box-shadow: 0px 4px 4px ${colorVariables.blackWithOpacity};
-    border-radius: 20px;
+    box-shadow: -5px 8px 8px ${colorVariables.blackWithOpacity};
     min-width: 50px;
     max-width: 70px;
     flex: 1;
   `,
 
   BlockWrapperChart: styled.div`
-    background-color: ${colorVariables.white};
-    display: inline-block;
-    box-shadow: 0px 4px 4px ${colorVariables.blackWithOpacity};
-    border-radius: 20px;
-    margin: 20px;
-    min-width: 50px;
-    max-width: 300px;
+    background-color: ${colorVariables.black};
+    box-shadow: -5px 8px 8px ${colorVariables.blackWithOpacity};
 
-    flex: 1;
+    div {
+      color: ${colorVariables.white};
+    }
+
+    p {
+      text-transform: uppercase;
+      margin: 0;
+    }
+
+    p:first-child {
+      font-weight: 400;
+      font-size: 30px;
+    }
+
+    &:hover p:last-child {
+      color: #c349e9;
+      transition: color 0.3s linear;
+    }
+
+    p:last-child {
+      font-weight: 700;
+      font-size: 58px;
+      line-height: 40px;
+      position: relative;
+      left: -3px;
+      transition: color 0.3s linear;
+    }
   `,
+
+  Img: styled.img`
+    height: 200px;
+    width: 200px;
+
+    background-color: white;
+  `,
+
   BlockImg: styled.img`
     width: 100%;
   `,
@@ -262,7 +304,6 @@ const GS = {
 
   SelectItem: styled.select`
     margin-left: 6px;
-    border-radius: 9px;
     background-color: ${colorVariables.black};
     color: white;
   `,
@@ -276,7 +317,6 @@ const GS = {
     min-width: 262px;
     max-width: 462px;
     flex: 1;
-    border-radius: 23px;
     background-color: ${colorVariables.white};
     color: white;
     padding: 20px 30px;

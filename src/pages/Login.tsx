@@ -1,14 +1,14 @@
 import { Formik } from "formik";
 import React, { useState } from "react";
 import GS from "../styles/styles";
-import Logo from "../components/texts/Logo";
 import { LoginFormValues } from "../components/types/formTypes";
 import { Link, useNavigate } from "react-router-dom";
 import loginSchema from "../components/form/shemas/loginSchema";
 import { loginUser } from "../api/backendAPI";
 import { useAppDispatch } from "../hooks/hooks";
 import { profileTokenConfigure } from "../store/reducers/profileSlice";
-import { FormButton, FormTextField } from "../styles/muiStyles";
+import { FormTextField } from "../styles/muiStyles";
+import { Image, Row } from "react-bootstrap";
 
 const Login = () => {
   const initialValues: LoginFormValues = {
@@ -20,13 +20,11 @@ const Login = () => {
   // change local storage to JWT in the future
   const navigate = useNavigate();
   return (
-    <GS.Background>
-      <GS.LoginBackground>
-        <Logo />
-        <GS.SectionTitle>Log In</GS.SectionTitle>
-        <GS.FalseWrapper jContent="center">
-          <GS.FalseText>{warning}</GS.FalseText>
-        </GS.FalseWrapper>
+    <GS.Background
+      className="d-flex align-items-center justify-content-center
+    "
+    >
+      <Row className="d-flex flex-column">
         <Formik
           initialValues={initialValues}
           validationSchema={loginSchema}
@@ -48,54 +46,68 @@ const Login = () => {
         >
           {(props) => (
             <>
-              <GS.InputsWrapper>
-                <FormTextField
-                  id="email"
-                  name="email"
-                  label="Email"
-                  variant="filled"
-                  type="text"
-                  placeholder="Email Address"
-                  onChange={props.handleChange("email")}
-                  value={props.values.email}
-                  fullWidth="100%"
-                />
+              <GS.LoginBackground className="d-flex align-items-center justify-content-center flex-column  px-3 px-sm-5 py-2">
+                <div className="d-flex gap-4 align-items-center">
+                  <Link to="/">
+                    <Image fluid src="./icons/back.svg" />
+                  </Link>
+                  <GS.LogoMain fontSize="33px">Dr.Finance </GS.LogoMain>
+                </div>
 
-                <FormTextField
-                  id="password"
-                  name="password"
-                  label="Password"
-                  variant="filled"
-                  type="password"
-                  placeholder="Password"
-                  onChange={props.handleChange("password")}
-                  value={props.values.password}
-                  fullWidth="100%"
-                />
-              </GS.InputsWrapper>
-              <GS.LogoWrapper jContent="space-between">
-                <FormButton
-                  variant="contained"
-                  size="large"
-                  backgroundcolor="login"
-                  onClick={() => props.handleSubmit()}
+                <GS.FalseWrapper jContent="center">
+                  <GS.FalseText>{warning}</GS.FalseText>
+                </GS.FalseWrapper>
+
+                <GS.InputsWrapper>
+                  <FormTextField
+                    id="email"
+                    name="email"
+                    label="Email"
+                    variant="filled"
+                    type="text"
+                    placeholder="Email Address"
+                    onChange={props.handleChange("email")}
+                    value={props.values.email}
+                    fullWidth="100%"
+                  />
+
+                  <FormTextField
+                    id="password"
+                    name="password"
+                    label="Password"
+                    variant="filled"
+                    type="password"
+                    placeholder="Password"
+                    onChange={props.handleChange("password")}
+                    value={props.values.password}
+                    fullWidth="100%"
+                  />
+                </GS.InputsWrapper>
+              </GS.LoginBackground>
+              <GS.LoginBackground
+                bgColor="white"
+                className="d-flex align-items-center justify-content-center flex-column flex-sm-row p-0"
+              >
+                <GS.ButtonsLinks
+                  to={false}
+                  className="text-center fw-bolder fs-5 text-uppercase py-3 m-0 "
                   type="submit"
+                  onClick={() => props.handleSubmit()}
                 >
                   Log In
-                </FormButton>
-                <FormButton
-                  component={Link}
+                </GS.ButtonsLinks>
+                <GS.ButtonsLinks
                   to="/register"
-                  variant="contained"
-                  size="large"
+                  theme="dark"
+                  className="text-center fw-bolder fs-5 text-uppercase py-3 m-0 "
                 >
                   Register
-                </FormButton>
-              </GS.LogoWrapper>
+                </GS.ButtonsLinks>
+              </GS.LoginBackground>
             </>
           )}
         </Formik>
-      </GS.LoginBackground>
+      </Row>
     </GS.Background>
   );
 };

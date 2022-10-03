@@ -1,11 +1,6 @@
 import React from "react";
 import GS from "../styles/styles";
-import Logo from "../components/texts/Logo";
-
-import { Link } from "react-router-dom";
-import { FormButton } from "../styles/muiStyles";
 import { Row } from "react-bootstrap";
-import Col from "react-bootstrap/esm/Col";
 
 const PreEnterPage = () => {
   return (
@@ -21,7 +16,7 @@ const PreEnterPage = () => {
         </GS.LoginBackground>
         <GS.LoginBackground
           bgColor="white"
-          className="d-flex align-items-center justify-content-center flex-column p-0"
+          className="d-flex align-items-center justify-content-center flex-column flex-sm-row p-0"
         >
           <GS.ButtonsLinks
             to="/login"

@@ -20,7 +20,6 @@ export const FormButton = styled(Button, {})<any>`
 
   color: ${colorVariables.white};
 
-  border-radius: 13px;
   font-weight: 700;
   font-size: 17px;
   line-height: 30px;
@@ -35,16 +34,7 @@ export const FormButton = styled(Button, {})<any>`
   }
 `;
 
-export const SecondaryServiceLink = styled(Link, {})<any>`
-  background-color: ${colorVariables.white};
-  display: inline-block;
-  box-shadow: 0px 4px 4px ${colorVariables.blackWithOpacity};
-  border-radius: 20px;
-  margin: 20px;
-  min-width: 100px;
-  max-width: 180px;
-  flex: 1;
-`;
+export const SecondaryServiceLink = styled(Link, {})<any>``;
 
 export const SettingsItemIcon = styled(ListItemIcon, {})<any>`
   &.MuiListItemIcon-root {
@@ -102,16 +92,14 @@ export const FormTextField = styled(TextField, {})<any>`
 
   & .MuiInputBase-input {
     background-color: white;
-    border-radius: 13px;
   }
 
   & .MuiInputBase-root .MuiFilledInput-underline .MuiInputBase-colorPrimary {
     padding: 0px;
   }
 
-  & .MuiInput-underline:after {
-    border-radius: 13px;
-  }
+  /* & .MuiInput-underline:after {
+  } */
 
   & .MuiInput-underline {
     border-bottom-color: red;
@@ -120,14 +108,12 @@ export const FormTextField = styled(TextField, {})<any>`
     & fieldset {
       border-width: 3px;
       border-color: ${colorVariables.buttonRegisterColorDarker};
-      border-radius: 13px;
     }
     &:hover fieldset {
       border-color: ${colorVariables.buttonRegisterColorDarker};
     }
     &.Mui-focused fieldset {
       border-color: ${colorVariables.buttonRegisterColor};
-      border-radius: 13px;
     }
   }
 `;

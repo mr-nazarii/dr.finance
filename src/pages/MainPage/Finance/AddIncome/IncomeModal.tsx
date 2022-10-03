@@ -1,5 +1,6 @@
 import { Modal } from "@mui/material";
 import React, { useState } from "react";
+import { Image } from "react-bootstrap";
 import GS from "../../../../styles/styles";
 import ModifyFinance from "../ModifyFinance";
 
@@ -11,10 +12,17 @@ const IncomeModal = React.forwardRef((props: any, ref) => {
   return (
     <>
       <GS.BlockWrapper
+        xs="2"
         onClick={() => setShow(!show)}
         key={Math.floor(Math.random() * date)}
+        className="d-flex flex-column text-center p-0"
       >
-        <GS.BlockImg src={process.env.PUBLIC_URL + `thumbUp.png`} />
+        <Image fluid src={process.env.PUBLIC_URL + `thumbUp.png`} />
+
+        <div className="pt-2">
+          <p className="fs-5">Add</p>
+          <p className="fs-2">Income</p>
+        </div>
       </GS.BlockWrapper>
 
       <Modal

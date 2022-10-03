@@ -27,22 +27,16 @@ const SettingsMenu = (props: any) => {
           <Close onClick={() => props.setShow(!props.show)} />
         </HeaderListItem>
         <HeaderListItem>
-          <GS.LogoMain
-            color={colorVariables.white}
-            bgcolor={colorVariables.black}
-            fontSize="30px"
-          >
-            Dr.Finance
-          </GS.LogoMain>
+          <Link to="/mainPage" style={{ textDecoration: "none" }}>
+            <GS.LogoMain
+              color={colorVariables.white}
+              bgcolor={colorVariables.black}
+              className="fs-2 lh-base p-3"
+            >
+              Dr.Finance
+            </GS.LogoMain>
+          </Link>
         </HeaderListItem>
-
-        <SettingsListItem component={Link} to="/mainPage">
-          <SettingsItemIcon>
-            <Home />
-          </SettingsItemIcon>
-
-          <SettingsItemText>Home</SettingsItemText>
-        </SettingsListItem>
 
         <SettingsListItem component={Link} to="/mainPage/profile">
           <SettingsItemIcon>

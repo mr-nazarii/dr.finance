@@ -10,10 +10,17 @@ const ExpensesModal = (props: any) => {
   return (
     <>
       <GS.BlockWrapper
+        xs="2"
         onClick={() => setShow(!show)}
         key={Math.floor(Math.random() * date)}
+        className="d-flex flex-column text-center p-0"
+        s
       >
         <GS.BlockImg src={process.env.PUBLIC_URL + `thumbDown.png`} />
+        <div className="pt-2">
+          <p className="fs-5">Add</p>
+          <p className="fs-2">Expense</p>
+        </div>
       </GS.BlockWrapper>
 
       <Modal
