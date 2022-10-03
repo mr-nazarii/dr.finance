@@ -61,14 +61,7 @@ export const TableBodyRow = (props: any) => {
                 {num++}
               </TableCell>
               <TableCell align="center" component="th" scope="row">
-                <GS.SectionTitle
-                  bgColor={colorVariables.black}
-                  color={colorVariables.white}
-                  bottom="0"
-                  fSize="16px"
-                >
-                  {getDate(item.date)}
-                </GS.SectionTitle>
+                <GS.DateSection>{getDate(item.date)}</GS.DateSection>
               </TableCell>
               <TableCell align="center" component="th" scope="row">
                 {item.type}

@@ -1,3 +1,5 @@
+import Col from "react-bootstrap/esm/Col";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import {
   LogoType,
@@ -29,50 +31,36 @@ const GS = {
   `,
 
   LogoMain: styled.h1<LogoType>`
-    text-decoration: none;
     font-weight: 700;
-    font-size: 58px;
-    line-height: 63px;
+    font-size: 50px;
+    line-height: 87px;
     text-align: center;
     text-transform: uppercase;
-    font-size: ${(props) => props.fontSize || "33px"};
+
     color: ${(props) => props.color || colorVariables.white};
     background-color: ${(props) => props.bgcolor || "none"};
     margin: 0px;
-    border-radius: 13px;
-    padding: 0px 10px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
   `,
 
   Background: styled.div<BackgroundType>`
-    display: flex;
-    justify-content: ${(props) => props.jContent || "center"};
-    flex-direction: ${(props) => props.fDirection || "row"};
-    align-items: ${(props) => props.aItems || "center"};
-    height: ${(props) => props.height || "100vh"};
-    gap: ${(props) => props.gap || "none"};
-    margin: 10px 0 10px 0;
+    height: 100vh;
+    background-image: url("./dollarBg.png");
+    background-size: 150px;
   `,
 
-  LoginBackground: styled.div<LoginBackgroundType>`
+  LoginBackground: styled(Col)<LoginBackgroundType>`
+    box-sizing: border-box;
     border: none;
-    border-radius: 12px;
-    min-width: 262px;
-    max-width: 362px;
-    flex: 1;
-    height: auto;
-    margin: 15px;
-    display: flex;
-    justify-content: center;
     background-color: ${(props) => props.bgColor || colorVariables.black};
-    flex-direction: ${(props) => props.fDirection || "column"};
-    align-items: ${(props) => props.aItems || "center"};
-    padding: ${(props) => props.padding || "20px 24px 26px"};
-    z-index: 1;
-    position: ${(props) => props.position || "static"};
+  `,
+
+  ButtonsLinks: styled(Link)<any>`
+    text-decoration: none;
+    background-color: ${(props) =>
+      props.theme === "dark" ? colorVariables.black : colorVariables.white};
+    color: ${(props) =>
+      props.theme === "dark" ? colorVariables.white : colorVariables.black};
+    width: 100%;
   `,
 
   TextareaStyle: styled.textarea`
@@ -116,19 +104,19 @@ const GS = {
 
   SectionTitle: styled.p<SectionTitleType>`
     color: ${(prop) => prop.color || colorVariables.black};
-    margin: 10px 0;
-    bottom: ${(prop) => prop.bottom || "16px"};
+    /* bottom: ${(prop) => prop.bottom || "16px"}; */
     background-color: ${(prop) => prop.bgColor || colorVariables.white};
-    padding: 5px 12px;
-    border-radius: 12px;
-    font-size: ${(props) => props.fSize || "1.5em"};
-    text-align: ${(prop) => prop.tAlign || "center"};
-    font-weight: bolder;
-    line-height: 39px;
-    text-align: center;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 54px;
     text-transform: uppercase;
-    display: flex;
-    justify-content: center;
+  `,
+
+  DateSection: styled.p<any>`
+    background-color: ${colorVariables.black};
+    color: ${colorVariables.white};
+    padding: 10px;
+    border-radius: 12px;
   `,
 
   TableHeader: styled.p<any>`
@@ -151,7 +139,7 @@ const GS = {
   `,
 
   SafeImage: styled.img<SafeImageType>`
-    width: ${(props) => props.imgWidth || "70%;"};
+    width: ${(props) => props.imgWidth || "12em"};
     border-radius: 13px;
     height: auto;
     margin-top: 10px;

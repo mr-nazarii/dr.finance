@@ -22,10 +22,10 @@ html {
 body {
   margin: 0;
   margin: 0;
-  font-family: sans-serif;
+  font-family: 'IBM Plex Sans KR', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: linear-gradient(116.75deg, #DF9BFF 0.97%, #78FFCE 100%);
+  background: linear-gradient(116.75deg, #FFFFFF 0.97%, #A9A9A9 100%);
   background-repeat: no-repeat;
   background-attachment: fixed;
   height: 100vh;
