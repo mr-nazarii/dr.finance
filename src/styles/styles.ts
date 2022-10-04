@@ -55,6 +55,7 @@ const GS = {
     box-sizing: border-box;
     border: none;
     background-color: ${(props) => props.bgColor || colorVariables.black};
+    color: white;
   `,
 
   ButtonsLinks: styled(Link)<any>`
@@ -308,18 +309,9 @@ const GS = {
     color: white;
   `,
 
-  FinanceWrapper: styled.div`
-    z-index: 3;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    position: fixed;
-    min-width: 262px;
-    max-width: 462px;
-    flex: 1;
+  FinanceWrapper: styled(Col)`
     background-color: ${colorVariables.white};
     color: white;
-    padding: 20px 30px;
   `,
 
   CloseButton: styled.span<CloseButtonType>`

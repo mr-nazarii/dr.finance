@@ -7,6 +7,7 @@ import StarIcon from "@mui/icons-material/Star";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { FormButton, FormTextField } from "../../styles/muiStyles";
+import { Image, Row } from "react-bootstrap";
 
 const FeedbackPage = () => {
   const initialValues: any = {
@@ -25,13 +26,11 @@ const FeedbackPage = () => {
   });
 
   return (
-    <GS.Background aItems={"flex-start"} height={"auto"}>
-      <GS.LoginBackground>
-        <GS.SectionTitle>Feedback</GS.SectionTitle>
-        <GS.SafeImage
-          imgWidth={"50%"}
-          src={process.env.PUBLIC_URL + "/megaphone.png"}
-        />
+    <GS.Background
+      className="d-flex align-items-start justify-content-center
+    "
+    >
+      <Row className="d-flex flex-column">
         <Formik
           initialValues={initialValues}
           validationSchema={feedbackSchema}
@@ -43,39 +42,47 @@ const FeedbackPage = () => {
         >
           {(props) => (
             <>
-              <FormTextField
-                id="title"
-                name="title"
-                label="Title"
-                variant="filled"
-                type="text"
-                placeholder="Title"
-                onChange={props.handleChange("title")}
-                value={props.values.title}
-                fullWidth="100%"
-              />
-              <GS.FalseWrapper height={"20px"}>
-                {/* {props.errors.title && props.touched.title ? (
+              <GS.LoginBackground className="d-flex align-items-center justify-content-center flex-column  px-3 px-sm-5 py-4">
+                <GS.SectionTitle className="px-3">Feedback</GS.SectionTitle>
+                <div className="mb-3" style={{ width: "200px" }}>
+                  <Image
+                    fluid
+                    src={process.env.PUBLIC_URL + "/megaphone.png"}
+                  />
+                </div>
+
+                <FormTextField
+                  id="title"
+                  name="title"
+                  label="Title"
+                  variant="filled"
+                  type="text"
+                  placeholder="Title"
+                  onChange={props.handleChange("title")}
+                  value={props.values.title}
+                  fullWidth="100%"
+                />
+                <GS.FalseWrapper height={"20px"}>
+                  {/* {props.errors.title && props.touched.title ? (
                   <GS.FalseText>Hi</GS.FalseText>
                 ) : null} */}
-              </GS.FalseWrapper>
+                </GS.FalseWrapper>
 
-              <TextareaAutosize
-                name="description"
-                aria-label="minimum height"
-                minRows={3}
-                onChange={props.handleChange("description")}
-                placeholder="Description"
-                value={props.values.description}
-                style={{
-                  width: "100%",
-                  borderRadius: "13px",
-                  padding: "10px",
-                  color: "purple",
-                }}
-              />
+                <TextareaAutosize
+                  name="description"
+                  aria-label="minimum height"
+                  minRows={3}
+                  onChange={props.handleChange("description")}
+                  placeholder="Description"
+                  value={props.values.description}
+                  style={{
+                    width: "100%",
+                    padding: "10px",
+                    color: "purple",
+                  }}
+                />
 
-              {/* <Field
+                {/* <Field
                 name="description"
                 as={Textarea}
                 type="text"
@@ -85,51 +92,40 @@ const FeedbackPage = () => {
                 fullWidth="100%"
               /> */}
 
-              <GS.FalseWrapper height={"20px"}>
-                {/* {props.errors.description && props.touched.description ? (
+                <GS.FalseWrapper height={"20px"}>
+                  {/* {props.errors.description && props.touched.description ? (
                   <GS.FalseText>Description</GS.FalseText>
                 ) : null} */}
-              </GS.FalseWrapper>
-              <GS.LoginBackground
-                style={{ alignSelf: "center", margin: "0px 0px 30px 0px" }}
-                bgColor={"trasperent"}
-                aItems={"center"}
-                padding={"0"}
-              >
-                <Typography style={{ color: "white" }} component="legend">
-                  Feedback Rate
-                </Typography>
+                </GS.FalseWrapper>
+                <GS.LoginBackground className="d-flex mb-3 align-items-center">
+                  <p className="fs-5 m-0 me-3">Rate:</p>
 
-                <Rating
-                  name="simple-controlled"
-                  value={props.values.rate}
-                  onChange={props.handleChange("rate")}
-                  style={{
-                    backgroundColor: "white",
-                    padding: "6px",
-                    borderRadius: "5px",
-                  }}
-                  emptyIcon={<StarIcon fontSize="inherit" />}
-                />
+                  <Rating
+                    name="simple-controlled"
+                    value={props.values.rate}
+                    onChange={props.handleChange("rate")}
+                    style={{}}
+                    emptyIcon={<StarIcon fontSize="inherit" />}
+                  />
+                </GS.LoginBackground>
               </GS.LoginBackground>
-              <GS.LogoWrapper jContent="space-around">
-                <FormButton
-                  variant="contained"
-                  size="large"
-                  backgroundcolor="login"
-                  onClick={() => props.handleSubmit()}
+              <GS.LoginBackground
+                bgColor="white"
+                className="d-flex align-items-center justify-content-center flex-column flex-sm-row p-0"
+              >
+                <GS.ButtonsLinks
+                  to={false}
+                  className="text-center fw-bolder fs-5 text-uppercase py-3 m-0 "
                   type="submit"
+                  onClick={() => props.handleSubmit()}
                 >
-                  Send{" "}
-                </FormButton>
-              </GS.LogoWrapper>
+                  Log In
+                </GS.ButtonsLinks>
+              </GS.LoginBackground>
             </>
           )}
         </Formik>
-        {/* <Link to="/">
-          <Button>Log Out</Button>
-        </Link> */}
-      </GS.LoginBackground>
+      </Row>
     </GS.Background>
   );
 };

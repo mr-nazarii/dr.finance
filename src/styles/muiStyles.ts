@@ -122,17 +122,17 @@ export const SettingsDrawer = styled(Drawer, {})<any>``;
 
 export const FormSelect = styled(Select, {})<any>`
   & .MuiSelect-select {
-    border-color: green;
+    border-color: ${colorVariables.buttonRegisterColor};
     border-width: 2px;
   }
 
   & .MuiOutlinedInput-notchedOutline {
-    border-color: green !important;
+    border-color: ${colorVariables.buttonRegisterColor} !important;
     border-width: 2px;
   }
 
   & .MuiOutlinedInput-notchedOutline {
-    border-color: green !important;
+    border-color: ${colorVariables.buttonRegisterColor} !important;
   }
 `;
 
@@ -165,11 +165,11 @@ export const FormAmountTemp = styled(TextField, {})<any>`
 
 export const FormAmount = styled(TextField, {})<any>`
   & .MuiOutlinedInput-notchedOutline {
-    border-color: green !important;
+    border-color: ${colorVariables.buttonRegisterColor} !important;
     border-width: 2px;
   }
 
   & .MuiInputLabel-root {
-    color: green !important;
+    color: ${colorVariables.buttonRegisterColor} !important;
   }
 `;

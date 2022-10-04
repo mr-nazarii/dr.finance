@@ -18,6 +18,8 @@ import {
   editIncomeState,
 } from "../../../store/reducers/profileSlice";
 import { ModalHeader } from "./ModalHeader";
+import { Row } from "react-bootstrap";
+import { colorVariables } from "../../../styles/colors";
 
 const ModifyFinance = (props: any) => {
   const navigate = useNavigate();
@@ -83,8 +85,11 @@ const ModifyFinance = (props: any) => {
   };
 
   return (
-    <>
-      <GS.FinanceWrapper>
+    <Row>
+      <GS.FinanceWrapper
+        xs="auto"
+        className="p-4 px-5 position-absolute top-50 start-50 translate-middle"
+      >
         <ModalHeader
           income={props.income}
           setShow={props.setShow}
@@ -150,7 +155,10 @@ const ModifyFinance = (props: any) => {
 
           <Button
             type="submit"
-            color="secondary"
+            style={{
+              background: `${colorVariables.buttonRegisterColor}`,
+              height: "50px",
+            }}
             variant="contained"
             endIcon={<Send />}
           >
@@ -158,7 +166,7 @@ const ModifyFinance = (props: any) => {
           </Button>
         </FormControl>
       </GS.FinanceWrapper>
-    </>
+    </Row>
   );
 };
 

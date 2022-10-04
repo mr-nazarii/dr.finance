@@ -1,12 +1,16 @@
 import { Savings, AttachMoney, Paid } from "@mui/icons-material";
 import { InputLabel, MenuItem, Select, TextField } from "@mui/material";
 import React from "react";
+import { colorVariables } from "../../../../styles/colors";
 import { FormAmount, FormSelect } from "../../../../styles/muiStyles";
 
 const AddIncome = (props: any) => {
   return (
     <>
-      <InputLabel id="demo-simple-select-label" style={{ color: "green" }}>
+      <InputLabel
+        id="demo-simple-select-label"
+        style={{ color: `${colorVariables.buttonRegisterColor}` }}
+      >
         Type
       </InputLabel>
       <FormSelect
@@ -19,15 +23,17 @@ const AddIncome = (props: any) => {
         defaultValue="salary"
       >
         <MenuItem value={"salary"}>
-          <Savings style={{ color: "green" }} />
+          <Savings style={{ color: `${colorVariables.buttonRegisterColor}` }} />
           Salary
         </MenuItem>
         <MenuItem value={"deposit"}>
-          <AttachMoney style={{ color: "green" }} />
+          <AttachMoney
+            style={{ color: `${colorVariables.buttonRegisterColor}` }}
+          />
           Deposit
         </MenuItem>
         <MenuItem value={"savings"}>
-          <Paid style={{ color: "green" }} />
+          <Paid style={{ color: `${colorVariables.buttonRegisterColor}` }} />
           Savings
         </MenuItem>
       </FormSelect>

@@ -17,12 +17,12 @@ import {
 } from "@mui/icons-material";
 import { InputLabel, MenuItem, Select, TextField } from "@mui/material";
 import { FormAmountTemp, FormSelectTemp } from "../../../../styles/muiStyles";
+import { colorVariables } from "../../../../styles/colors";
 
 export const AddExpense = (props: any) => {
   return (
     <>
-      {" "}
-      <InputLabel id="demo-simple-select-label" color="secondary">
+      <InputLabel id="demo-simple-select-label" style={{ color: `red` }}>
         Type
       </InputLabel>
       <FormSelectTemp
@@ -32,7 +32,9 @@ export const AddExpense = (props: any) => {
         label="Type"
         onChange={props.handleChange}
         color="secondary"
-        style={{ marginBottom: "15px" }}
+        style={{
+          marginBottom: "15px",
+        }}
         defaultValue="bills"
       >
         <MenuItem value={"bills"}>

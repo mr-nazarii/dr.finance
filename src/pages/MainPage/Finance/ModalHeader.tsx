@@ -1,31 +1,18 @@
 import React from "react";
 import GS from "../../../styles/styles";
 import { Close } from "@mui/icons-material";
+import { colorVariables } from "../../../styles/colors";
 
 export const ModalHeader = (props: any) => {
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        gap: "10px",
-        position: "relative",
-      }}
-    >
-      <GS.SectionTitle>
-        {props.income ? "Add income" : "Add Expense"}
+    <div className="d-flex justify-content-center">
+      <GS.SectionTitle
+        color={`${colorVariables.white}`}
+        bgColor={`${colorVariables.black}`}
+        className="px-3"
+      >
+        {props.income ? "Income" : "Expense"}
       </GS.SectionTitle>
-
-      <Close
-        onClick={() => props.setShow(!props.show)}
-        style={{
-          color: "red",
-          position: "absolute",
-          right: "-10px",
-          top: "-5px",
-        }}
-      />
     </div>
   );
 };
