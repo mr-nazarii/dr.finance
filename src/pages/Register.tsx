@@ -5,7 +5,7 @@ import registerSchema from "../components/form/shemas/registerSchema";
 import { RegisterFormValues } from "../components/types/formTypes";
 import { Link, useNavigate } from "react-router-dom";
 import { createUser } from "../api/backendAPI";
-import { FormButton, FormTextField } from "../styles/muiStyles";
+import { FormTextField } from "../styles/muiStyles";
 import { Image, Row } from "react-bootstrap";
 
 const Register = () => {
@@ -173,14 +173,14 @@ const Register = () => {
               <GS.LoginBackground className="d-flex align-items-center justify-content-center flex-column flex-sm-row p-0">
                 <GS.ButtonsLinks
                   to="/login"
-                  className="text-center fw-bolder fs-5 text-uppercase py-3 m-0 "
+                  className="text-center fw-bolder fs-5 text-uppercase py-3 m-0"
                 >
                   Log In
                 </GS.ButtonsLinks>
                 <GS.ButtonsLinks
                   to={false}
                   theme="dark"
-                  className="text-center fw-bolder fs-5 text-uppercase py-3 m-0 "
+                  className="text-center fw-bolder fs-5 text-uppercase py-3 m-0 order-first order-sm-last"
                   type="submit"
                   onClick={() => props.handleSubmit()}
                 >

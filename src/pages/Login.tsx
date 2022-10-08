@@ -30,19 +30,19 @@ const Login = () => {
           validationSchema={loginSchema}
           onSubmit={async (values, actions) => {
             const auth = await loginUser(values);
-
-            if (!auth.status) {
-              if (auth.response.data === undefined) {
-                setWarning(auth.message);
-              }
+            if (typeof auth === "string") {
+              dispatch(profileTokenConfigure(auth));
+              localStorage.setItem("uToken", auth);
+              actions.resetForm();
+              navigate("/mainPage");
+            } else if (!auth) {
               setWarning(auth.data.message);
               return;
+            } else if (auth.response.data === undefined) {
+              setWarning(auth.message);
+              return;
             }
-
-            dispatch(profileTokenConfigure(auth));
-            localStorage.setItem("uToken", auth);
-            actions.resetForm();
-            navigate("/mainPage");
+            console.log(auth);
           }}
         >
           {(props) => (
