@@ -1,5 +1,5 @@
 import { Formik } from "formik";
-import React from "react";
+import React, { useState } from "react";
 import GS from "../styles/styles";
 import registerSchema from "../components/form/shemas/registerSchema";
 import { RegisterFormValues } from "../components/types/formTypes";
@@ -16,6 +16,7 @@ const Register = () => {
     password: "",
     confirmPassword: "",
   };
+  const [warning, setWarning] = useState("");
 
   const navigate = useNavigate();
   return (
@@ -27,14 +28,22 @@ const Register = () => {
         <Formik
           initialValues={initialValues}
           validationSchema={registerSchema}
-          onSubmit={(values, actions) => {
+          onSubmit={async (values, actions) => {
             const object = {
               firstname: values.firstname,
               lastname: values.lastname,
               email: values.email,
               password: values.password,
             };
-            createUser(object);
+            const create = await createUser(object);
+
+            console.log(create);
+
+            if (create.response.data === undefined) {
+              setWarning(create.message);
+              return;
+            }
+
             actions.resetForm();
             navigate("/login");
           }}
@@ -48,6 +57,9 @@ const Register = () => {
                   </Link>
                   <GS.LogoMain fontSize="33px">Dr.Finance </GS.LogoMain>
                 </div>
+                <GS.FalseWrapper jContent="center">
+                  <GS.FalseText>{warning}</GS.FalseText>
+                </GS.FalseWrapper>
                 <div style={{ marginTop: "20px", width: "100%" }}>
                   <FormTextField
                     id="firstname"
@@ -58,7 +70,7 @@ const Register = () => {
                     placeholder="firstname"
                     onChange={props.handleChange("firstname")}
                     value={props.values.firstname}
-                    fullWidth="100%"
+                    fullWidth={true}
                   />
                   <GS.FalseWrapper jContent="center">
                     {props.errors.firstname && props.touched.firstname ? (
@@ -74,7 +86,7 @@ const Register = () => {
                     placeholder="lastname"
                     onChange={props.handleChange("lastname")}
                     value={props.values.lastname}
-                    fullWidth="100%"
+                    fullWidth={true}
                   />
 
                   <GS.FalseWrapper jContent="center">
@@ -91,7 +103,7 @@ const Register = () => {
                     placeholder="Email"
                     onChange={props.handleChange("email")}
                     value={props.values.email}
-                    fullWidth="100%"
+                    fullWidth={true}
                   />
 
                   <GS.FalseWrapper jContent="center">
@@ -109,7 +121,7 @@ const Register = () => {
                     placeholder="Password"
                     onChange={props.handleChange("password")}
                     value={props.values.password}
-                    fullWidth="100%"
+                    fullWidth={true}
                   />
                   <GS.FalseWrapper jContent="center">
                     {props.errors.password && props.touched.password ? (
@@ -125,7 +137,7 @@ const Register = () => {
                     placeholder="Confirm Password"
                     onChange={props.handleChange("confirmPassword")}
                     value={props.values.confirmPassword}
-                    fullWidth="100%"
+                    fullWidth={true}
                   />
 
                   <GS.FalseWrapper jContent="center">
@@ -158,10 +170,7 @@ const Register = () => {
                 </GS.LogoWrapper> */}
                 </div>
               </GS.LoginBackground>
-              <GS.LoginBackground
-                bgColor="white"
-                className="d-flex align-items-center justify-content-center flex-column flex-sm-row p-0"
-              >
+              <GS.LoginBackground className="d-flex align-items-center justify-content-center flex-column flex-sm-row p-0">
                 <GS.ButtonsLinks
                   to="/login"
                   className="text-center fw-bolder fs-5 text-uppercase py-3 m-0 "

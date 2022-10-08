@@ -14,10 +14,7 @@ const PreEnterPage = () => {
           <GS.LogoMain fontSize="33px">Dr.Finance </GS.LogoMain>
           <GS.SafeImage src={process.env.PUBLIC_URL + "/welcome.png"} />
         </GS.LoginBackground>
-        <GS.LoginBackground
-          bgColor="white"
-          className="d-flex align-items-center justify-content-center flex-column flex-sm-row p-0"
-        >
+        <GS.LoginBackground className="d-flex align-items-center justify-content-center flex-column flex-sm-row p-0">
           <GS.ButtonsLinks
             to="/login"
             className="text-center fw-bolder fs-5 text-uppercase py-3 m-0 "

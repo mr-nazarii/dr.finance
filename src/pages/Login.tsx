@@ -31,9 +31,10 @@ const Login = () => {
           onSubmit={async (values, actions) => {
             const auth = await loginUser(values);
 
-            console.log("Here");
-
-            if (auth.status) {
+            if (!auth.status) {
+              if (auth.response.data === undefined) {
+                setWarning(auth.message);
+              }
               setWarning(auth.data.message);
               return;
             }
@@ -68,7 +69,7 @@ const Login = () => {
                     placeholder="Email Address"
                     onChange={props.handleChange("email")}
                     value={props.values.email}
-                    fullWidth="100%"
+                    fullWidth={true}
                   />
 
                   <FormTextField
@@ -80,25 +81,22 @@ const Login = () => {
                     placeholder="Password"
                     onChange={props.handleChange("password")}
                     value={props.values.password}
-                    fullWidth="100%"
+                    fullWidth={true}
                   />
                 </GS.InputsWrapper>
               </GS.LoginBackground>
-              <GS.LoginBackground
-                bgColor="white"
-                className="d-flex align-items-center justify-content-center flex-column flex-sm-row p-0"
-              >
+              <GS.LoginBackground className="d-flex align-items-center justify-content-center flex-column flex-sm-row p-0">
                 <GS.ButtonsLinks
                   to={false}
                   className="text-center fw-bolder fs-5 text-uppercase py-3 m-0 "
                   type="submit"
+                  theme="dark"
                   onClick={() => props.handleSubmit()}
                 >
                   Log In
                 </GS.ButtonsLinks>
                 <GS.ButtonsLinks
                   to="/register"
-                  theme="dark"
                   className="text-center fw-bolder fs-5 text-uppercase py-3 m-0 "
                 >
                   Register

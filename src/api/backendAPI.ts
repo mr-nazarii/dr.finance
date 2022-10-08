@@ -7,8 +7,12 @@ export const createUser = async (newUser: any) => {
       newUser
     );
     console.log(user);
-  } catch (error) {
-    console.log(error);
+  } catch (error: any) {
+    if (error.response.data === undefined) {
+      return error;
+    }
+
+    return error.response;
   }
 };
 
@@ -20,6 +24,10 @@ export const loginUser = async (newUser: any) => {
     );
     return user.data.accessTocken;
   } catch (error: any) {
+    if (error.response.data === undefined) {
+      return error;
+    }
+
     return error.response;
   }
 };
