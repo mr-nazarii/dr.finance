@@ -5,14 +5,7 @@ import { ChevronRight, ChevronLeft } from "@mui/icons-material/";
 
 export const PieHeader = (props: any) => {
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        gap: "10px",
-      }}
-    >
+    <div className="d-flex justify-content-center align-items-center gap-2">
       <ChevronLeft
         style={{ color: "black" }}
         onClick={() => {
@@ -30,6 +23,7 @@ export const PieHeader = (props: any) => {
       <GS.SectionTitle
         bgColor={colorVariables.black}
         color={colorVariables.white}
+        className="py-1 px-4 m-0"
       >
         {props.page === 0
           ? "Expenses Chart"

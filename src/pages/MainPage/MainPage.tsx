@@ -47,6 +47,7 @@ const MainPage = () => {
           aria-describedby="modal-modal-description"
           open={show}
           onClose={() => setShow(false)}
+          className="d-flex justify-content-center align-items-center"
         >
           <PieChart />
         </Modal>

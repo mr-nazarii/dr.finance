@@ -48,7 +48,7 @@ const PieChart = () => {
   }
   // Fix on mobile devices the Total chart
   return (
-    <GS.FinanceWrapper>
+    <GS.FinanceWrapper xs="auto" className="py-4 px-5">
       <PieHeader page={page} setPage={setPage} />
       {page === 0 ? (
         <GS.Calculations fSize={"18px"} color="brown">
