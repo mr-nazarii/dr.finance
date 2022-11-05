@@ -3,7 +3,7 @@ import axios from "axios";
 export const createUser = async (newUser: any) => {
   try {
     const user = await axios.post(
-      "http://localhost:5000/account/create",
+      "https://testrepodrfinance.herokuapp.com/account/create",
       newUser
     );
     console.log(user);
@@ -19,7 +19,7 @@ export const createUser = async (newUser: any) => {
 export const loginUser = async (newUser: any) => {
   try {
     const user = await axios.post(
-      "http://localhost:5000/account/login",
+      "https://testrepodrfinance.herokuapp.com/account/login",
       newUser
     );
     return user.data.accessTocken;
@@ -35,7 +35,7 @@ export const loginUser = async (newUser: any) => {
 export const addIncomeTranscript = async (newIncome: any) => {
   try {
     const user = await axios.put(
-      "http://localhost:5000/account/income",
+      "https://testrepodrfinance.herokuapp.com/account/income",
 
       newIncome,
       {
@@ -56,7 +56,7 @@ export const addIncomeTranscript = async (newIncome: any) => {
 export const addExpensesTranscript = async (newIncome: any) => {
   try {
     const user = await axios.put(
-      "http://localhost:5000/account/expenses",
+      "https://testrepodrfinance.herokuapp.com/account/expenses",
       newIncome,
       {
         headers: {
@@ -75,7 +75,7 @@ export const addExpensesTranscript = async (newIncome: any) => {
 export const findUserbyId = async (newIncome: any) => {
   try {
     const user = await axios.get(
-      `http://localhost:5000/account?id=${newIncome}`
+      `https://testrepodrfinance.herokuapp.com/account?id=${newIncome}`
     );
     return user.data;
   } catch (error: any) {
@@ -87,7 +87,7 @@ export const deleteExpense = async (item: any) => {
   try {
     console.log(JSON.stringify(item, null, 2));
     const user = await axios.put(
-      `http://localhost:5000/account/delete/expense`,
+      `https://testrepodrfinance.herokuapp.com/account/delete/expense`,
       item,
       {
         headers: {
@@ -105,7 +105,7 @@ export const deleteIncome = async (item: any) => {
   try {
     console.log(JSON.stringify(item, null, 2));
     const user = await axios.put(
-      `http://localhost:5000/account/delete/income`,
+      `https://testrepodrfinance.herokuapp.com/account/delete/income`,
       item,
       {
         headers: {
@@ -123,7 +123,7 @@ export const editIncome = async (item: any) => {
   try {
     console.log(JSON.stringify(item, null, 2));
     const user = await axios.put(
-      `http://localhost:5000/account/edit/income`,
+      `https://testrepodrfinance.herokuapp.com/account/edit/income`,
       item,
       {
         headers: {
@@ -141,7 +141,7 @@ export const editExpense = async (item: any) => {
   try {
     console.log(JSON.stringify(item, null, 2));
     const user = await axios.put(
-      `http://localhost:5000/account/edit/expense`,
+      `https://testrepodrfinance.herokuapp.com/account/edit/expense`,
       item,
       {
         headers: {

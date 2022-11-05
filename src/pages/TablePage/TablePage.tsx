@@ -8,12 +8,7 @@ export const BasicTable = () => {
   const { income, expenses }: any = useAppSelector((state) => state.profile);
 
   return (
-    <GS.Background
-      aItems={"center"}
-      fDirection={"column"}
-      jContent={"flex-start"}
-      gap={"30px"}
-    >
+    <GS.Background className="d-flex flex-column justify-content-center align-items-center gap-5">
       <TableInner items={income} type={"income"} />
       <TableInner items={expenses} type={"expenses"} />
     </GS.Background>
